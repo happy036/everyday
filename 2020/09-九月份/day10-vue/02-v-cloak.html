@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div></div> -->
+    <!-- 写模板 -->
+    <div id="app">
+        <p v-cloak>{{msg}}</p>
+    </div>
+    <!-- 引入vue库文件 -->
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        // 写数据
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    // 所有页面中的数据在这里写
+                    msg: 'hi'
+                }
+            }
+        })
+
+        // 写控制器
+        // mount()代表把模板和数据渲染成一个有数据html插入到哪个元素中
+        vm.mount('#app')
+    </script>
+</body>
+
+</html>

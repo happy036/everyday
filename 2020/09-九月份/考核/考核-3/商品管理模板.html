@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <style>
+        #app {
+            width: 1000px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- panel 面板 -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加品牌</h3>
+
+            </div>
+            <div class="panel-body">
+
+                <div class="form-group form-inline">
+                    <div class="input-group">
+                        <div class="input-group-addon">编号</div>
+                        <input type="text" class="form-control" v-model='id'>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-addon">品牌名称</div>
+                        <input type="text" class="form-control" v-model='name'>
+                    </div>
+
+                    <div class="input-group">
+                        <button class="btn btn-primary" @click='addBrand()'>添加</button>
+                    </div>
+
+                    <div class="input-group pull-right">
+                        <div class="input-group-addon">按名称搜索</div>
+                        <input type="text" class="form-control" v-model='keywords'>
+                    </div>
+                </div>
+
+
+
+                <!-- 表格区域 -->
+                <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>编号</th>
+                            <th>品牌名称</th>
+                            <th>添加时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for='item in searchBand()' :key=item.id>
+                            <td>{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.ctime}}</td>
+                            <td>
+                                <a href="#" @click='removeBrand(item.id)'>删除</a>
+                            </td>
+                        </tr>
+                        <!-- <tr>
+                            <td>2</td>
+                            <td>宝马</td>
+                            <td>2020/9/21</td>
+                            <td>
+                                <a href="#">删除</a>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    id: '',
+                    name: '',
+                    keywords: '',
+                    brandlist: [{
+                        id: 1,
+                        name: "奔驰",
+                        ctime: new Date().toLocaleDateString(),
+                    }, {
+                        id: 2,
+                        name: "宝马",
+                        ctime: new Date().toLocaleDateString(),
+                    }, {
+                        id: 3,
+                        name: "长安奔奔",
+                        ctime: new Date().toLocaleDateString(),
+                    }, {
+                        id: 4,
+                        name: "千里马",
+                        ctime: new Date().toLocaleDateString(),
+                    }, ]
+                }
+            },
+            methods: {
+                // 添加数据
+                addBrand() {
+                    // 判断是否为空
+                    if (!(this.id.trim() && this.name.trim())) return alert('数据不能为空！！！')
+                        //创建新对象
+                    let newBrand = {
+                            id: this.id,
+                            name: this.name,
+                            ctime: new Date().toLocaleDateString()
+                        }
+                        //添加数据
+                    this.brandlist.push(newBrand)
+                },
+                //搜索数据
+                searchBand() {
+                    // 筛选
+                    let result = this.brandlist.filter(item => item.name.includes(this.keywords))
+                    return result
+                },
+                // 删除数据
+                removeBrand(id) {
+                    // 查找数组中和id相同的对象的索引
+                    let index = this.brandlist.findIndex(item => item.id == id)
+                    this.brandlist.splice(index, 1)
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

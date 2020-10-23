@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 普通函数
+        function fn() {
+            console.log('普通函数')
+            console.log(this)
+        }
+        fn()
+
+        // 对象的函数
+        let o = {
+            name: 'zs',
+            study: function() {
+                console.log('我爱学习')
+                console.log(this)
+            }
+        }
+        o.study()
+
+        // 构造函数
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            console.log(this)
+        }
+        let zs = new Person('zs', 18)
+
+        // 绑定事件的函数
+        document.body.addEventListener('click', function() {
+            console.log('body')
+            console.log(this)
+        })
+
+        // 定时器函数
+        window.setInterval(function() {
+            console.log(new Date())
+            console.log(this)
+        }, 1000)
+        window.setTimeout()
+
+        // 立即执行函数（自调用函数）
+    </script>
+</body>
+
+</html>

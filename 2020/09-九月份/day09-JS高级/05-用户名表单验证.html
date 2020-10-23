@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" class="uname"><span>请输入用户名</span>
+    <script>
+        let input = document.querySelector('input')
+        let span = document.querySelector('span')
+        let rg = /^[a-zA-Z0-9-_]{6,16}$/
+        input.addEventListener('blur', function() {
+            let oo = input.value
+            if (rg.test(oo)) {
+                span.innerHTML = '正确'
+            } else {
+                span.innerHTML = '错误'
+            }
+        })
+    </script>
+</body>
+
+</html>

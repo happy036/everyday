@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 2, 3, 4, 5]
+        Array.prototype.Abc = function() {
+            for (let i = 0; i < this.length - 1; i++) {
+                for (let j = 0; j < this.length - i - 1; j++) {
+                    if (this[j] > this[j + 1]) {
+                        let num = this[j]
+                        this[j] = this[j + 1]
+                        this[j + 1] = num
+                    }
+                }
+            }
+            return Abc
+        }
+        console.log(arr)
+        console.log(arr.Abc())
+    </script>
+</body>
+
+</html>

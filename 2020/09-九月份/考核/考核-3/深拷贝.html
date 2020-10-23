@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            id: 1,
+            name: 'andy',
+            msg: {
+                age: 18
+            },
+            color: ['pink', 'red']
+        };
+
+        // 声明一个新对象
+        var o = {}
+
+        // 创建函数
+        function deepCopy(newobj, oldobj) {
+            // 循环
+            for (var k in oldobj) {
+                // 值
+                var item = oldobj[k]
+                    // 看item是不是数组
+                if (item instanceof Array) {
+                    // 赋值给新数组
+                    newobj[k] = []
+                    deepCopy(newobj[k], item)
+                        // 判断看是不是对象
+                } else if (item instanceof Object) {
+                    // 赋值
+                    newobj[k] = {}
+                    deepCopy(newobj[k], item)
+                } else {
+                    newobj[k] = item
+                }
+            }
+        }
+        deepCopy(o, obj)
+        console.log(o)
+    </script>
+</body>
+
+</html>

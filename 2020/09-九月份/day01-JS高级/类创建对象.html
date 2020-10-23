@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            sayHi() {
+                console.log(`我叫${this.name},我今年${this.age}`)
+            }
+        }
+        let p2 = new Person('zs', 20)
+        console.log(p2.name)
+        p2.sayHi()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Father {
+            constructor(name) {
+                this.name = name;
+            }
+            say() {
+                console.log(`我姓${this.name}`)
+            }
+        }
+
+        class Son extends Father {
+
+        }
+
+        let s1 = new Son('曹')
+        s1.say()
+
+        class father {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+            sum() {
+                return this.x + this.y
+            }
+        }
+        class son extends father {
+
+        }
+        let s2 = new son(1, 2)
+        console.log(s2.sum())
+    </script>
+</body>
+
+</html>

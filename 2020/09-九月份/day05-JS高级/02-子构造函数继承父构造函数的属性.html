@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 父构造函数
+        function Father(name, age) {
+            this.name = name;
+            this.age = age
+        }
+        // 子构造函数
+        function Son(name, age) {
+            Father.call(this, name, age)
+        }
+        let zs = new Son('张三', 18)
+        console.log(zs)
+    </script>
+</body>
+
+</html>

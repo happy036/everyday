@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 阻止浏览器默认行为 -->
+        <a href="http://www.baidu.com" @click.prevent='handeldefult'>百度</a>
+        <!-- 让事件只触发一次 -->
+        <button @click.once='handelOnce'>按钮</button>
+    </div>
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {}
+            },
+            methods: {
+                handeldefult() {
+                    console.log('我是点击之后的效果')
+                },
+                handelOnce() {
+                    console.log('只用一次')
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

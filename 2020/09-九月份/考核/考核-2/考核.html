@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * 已有数组var nums = [5,10,15],要求创建一个新数组
+         *  1.新数组的长度和已知数组相同
+         *  2.新数组每个元素的值，是已知对应位置元素的2倍
+         *  3.在控制台中打印新数组的所有元素
+         */
+        // var nums = [5, 10, 15]
+        // var arr = []
+        // for (var i = 0; i < nums.length; i++) {
+        //     arr.push(nums[i] * 2)
+        // }
+        // console.log(arr)
+
+        //	输入一个年份判断是否是闰年(能被400整除 或 被4整除同时不能被100整除)
+        // function time(year) {
+        //     if (year % 4 == 0 || year % 4 == 0 && year % 100 != 0) {
+        //         console.log(`${year}是闰年`)
+        //     }
+        // }
+        // time(2000)
+
+        /*
+         *获取地址里面的用户名和年龄和邮箱
+         *https://www.baidu.com?username=lisi&age=28&email=120122@qq.com,
+         *并且控制台输出对象的格式
+         *{username:'lisi',age:28,email:120122@qq.com}
+         */
+
+        // let str = 'https://www.baidu.com?username=lisi&age=28&email=120122@qq.com'
+        // let str1 = str.split('?')
+        // let str2 = str1[1].split('&')
+        // let obj = {}
+        // for (let i = 0; i < str2.length; i++) {
+        //     let str3 = str2[i].split('=')
+        //     obj[str3[0]] = str3[1]
+        // }
+        // console.log(obj)
+
+
+        // 写一个(函数)，实现n的阶层的和求1+2!+3!+...+n!的和
+        // 例:1+1*2+1*2*3+1*2*3*4+...
+        // function fn(n) {
+        //     let num = 1
+        //     let sum = 0
+        //     for (let i = 1; i <= n; i++) {
+        //         num *= i
+        //         sum += num
+        //     }
+        //     console.log(sum)
+        // }
+        // fn(5)
+
+        //  字符串查找,不使用indexOf,正则，substr,substring,contain,slice等现成的方法,实现如下效果：
+        //  a ="34",b="1234567"，返回2
+        //  a = '35', b= "1234567" 返回-1
+        //  a = "355", b = "12354355"  返回5
+        function num(a, b) {
+            for (let i = 0; i < b.length; i++) {
+                let str = ''
+                for (let j = i; j < a.length + i; j++) {
+                    str += b[j]
+                    if (str == a) {
+                        return i
+                    }
+                }
+            }
+            return -1
+        }
+        console.log(num('34', '1234567'))
+
+        /**
+         * 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
+         *你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
+         *
+         *示例:
+         *
+         *给定 nums = [2, 7, 11, 15], target = 9
+         *
+         *因为 nums[0] + nums[1] = 2 + 7 = 9
+         *所以返回 [0, 1]
+         *
+         */
+
+
+        // 封装一个函数，把一个时间日期对象转成yyyy-mm-dd HH:mm:ss   
+        // 输出样式 2020-9-16 20:17:23
+        function time() {
+            let date = new Date()
+            let m = date.getMinutes()
+            m > 10 ? m = 5 : m = '0' + m
+            let now = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + m + ':' + date.getSeconds()
+            return now
+        }
+        console.log(time())
+    </script>
+</body>
+
+</html>

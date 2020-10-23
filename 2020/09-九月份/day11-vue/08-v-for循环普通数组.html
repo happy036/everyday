@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for='item in Star'>{{item}}</li>
+        </ul>
+        <ol>
+            <li v-for='item in actor'>{{item.name}}</li>
+        </ol>
+    </div>
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    Star: ['于文文', '赵露思'],
+                    actor: [{
+                        name: '岳云鹏',
+                        age: 32,
+                        fans: '1000w'
+                    }, {
+                        name: '郭麒麟',
+                        age: 22,
+                        fans: '100w'
+                    }]
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
