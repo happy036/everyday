@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- formData提供的元素内置对象 -->
+    <!-- 方便表单序列化 -->
+    <form>
+        <input type="text" name="username" placeholder="请输入用户名">
+        <input type="password" name="password" placeholder="请输入密码">
+        <input type="file" name="avatar">
+    </form>
+    <button>按钮</button>
+    <script src="./lib/jquery-1.12.4.min.js"></script>
+    <script>
+        $('button').on('click', function() {
+            let fromdata = new FormData(document.querySelector('form'))
+            $.ajax({
+                type: 'POST',
+                url: '/profile',
+                data: fromdata,
+                //不转成key=value&key=value
+                processData: false,
+                //不让jquery自动添加content-type
+                contentType: false,
+                success: function(data) {
+                    console.log(data)
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

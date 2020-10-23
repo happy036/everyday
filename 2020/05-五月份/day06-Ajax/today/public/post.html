@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>POST请求方式</h1>
+    <button>按钮</button>
+    <div></div>
+    <script>
+        let btn = document.querySelector('button')
+            // btn.onclick = function() {
+            //     //实例化XMLHttpRequest对象
+            //     let xhr = new XMLHttpRequest()
+            //         //设置请求行（请求方式，请求地址）
+            //     xhr.open('POST', '/postParam')
+            //         //重点：使用post请求必须添加请求头，form表单自动就是这样的Content-Type
+            //     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            //     // 发送请求数据（在get请求中这个地方写null）
+            //     xhr.send('username=zhangsan&password=123456')
+            //         //监听并处理响应
+            //     xhr.onreadystatechange = function() {
+            //         if (xhr.readyState == 4 && xhr.status == 200) {
+            //             // 把数据显示在页面上
+            //             console.log(xhr.responseText)
+            //         }
+            //     }
+            // }
+
+        // btn.onclick = function() {
+        //     //实例化XMLHttpRequest对象
+        //     let xhr = new XMLHttpRequest()
+        //         //设置请求行（请求方式，请求地址）
+        //     xhr.open('POST', '/postParam')
+        //         //重点：使用post请求必须添加请求头，form表单自动就是这样的Content-Type
+        //     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+        //         // 发送请求数据（在get请求中这个地方写null）
+        //     xhr.send('username=zhangsan&password=123456')
+        //         //监听并处理响应
+        //     xhr.onreadystatechange = function() {
+        //         if (xhr.readyState == 4 && xhr.status == 200) {
+        //             // 把数据显示在页面上
+        //             console.log(xhr.responseText)
+        //         }
+        //     }
+        // }
+
+        btn.onclick = function() {
+            //实例化XMLHttpRequest对象
+            let xhr = new XMLHttpRequest()
+                //设置请求行（请求方式，请求地址）
+            xhr.open('POST', '/postParam')
+                //重点：使用post请求必须添加请求头，form表单自动就是这样的Content-Type
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+                // 发送请求数据（在get请求中这个地方写null）
+            xhr.send('username=zhangsan&password=123456')
+                //监听并处理响应
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // 把数据显示在页面上
+                    console.log(xhr.responseText)
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

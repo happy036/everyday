@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Ajax代码</h1>
+    <button>按钮</button>
+    <script>
+        let btn = document.querySelector('button')
+            // btn.onclick = function() {
+            //     //实例化XMLHttpRequest对象 找大哥
+            //     let xhr = new XMLHttpRequest()
+            //         //请求方式（get）请求地址（） 用什么样的方式要钱
+            //     xhr.open('GET', '/simple')
+            //         //发送请求  要钱
+            //     xhr.send()
+            //           //钱要的状态
+            //     xhr.onreadystatechange = function() {
+            //          //把钱给债主
+            //         // console.log(xhr.responseText)
+            //         document.body.innerHTML = xhr.responseText
+            //     }
+            // }
+
+        // btn.onclick = function() {
+        //     //实例化XMLHttpRequest对象 找大哥
+        //     let xhr = new XMLHttpRequest()
+        //         //请求方式（get）请求地址（）用什么样的方式要钱
+        //     xhr.open('GET', '/simple')
+        //         //发送请求 要钱
+        //     xhr.send()
+        //     //钱要的状态
+        //     xhr.onreadystatechange = function() {
+        //       //把钱给债主
+        //         document.body.innerHTML = xhr.responseText
+        //     }
+        // }
+
+        btn.onclick = function() {
+            //实例化XMLHttpRequest对象 找大哥
+            let xhr = new XMLHttpRequest()
+                //请求方式（get）请求地址（） 用什么样的方式要钱
+            xhr.open('GET', '/simple')
+                //发送请求 要钱
+            xhr.send()
+                //钱要的状态
+            xhr.onreadystatechange = function() {
+                //把钱给债主
+                document.body.innerHTML = xhr.responseText
+            }
+        }
+    </script>
+</body>
+
+</html>

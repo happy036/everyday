@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 点击按钮，发送用户名和密码给后端，服务器把用户名和密码打印到div中 -->
+    <form>
+        <input type="text" name="username">
+        <input type="password" name="password">
+    </form>
+    <button>提交</button>
+    <div class="box"></div>
+    <script>
+        let btn = document.querySelector('button')
+        let user = document.querySelector('input[name="username"]')
+        let pass = document.querySelector('input[name="password"]')
+            // btn.onclick = function() {
+            //     let username = user.value
+            //     let password = pass.value
+
+        //     //实例化 XMLHttpRequest
+        //     let xhr = new XMLHttpRequest()
+
+        //     //设置请求行（请求方式 请求地址）
+        //     xhr.open('GET', `/getParam?username=${username}&password=${password}`)
+
+        //     //发送请求
+        //     xhr.send(null)
+
+        //     //监听并处理响应
+        //     xhr.onreadystatechange = function() {
+        //         //显示到页面上
+        //         let data = JSON.parse(xhr.responseText)
+        //         document.querySelector('.box').innerHTML = `我叫${data.username},我的密码是${data.password}`
+        //     }
+        // }
+
+
+        // btn.onclick = function() {
+        //     let username = user.value
+        //     let password = pass.value
+
+        //     //实例化 XMLHttpRequest
+        //     let xhr = new XMLHttpRequest()
+
+        //     //设置请求行（请求方式 请求地址）
+        //     xhr.open('GET', `/getParam?username=${username}&password=${password}`)
+
+        //     //发送请求
+        //     xhr.send(null)
+
+        //     //监听并处理响应
+        //     xhr.onreadystatechange = function() {
+        //         //显示到页面上
+        //         let data = JSON.parse(xhr.responseText)
+        //         document.querySelector('.box').innerHTML = `我叫${data.username},我的密码是${data.password}`
+        //     }
+        // }
+
+
+        btn.onclick = function() {
+            let username = user.value
+            let password = pass.value
+
+            //实例化 XMLHttpRequest
+            let xhr = new XMLHttpRequest()
+
+            //设置请求行（请求方式 请求地址）
+            xhr.open('GET', `/getParam?username=${username}&password=${password}`)
+
+            //发送请求
+            xhr.send(null)
+
+            //监听并处理响应
+            xhr.onreadystatechange = function() {
+                //显示到页面上
+                let data = JSON.parse(xhr.responseText)
+                document.querySelector('.box').innerHTML = `我叫${data.username},我的密码是${data.password}`
+            }
+        }
+    </script>
+</body>
+
+</html>

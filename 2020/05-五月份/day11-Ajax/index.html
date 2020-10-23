@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        头像<input type="file">
+    </form>
+    <img src="" alt="">
+    <script>
+        //获取元素
+        let input = document.querySelector('input')
+        let img = document.querySelector('img')
+            //当input中的文件从空到有的时候，触发change事件
+        input.onchange = function() {
+            //路径
+            let imgurl = URL.createObjectURL(input.files[0])
+            img.src = imgurl
+        }
+    </script>
+</body>
+
+</html>

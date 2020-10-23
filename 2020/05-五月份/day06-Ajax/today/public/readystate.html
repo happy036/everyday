@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Ajax代码</h1>
+    <button>按钮</button>
+    <!-- 点击按钮，请求一个路径，获取一个hello，显示在页面上 -->
+    <div></div>
+    <script>
+        let btn = document.querySelector('button')
+            // btn.onclick = function() {
+            //     //实例化XMLHttpRequest对象 找大哥
+            //     let xhr = new XMLHttpRequest()
+            //         // console.log(xhr.readyState) xhr对象实例化
+            //         //请求方式（get）请求地址（） 用什么样的方式要钱
+            //     xhr.open('GET', '/simple')
+            //         // console.log(xhr.readyState) xhr对象实例化但没有设置请求行
+            //         //发送请求 要钱
+            //     xhr.send()
+            //         // console.log(xhr.readyState) 没有接收到数据
+            //         //钱要的状态
+            //         //当readyState改变的时候出发这个事件
+            //     xhr.onreadystatechange = function() {
+            //         // 如果是2 代表接收到了响应头 但为接收到响应内容
+            //         // 如果是3 代表接收到了响应头 页接受到了响应内容 但未收全
+            //         // 如果是4 代表响应头接受完毕 内容接受完全
+            //         //如果xhr的内容接收完毕且浏览器的状态是200代表完全好了的时候 我们才把服务器的数据放到页面上
+            //         if (xhr.readyState == 4 && xhr.status == 200) {
+            //             document.querySelector('div').innerHTML = xhr.responseText
+            //         }
+            //     }
+            // }
+
+        // btn.onclick = function() {
+        //     //实例化XMLHttpRequest对象 找大哥
+        //     let xhr = new XMLHttpRequest()
+        //         // console.log(xhr.readyState) xhr对象实例化
+        //         //请求方式（get）请求地址（） 用什么样的方式要钱
+        //     xhr.open('GET', '/simple')
+        //         // console.log(xhr.readyState) xhr对象实例化但没有设置请求行
+        //         //发送请求 要钱
+        //     xhr.send()
+        //         // console.log(xhr.readyState) 没有接收到数据
+        //         //钱要的状态
+        //         //当readyState改变的时候出发这个事件
+        //     xhr.onreadystatechange = function() {
+        //         // 如果是2 代表接收到了响应头 但为接收到响应内容
+        //         // 如果是3 代表接收到了响应头 页接受到了响应内容 但未收全
+        //         // 如果是4 代表响应头接受完毕 内容接受完全
+        //         //如果xhr的内容接收完毕且浏览器的状态是200代表完全好了的时候 我们才把服务器的数据放到页面上
+        //         if (xhr.readyState == 4 && xhr.status == 200) {
+        //             document.querySelector('div').innerHTML = xhr.responseText
+        //         }
+        //     }
+        // }
+
+
+        btn.onclick = function() {
+            //实例化XMLHttpRequest对象 找大哥
+            let xhr = new XMLHttpRequest()
+                // console.log(xhr.readyState) xhr对象实例化
+                //请求方式（get）请求地址（） 用什么样的方式要钱
+            xhr.open('GET', '/simple')
+                // console.log(xhr.readyState) xhr对象实例化但没有设置请求行
+                //发送请求 要钱
+            xhr.send()
+                // console.log(xhr.readyState) 没有接收到数据
+                //钱要的状态
+                //当readyState改变的时候出发这个事件
+            xhr.onreadystatechange = function() {
+                // 如果是2 代表接收到了响应头 但为接收到响应内容
+                // 如果是3 代表接收到了响应头 页接受到了响应内容 但未收全
+                // 如果是4 代表响应头接受完毕 内容接受完全
+                //如果xhr的内容接收完毕且浏览器的状态是200代表完全好了的时候 我们才把服务器的数据放到页面上
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.querySelector('div').innerHTML = xhr.responseText
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
