@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <gg></gg>
+        <cc></cc>
+    </div>
+
+    <script src="./lib/vue-3.0.js"></script>
+    <script src="./lib/mitt-2.1.0.js"></script>
+    <script>
+        let vm = Vue.createApp({})
+        let emitter = mitt()
+        vm.component('gg', {
+            data() {
+                return {}
+            },
+            methods: {
+                handleGG() {
+                    emitter.emit('fool', { a: 'b' })
+                }
+            },
+            template: `<div><h3 @click='handleGG'>哥哥组件</h3></div>`
+        })
+
+        vm.component('cc', {
+            data() {
+                return {
+                    msg: ''
+                }
+            },
+            mounted() {
+                let that = this
+                emitter.on('fool', function (e) {
+                    that.msg = e.a
+                })
+            },
+            // 模板
+            template: `<div><h3>弟弟组件{{msg}}</h3></div>`
+        })
+        vm.mount('#app')
+    </script>
+</body>
+
+</html>

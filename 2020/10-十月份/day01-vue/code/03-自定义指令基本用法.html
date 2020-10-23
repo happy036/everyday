@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-auto>
+    </div>
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        // let vm = Vue.createApp({})
+
+        // // 指令是当页面加载的时候发生的
+        // vm.directive('auto', {
+        //     mounted(el) {
+        //         // el代表使用指令的那个元素
+        //         console.log(el)
+        //         el.focus()
+        //         el.value = 'hello'
+        //         el.style.backgroundColor = 'blue'
+        //     }
+        // })
+        // vm.mount('#app')
+
+        // let vm = Vue.createApp({})
+        // vm.directive('auto', {
+        //     mounted(el) {
+        //         el.focus()
+        //         el.value = '你好'
+        //         el.style.backgroundColor = 'blue'
+        //     }
+        // })
+        // vm.mount('#app')
+
+        let vm = Vue.createApp({})
+        vm.directive('auto', {
+            mounted(el) {
+                el.focus()
+                el.value = '你好'
+                el.style.backgroundColor = 'blue'
+            }
+        })
+        vm.mount('#app')
+    </script>
+</body>
+
+</html>

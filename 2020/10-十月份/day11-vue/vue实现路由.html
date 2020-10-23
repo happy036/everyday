@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <nav>
+            <a href="#/zhuye">主页</a>
+            <a href="#/keji">科技</a>
+            <a href="#/caijing">财经</a>
+            <a href="#/yule">娱乐</a>
+        </nav>
+        <main>
+            <component :is='cname'></component>
+        </main>
+    </div>
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let zhuye = {
+            template: `<div><h2>主页信息</h2></div>`
+        }
+        let keji = {
+            template: `<div><h2>科技信息</h2></div>`
+        }
+        let caijing = {
+            template: `<div><h2>财经信息</h2></div>`
+        }
+        let yule = {
+            template: `<div><h2>娱乐信息</h2></div>`
+        }
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    cname: 'zhuye'
+                }
+            },
+            components: {
+                zhuye,
+                caijing,
+                yule,
+                keji
+            }
+        }).mount('#app')
+        window.onhashchange = function () {
+            if (location.hash == '#/zhuye') {
+                vm.$data.cname = 'zhuye'
+            }
+            if (location.hash == '#/keji') {
+                vm.$data.cname = 'keji'
+            }
+            if (location.hash == '#/caijing') {
+                vm.$data.cname = 'caijing'
+            }
+            if (location.hash == '#/yule') {
+                vm.$data.cname = 'yule'
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            width: 100px;
+            height: 100px;
+            border: 5px solid yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        {{msg}}
+        <hi></hi>
+    </div>
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    msg: '根组件'
+                }
+            }
+        })
+        // 注册组件(component)
+        // vm.component('组件名称', {
+
+        // })
+        vm.component('hi', {
+            data() {
+                return {
+                    info: '我是全局组件'
+                }
+            },
+            methods: {
+                handle() {
+                    this.info = '点击之后'
+                }
+            },
+            template: '<div @click="handle">{{info}}</div>'
+        })
+        vm.mount('#app')
+    </script>
+</body>
+
+</html>

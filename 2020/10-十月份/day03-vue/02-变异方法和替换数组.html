@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model.trim='fName'>
+        <button @click='addo'>添加</button>
+        <button @click='huan'>替换</button>
+        <button @click='removeo'>删除</button>
+        <ul>
+            <li v-for='(item,index) in fruit'>{{item}}</li>
+        </ul>
+    </div>
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    fruit: ['applel', 'orange', 'banana'],
+                    fName: ''
+                }
+            },
+            methods: {
+                addo() {
+                    this.fruit.push(this.fName)
+                },
+                removeo() {
+                    this.fruit.pop()
+                },
+                huan() {
+                    let arr = this.fruit.splice(0, 2)
+                    this.fruit = arr
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

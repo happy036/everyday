@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .current {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <fruit :list='List'>
+            <template v-slot="slotProps">
+                <!-- {{slotProps}} -->
+                <strong v-if="slotProps.info.id==2" class="current">
+                    {{slotProps.info.name}}
+                </strong>
+                <span v-else>{{slotProps.info.name}}</span>
+            </template>
+        </fruit>
+    </div>
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    List: [{
+                        id: 1,
+                        name: 'apple'
+                    },
+                    {
+                        id: 2,
+                        name: 'orange'
+                    }, {
+                        id: 3,
+                        name: 'lemon'
+                    }]
+                }
+            }
+        })
+        vm.component('fruit', {
+            props: ['list'],
+            template: `
+            <ul>
+        <li v-for='(item,index) in list'>
+        <slot :info='item'>{{item.name}}</slot>
+        </li>
+    </ul>
+            `
+        })
+        vm.mount('#app')
+    </script>
+</body>
+
+</html>

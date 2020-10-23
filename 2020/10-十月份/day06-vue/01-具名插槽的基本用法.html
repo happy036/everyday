@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <toubu>
+            <template v-slot:left>
+                你好啊
+            </template>
+            <template v-slot:center>
+                <input type="text">
+            </template>
+            <template v-slot:rihgt>
+
+            </template>
+        </toubu>
+    </div>
+    <script src="./lib/vue-3.0.js"></script>
+    <script>
+        let vm = Vue.createApp({})
+        vm.component('toubu', {
+            template: `
+            <header>
+            <slot name="left">嗯</slot>
+            <slot name="center"></slot>
+            <slot name="right"></slot>
+        </header>`
+        })
+        vm.mount('#app')
+    </script>
+</body>
+
+</html>
