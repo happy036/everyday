@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/user.css">
+</head>
+
+<body>
+    <button>动态创建表格</button>
+
+    <div id="box1">
+    </div>
+    <script>
+        // 后端的数据
+        var heads = ['姓名', '年龄', '性别', '学号', '薪资', '城市', '操作'];
+        var datas = [{
+            name: '欧阳霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '上海'
+        }, {
+            name: '令狐霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '北京'
+        }, {
+            name: '诸葛霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '南京'
+        }, {
+            name: '西门霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '深圳'
+        }, {
+            name: '上官霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '北京'
+        }, {
+            name: '欧阳霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '上海'
+        }, {
+            name: '令狐霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '北京'
+        }, {
+            name: '诸葛霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '南京'
+        }, {
+            name: '西门霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '深圳'
+        }, {
+            name: '上官霸天',
+            age: 19,
+            gender: '男',
+            stuId: '1001',
+            salary: '20000',
+            city: '北京'
+        }, ];
+        //获取按钮
+        let btn = document.querySelector('button')
+        let box1 = document.querySelector('#box1')
+        let flag = false
+        btn.onclick = function() {
+            if (!flag) {
+                //创建表格
+                let table = document.createElement('table')
+                let caption = document.createElement('caption')
+                caption.innerText = "就业榜"
+                table.appendChild(caption)
+                box1.appendChild(table)
+                    // 根据数据创建表头
+                let thead = document.createElement('thead')
+                let tr = document.createElement('tr')
+                thead.appendChild(tr)
+                table.appendChild(thead)
+                    // 循环遍历heads数据去创建th
+                for (let i = 0; i < heads.length; i++) {
+                    let th = document.createElement('th')
+                    th.innerText = heads[i]
+                    tr.appendChild(th)
+                }
+                let tbody = document.createElement('tbody')
+                table.appendChild(tbody)
+                for (let i = 0; i < datas.length; i++) {
+                    let tbodyTr = document.createElement('tr')
+                    tbody.appendChild(tbodyTr)
+                    let obj = datas[i]
+                    for (let key in obj) {
+                        let td = document.createElement('td')
+                        td.innerText = obj[key]
+                        tbodyTr.appendChild(td)
+                    }
+                    let lastTd = document.createElement('td')
+                    lastTd.innerHTML = `<a herf= "#">删除</a>`
+                    tbodyTr.appendChild(lastTd)
+                }
+                flag = true
+            }
+            let dels = document.querySelectorAll('tbody>tr>td:last-child')
+            for (let i = 0; i < dels.length; i++) {
+                dels[i].onclick = function() {
+                    let isOk = confirm("你真的要删除嘛?")
+                    if (isOk) {
+                        tbody.removeChild(this.parentNode)
+                        if (tbody.children.length == 0) {
+                            box1.innerHTML = ""
+                            flag = false
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

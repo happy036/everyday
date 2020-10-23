@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style: none;
+            width: 500px;
+            height: 150px;
+            border: 1px solid #cccccc;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 50px;
+        }
+        
+        li {
+            float: left;
+            width: 16px;
+            height: 16px;
+            background-image: url(./star2.png);
+        }
+        
+        span {
+            display: inline-block;
+            margin-left: 30px;
+        }
+        
+        li.on {
+            background-image: url(./star1.png);
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <span></span>
+    </ul>
+    <script>
+        let li = document.querySelectorAll('li')
+        let span = document.querySelector('span')
+        let text = ["极差", "失望", "一般", "满意", "惊喜"]
+        let index = 0
+        for (let i = 0; i < li.length; i++) {
+            li[i].onmouseover = function() {
+                for (let j = 0; j < li.length; j++) {
+                    if (j < i + 1) {
+                        li[j].className = "on"
+                        span.innerText = text[i]
+                    } else {
+                        li[j].className = ""
+                    }
+                }
+            }
+            li[i].onmouseout = function() {
+                for (let j = 0; j < li.length; j++) {
+                    li[j].className = ""
+                    span.innerText = ""
+                }
+                for (let j = 0; j < li.length; j++) {
+                    if (j < index) {
+                        li[j].className = "on"
+                        span.innerText = text[index - 1]
+                    } else {
+                        li[j].className = ""
+                    }
+                }
+            }
+            li[i].onclick = function() {
+                index = i + 1
+            }
+        }
+    </script>
+</body>
+
+</html>

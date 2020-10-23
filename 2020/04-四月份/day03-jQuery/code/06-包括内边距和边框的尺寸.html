@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      position: absolute;
+      top: 20px;
+      left: 200px;
+      width: 500px;
+      height: 500px;
+      background-color: green;
+    }
+
+    .inner {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      width: 200px;
+      height: 200px;
+      margin: 1px;
+      padding: 1px;
+      border: 1px solid #ccc;
+      background-color: orange;
+    }
+
+    button {
+      position: fixed;
+      left: 5px;
+      top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <button>按钮</button>
+  <div class="box">
+    <div class="inner">
+
+    </div>
+  </div>
+
+  <script src="./lib/jquery-3.4.1.min.js"></script>
+  <script>
+    $('button').click(function () {
+      console.log($('.inner').outerHeight(), $('.inner').outerWidth())
+    })
+
+  </script>
+</body>
+
+</html>

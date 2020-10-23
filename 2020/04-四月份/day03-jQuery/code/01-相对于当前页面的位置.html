@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 500px;
+      height: 500px;
+      background-color: green;
+    }
+
+    .inner {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      width: 200px;
+      height: 200px;
+      background-color: orange;
+    }
+  </style>
+</head>
+
+<body>
+  <button>按钮</button>
+  <div class="box">
+    <div class="inner">
+    </div>
+  </div>
+
+  <script src="./lib/jquery-3.4.1.min.js"></script>
+  <script>
+    // jQuery对象.offset()  此方法只对可见元素有效
+    // 相对于页面左上角的top $('选择器').offset().top;
+    // 相对于页面左上角的left $('选择器').offset().left;
+
+    $('button').click(function () {
+      console.log($('.inner').offset().left, $('.inner').offset().top)
+    })
+  </script>
+</body>
+
+</html>

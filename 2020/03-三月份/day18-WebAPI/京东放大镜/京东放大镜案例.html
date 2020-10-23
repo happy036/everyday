@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .preview_img {
+            position: relative;
+            height: 398px;
+            width: 398px;
+            margin-left: 10px;
+            margin-top: 200px;
+            border: 1px solid #ccc;
+        }
+        
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background: #FEDE4F;
+            opacity: .5;
+            border: 1px solid #ccc;
+            cursor: move;
+        }
+        
+        .big {
+            display: none;
+            position: absolute;
+            left: 410px;
+            top: 0;
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+            z-index: 999;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+        
+        .big img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preview_wrap fl">
+        <div class="preview_img">
+            <img src="image/s3.png" alt="">
+            <div class="mask"></div>
+            <div class="big">
+                <img src="image/big.jpg" alt="" class="bigImg">
+            </div>
+        </div>
+    </div>
+    <script>
+        //获取元素
+        let img = document.querySelector('.preview_img')
+        let mask = document.querySelector('.mask')
+        let big = document.querySelector('.big')
+            //鼠标经过img的时候 让mask遮挡层和big显示
+        img.addEventListener('mouseover', function() {
+            mask.style.display = "block"
+            big.style.display = "block"
+        })
+
+        //鼠标移出img的时候，让mask遮挡层和big隐藏
+        img.addEventListener('mouseout', function() {
+            mask.style.display = "none"
+            big.style.display = "none"
+        })
+
+        //给img添加mousemove事件
+        img.addEventListener("mousemove", function(e) {
+            //获取鼠标在黄色区域内的位置
+            let x = e.pageX - this.offsetLeft
+            let y = e.pageY - this.offsetTop
+            let maskx = x - (mask.offsetWidth / 2)
+            let masky = y - (mask.offsetHeight / 2)
+
+            //计算最大距离
+            let max = img.offsetWidth - mask.offsetWidth
+                //如果maskX小于等于0，那么就不动了
+            if (maskx <= 0) {
+                maskx = 0
+                    //如果到了最大值，就让他停留在最大值
+            } else if (maskx >= max) {
+                maskx = max
+            }
+
+            if (masky <= 0) {
+                masky = 0
+                    //如果到了最大值，就让他停留在最大值
+            } else if (masky >= max) {
+                masky = max
+            }
+            //赋值
+            mask.style.left = maskx + "px"
+            mask.style.top = masky + "px"
+
+            let bigImg = document.querySelector(".bigImg")
+            let bigMax = bigImg.offsetWidth - big.offsetWidth
+            let bigx = maskx * bigMax / max
+            let bigy = masky * bigMax / max
+            bigImg.style.left = -bigx + "px"
+            bigImg.style.top = -bigy + "px"
+        })
+    </script>
+</body>
+
+</html>

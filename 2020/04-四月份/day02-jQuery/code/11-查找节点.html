@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button>按钮</button>
+    <div class="box">
+        <strong>asdf33</strong>
+        <b>你好</b>
+        <span>sdfdsf</span>
+    </div>
+    <script src="./lib/jquery-3.4.1.min.js"></script>
+    <script>
+        // $('button').click(function() {
+        //     // 某个元素后面的兄弟元素 一个
+        //     console.log($('strong').next());
+        //     //某个元素后面面的兄弟元素 所有
+        //     console.log($('strong').nextAll());
+        // })
+
+
+
+        $('button').click(function() {
+            //  某个元素的其他兄弟元素
+            console.log($('b').siblings("span"))
+        })
+    </script>
+</body>
+
+</html>

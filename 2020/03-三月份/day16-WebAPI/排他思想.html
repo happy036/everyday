@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+            margin: 0 auto;
+            width: 500px;
+        }
+        
+        li {
+            display: inline-block;
+            background-color: #cccccc;
+            border: 1px solid #333;
+        }
+        
+        .active {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="active">首页</li>
+        <li>电影</li>
+        <li>关于</li>
+        <li>联系</li>
+        <li>客服</li>
+    </ul>
+    <script>
+        let li = document.querySelectorAll('li')
+        for (let i = 0; i < li.length; i++) {
+            li[i].onclick = function() {
+                for (let j = 0; j < li.length; j++) {
+                    li[j].classList.remove('active')
+                }
+                this.classList.add('active')
+            }
+        }
+
+        for (let i = 0; i < li.length; i++) {
+            li[i].onclick = function() {
+                for (let j = 0; j < li.length; j++) {
+                    li[j].classList.remove('active')
+                }
+                this.classList.add('active')
+            }
+        }
+
+        for (let i = 0; i < li.length; i++) {
+            li[i].onclick = function() {
+                for (let j = 0; j < li.length; j++) {
+                    li[j].classList.remove('active')
+                }
+                this.classList.add('active')
+            }
+        }
+    </script>
+</body>
+
+</html>

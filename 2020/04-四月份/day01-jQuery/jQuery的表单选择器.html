@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input name="email" />
+        <input name="id" />
+        <input type="checkbox" checked="checked" />
+    </form>
+    <select>
+        <option value="1">Flowers</option>
+        <option value="2" selected="selected">Gardens</option>
+        <option value="3">Trees</option>
+      </select>
+    <script src="./lib/jquery-3.4.1.min.js"></script>
+    <script>
+        //获取所有的input
+        console.log($(":input"))
+            //获取可用的元素
+        console.log($("input:enabled"))
+            //获取不可用的元素
+        console.log($("input:disabled"))
+            //获取所有选中的复选框元素
+        console.log($("input:checked"))
+        console.log($("select option:selected"))
+    </script>
+</body>
+
+</html>

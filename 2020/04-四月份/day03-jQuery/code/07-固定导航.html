@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .w {
+            width: 1191px;
+            margin: 0 auto;
+        }
+        
+        .box1 {
+            height: 935px;
+        }
+        
+        .box2 {
+            height: 107px;
+        }
+        
+        .box2.active {
+            position: fixed;
+            top: 0;
+        }
+        
+        .top {
+            width: 50px;
+            height: 50px;
+            font: bold 50px/50px '宋体';
+            text-align: center;
+            color: #fff;
+            background-color: blue;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 0;
+            display: none;
+        }
+        
+        .top.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w">
+        <div class="box1">
+            <image src="./image/01.png" alt="" />
+        </div>
+        <!-- 今日团 -->
+        <div class="box2" id="box2">
+            <image src="./image/02.png" alt="" />
+        </div>
+        <div class="box3">
+            <image src="./image/03.png" alt="" />
+        </div>
+        <div class="box4">
+            <image src="./image/04.png" alt="" />
+        </div>
+    </div>
+
+    <div class="top" id="_top">▲</div>
+
+    <script src="./lib/jquery-3.4.1.min.js"></script>
+    <script>
+        // // 1.获取元素 box2  是今日团
+        // let box2 = document.querySelector('.box2');
+        // // 2.获取box2距离顶部的高度
+        // let box2Top = box2.offsetTop;
+        // // 3.给window添加一个滚动事件(scroll)
+        // window.onscroll = function () {
+        //   // 4.获取页面卷曲的距离(页面跑出去多高)
+        //   let pageScroll = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
+        //   // console.log(pageScroll);
+        //   // 5.对比看看页面跑出去的高度 是不是 >= box2距离顶部的高度  如果是这样的 那么就让box2固定
+        //   if (pageScroll >= box2Top) {
+        //     // 如果是这样的 那么就让box2固定
+        //     box2.style.position = 'fixed';
+        //     box2.style.top = 0;
+        //   } else {
+        //     // 6.如果不是这样 那就 不让它固定
+        //     box2.style.position = "static";
+        //   }
+        // }
+
+
+                 //给window添加一个滚轮事件
+                
+        let  boxTop  =  $('.box2').offset().top        
+        $(document).scroll(function()  {            
+            if  ($(document).scrollTop()  >  boxTop)  {                
+                $('.box2').css({                    
+                    "position":   "fixed",
+                                        "top":  0                
+                })            
+            } 
+            else  {                
+                $('.box2').css({                    
+                    "position":   "static",
+                                    
+                })            
+            }        
+        })
+    </script>
+</body>
+
+</html>

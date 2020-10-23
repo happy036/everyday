@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+
+        <li>我是第1个元素</li>
+        <li class="second">我是第2个元素</li>
+        <span>ddd</span>
+        <li style="display: none;">我是第3个元素</li>
+        <li>我是第4个元素</li>
+        <li>我是第5个元素
+            <ol>
+                <li>我是ol中的第1个li</li>
+                <li>我是ol中的第2个li</li>
+                <li>我是ol中的第3个li</li>
+            </ol>
+        </li>
+    </ul>
+    <script src="./lib/jquery-3.4.1.min.js"></script>
+    <script>
+        // 匹配所有小于给定索引值的元素
+        console.log($("li:lt(2)"))
+        console.log($('li:hidden'))
+        console.log($('li:eq(2)'))
+        console.log($('li').eq(2))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <button>按钮</button>
+  <div></div>
+  <script src="./lib/jquery-3.4.1.min.js"></script>
+
+  <script>
+    // 首先我给butotn绑定一个click事件
+    $('button').on('click', function () {
+      console.log(111111);
+    })
+
+    $('button').on('mouseover', function () {
+      console.log(2222);
+    })
+    // 当我点击div的时候 把button上的click事件给解绑了
+    $('div').click(function () {
+      $('button').off('click');
+      $('button').off('mouseover');
+    })
+  </script>
+</body>
+
+</html>

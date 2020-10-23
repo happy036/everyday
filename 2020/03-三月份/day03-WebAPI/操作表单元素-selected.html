@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击 选中你爱吃的菜</button>
+    <select name="" id="">
+        <option value="西红柿炒鸡蛋">西红柿炒鸡蛋</option>
+        <option value="酸辣土豆丝" selected>酸辣土豆丝</option>
+        <option value="尖椒炒肉" class="meet">尖椒炒肉</option>
+    </select>
+    <script>
+        let but = document.querySelector('button')
+        let meet = document.querySelector('.meet')
+        but.onclick = function() {
+            meet.selected = true
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/13.css">
+
+</head>
+
+<body>
+    <div class="top">
+        <img src="img/top1.png" alt="" />
+    </div>
+    <div class="louceng">
+        <!-- 楼层1 -->
+        <div class="jd jia">
+            <img src="img/jia.png" alt="" />
+        </div>
+        <!-- 楼层2 -->
+        <div class="jd dian">
+            <img src="img/dian.png" alt="" />
+        </div>
+        <!-- 楼层3 -->
+        <div class="jd fu">
+            <img src="img/fu.png" alt="" />
+        </div>
+        <!-- 楼层4 -->
+        <div class="jd mei">
+            <img src="img/mei.png" alt="" />
+        </div>
+    </div>
+    <div class="bottom">
+        <img src="img/bottom.png" alt="" />
+    </div>
+    <!-- 侧边栏 -->
+    <div class="subnav">
+        <ul>
+            <li>家电通讯</li>
+            <li>电脑数码</li>
+            <li>服饰精品</li>
+            <li>美容珠宝</li>
+        </ul>
+        <div class="back">返回</div>
+
+    </div>
+    <script>
+        let one = document.querySelector('.jd')
+        let two = document.querySelector('.jd')
+        let three = document.querySelector('.jd')
+        let four = document.querySelector('.jd')
+        let li = document.querySelectorAll('li')
+        let sub = document.querySelector('.subnav')
+        let ones = one.offsetTop
+        let twos = two.offsetTop
+        let threes = three.offsetTop
+        let fours = four.offsetTop
+        console.log(ones)
+        window.addEventListener('scroll', function() {
+            let pageScoll = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
+            if (pageScoll >= ones) {
+                sub.style.display = "block"
+            } else {
+                sub.style.display = "none"
+            }
+            if (pageScoll >= ones) {
+                li[0].classList.add('current')
+            } else {
+                li[0].classList.remove('current')
+            }
+
+        })
+    </script>
+</body>
+
+</html>

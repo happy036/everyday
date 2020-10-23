@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+            position: absolute;
+            top: 140px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>按钮</button>
+    <div></div>
+    <script>
+        let div = document.querySelector('div')
+        let btn = document.querySelector('button')
+        btn.onclick = function() {
+            let timer = setInterval(function() {
+                if (div.offsetLeft >= 400) {
+                    clearInterval(timer)
+                }
+                div.style.left = div.offsetLeft + 1 + "px"
+            }, 20)
+        }
+        btn.onclick = function() {
+            animate(div, 400)
+        }
+
+        function animate(element, target) {
+            clearInterval(element.timer)
+            element.timer = setInterval(function() {
+                if (element.offsetLeft >= target) {
+                    clearInterval(element.timer)
+                }
+                element.style.left = element.offsetLeft + 1 + "px"
+            }, 20)
+        }
+
+        // btn.onclick = function() {
+        //     animate(div, 400)
+        // }
+
+        // function animate(element, target) {
+        //     clearInterval(element.timer)
+        //     element.timer = setInterval(function() {
+        //         if (element.offsetLeft >= target) {
+        //             clearInterval(element.timer)
+        //         }
+        //         element.style.left = element.offsetLeft + 1 + "px"
+        //     }, 20)
+        // }
+
+        // btn, onclick = function() {
+        //     animate(div, 400)
+        // }
+
+        // function animate(element, target) {
+        //     clearInterval(element.timer)
+        //     element.timer = setInterval(function() {
+        //         if (element.offsetLeft >= target) {
+        //             clearInterval(element.timer)
+        //         }
+        //         element.style.left = element.offsetLeft + 1 + "px"
+        //     }, 20)
+        // }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .slider-bar {
+            position: absolute;
+            left: 50%;
+            top: 300px;
+            margin-left: 600px;
+            width: 45px;
+            height: 130px;
+            background-color: pink;
+        }
+        
+        .w {
+            width: 1200px;
+            margin: 10px auto;
+        }
+        
+        .header {
+            height: 150px;
+            background-color: purple;
+        }
+        
+        .banner {
+            height: 250px;
+            background-color: skyblue;
+        }
+        
+        .main {
+            height: 1000px;
+            background-color: yellowgreen;
+        }
+        
+        span {
+            display: none;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-bar">
+        <span class="goback">返回顶部</span>
+    </div>
+    <div class="header w">头部区域</div>
+    <div class="banner w">banner区域</div>
+    <div class="main w">主体部分</div>
+    <script src="./lib/jquery-3.4.1.min.js"></script>
+    <script>
+        // // 功能1:当滚动条往下滚动的时候 到banner刚好到顶部的时候 侧边栏固定 否则 正常走
+        // // 1.获取元素 侧边栏 返回顶部 banner区域
+        // let sliderBar = document.querySelector('.slider-bar');
+        // let goBack = document.querySelector('.goback');
+        // let banner = document.querySelector('.banner');
+        // let main = document.querySelector('.main');
+        // // 2.获取banner到页面顶部的距离 offsetTop
+        // let bannerTop = banner.offsetTop;
+        // // 3.获取main与顶部的距离  offsetTop
+        // let mainTop = main.offsetTop;
+        // let sliderBarTop = sliderBar.offsetTop - bannerTop;
+        // // 4.给window绑定滚动事件
+        // window.onscroll = function() {
+        //     // 4.1 如果window.pageYOffset(页面跑出去的距离) > banner的offsetTop
+        //     if (window.pageYOffset >= bannerTop) {
+        //         // 4.1.1 让侧边栏固定
+        //         sliderBar.style.position = "fixed";
+        //         sliderBar.style.top = sliderBarTop + 'px';
+        //     } else {
+        //         // 4.2 否则 不固定
+        //         sliderBar.style.position = "absolute";
+        //         sliderBar.style.top = "300px";
+        //     }
+        //     // 功能2: 如果页面卷曲的高度 》= main距离页面顶部的距离 那就显示返回顶部 否则不显示
+        //     if (window.pageYOffset >= mainTop) {
+        //         // 显示
+        //         goBack.style.display = 'block';
+        //     } else {
+        //         // 隐藏
+        //         goBack.style.display = 'none';
+        //     }
+        // }
+        let bannerTop = $('.banner').offset().top
+        let mainTop = $('.main').offset().top
+        let sliderBarTop = $('.slider-bar').offset().top - bannerTop
+        $(document).scroll(function() {
+            if ($(document).scrollTop() >= bannerTop) {
+                $('.slider-bar').css({
+                    "position": "fixed",
+                    "top": sliderBarTop
+                })
+            } else {
+                $('.slider-bar').css({
+                    "position": "absolute",
+                    "top": 300
+                })
+            }
+            if ($(document).scrollTop() >= mainTop) {
+                $('.goback').show()
+            } else {
+                $('.goback').hide()
+            }
+        })
+    </script>
+</body>
+
+</html>

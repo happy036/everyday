@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <div class="box">
+        <strong>asdf33</strong>
+        <b>你好</b>
+        <span>sdfdsf</span>
+    </div>
+    <script src="./lib/jquery-3.4.1.min.js"></script>
+    <script>
+        // parent() 某个元素的父元素
+        // parents() 某个元素的祖元素
+        $('button').click(function() {
+            console.log($('b').parent())
+            console.log($('b').parents())
+        })
+    </script>
+</body>
+
+</html>

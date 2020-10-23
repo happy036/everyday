@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .wrap {
+      width: 410px;
+      margin: 100px auto 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+    }
+
+    th,
+    td {
+      border: 1px solid #d0d0d0;
+      color: #404060;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #09c;
+      font: bold 16px "微软雅黑";
+      color: #fff;
+    }
+
+    td {
+      font: 14px "微软雅黑";
+    }
+
+    td a.get {
+      text-decoration: none;
+    }
+
+    a.del:hover {
+      text-decoration: underline;
+    }
+
+    tbody tr {
+      background-color: #f0f0f0;
+    }
+
+    tbody tr:hover {
+      cursor: pointer;
+      background-color: #fafafa;
+    }
+
+    .btnAdd {
+      width: 110px;
+      height: 30px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .form-item {
+      height: 100%;
+      position: relative;
+      padding-left: 100px;
+      padding-right: 20px;
+      margin-bottom: 34px;
+      line-height: 36px;
+    }
+
+    .form-item>.lb {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block;
+      width: 100px;
+      text-align: right;
+    }
+
+    .form-item>.txt {
+      width: 300px;
+      height: 32px;
+    }
+
+    .mask {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      opacity: 0.15;
+      display: none;
+    }
+
+    .form-add {
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      margin-left: -197px;
+      padding-bottom: 20px;
+      background: #fff;
+      display: none;
+    }
+
+    .form-add-title {
+      background-color: #f7f7f7;
+      border-width: 1px 1px 0 1px;
+      border-bottom: 0;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .form-add-title span {
+      width: auto;
+      height: 18px;
+      font-size: 16px;
+      font-family: 宋体;
+      font-weight: bold;
+      color: rgb(102, 102, 102);
+      text-indent: 12px;
+      padding: 8px 0px 10px;
+      margin-right: 10px;
+      display: block;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .form-add-title div {
+      width: 16px;
+      height: 20px;
+      position: absolute;
+      right: 10px;
+      top: 6px;
+      font-size: 30px;
+      line-height: 16px;
+      cursor: pointer;
+    }
+
+    .form-submit {
+      text-align: center;
+    }
+
+    .form-submit input {
+      width: 170px;
+      height: 32px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div>
+      <input type="button" value="添加数据" id="j_btnAddData" class="btnAdd" />
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>课程名称</th>
+          <th>所属学院</th>
+          <th>已学会</th>
+        </tr>
+      </thead>
+      <tbody id="j_tb">
+        <tr>
+          <td>JavaScript</td>
+          <td>传智播客-前端与移动开发学院</td>
+          <td><a href="javascrip:;" class="get">GET</a></td>
+        </tr>
+        <tr>
+          <td>CSS</td>
+          <td>传智播客-前端与移动开发学院</td>
+          <td><a href="javascrip:;" class="get">GET</a></td>
+        </tr>
+        <tr>
+          <td>HTML</td>
+          <td>传智播客-前端与移动开发学院</td>
+          <td><a href="javascrip:;" class="get">GET</a></td>
+        </tr>
+        <tr>
+          <td>jQuery</td>
+          <td>传智播客-前端与移动开发学院</td>
+          <td><a href="javascrip:;" class="get">GET</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!--遮挡的div-->
+  <div id="j_mask" class="mask"></div>
+  <div id="j_formAdd" class="form-add">
+    <div class="form-add-title">
+      <span>添加数据</span>
+
+      <div id="j_hideFormAdd">x</div>
+    </div>
+    <div class="form-item">
+      <label class="lb" for="j_txtLesson">课程名称：</label>
+      <input class="txt" type="text" id="j_txtLesson" placeholder="请输入课程名称">
+    </div>
+    <div class="form-item">
+      <label class="lb" for="j_txtBelSch">所属学院：</label>
+      <input class="txt" type="text" id="j_txtBelSch" value="传智播客-前端与移动开发学院">
+    </div>
+    <div class="form-submit">
+      <input type="button" value="添加" id="j_btnAdd">
+    </div>
+  </div>
+  <script src="./lib/jquery-3.4.1.min.js"></script>
+  <script>
+    //  - 当点击表格中的"GET"可以删除当前行
+    //  - 当点击"添加数据"遮罩层和添加数据的文本框都会显示
+    //  - 当点击文本框对应盒子右上角"X"遮罩层和这个盒子都会隐藏
+    //  - 当在课程文本框和所属学院文本框中都输入内容的时候，点击“添加”按钮，根据数据在表格中创建一行，并且遮罩层和这个盒子都会隐藏
+    //  - 当课程文本框或者是所属学院文本框的内容都为空，或者是有一个为空，那么点击"添加"按钮，都不会在表格中创建一行，并且遮罩层和这个盒子都会隐藏
+    //  - 注意：当根据数据表格中的添加一行之后，再次点击"GET"这一行还能删除当前行
+
+
+
+    // 获取元素
+
+    // // 获取tbody
+    // var tbody = document.querySelector('#j_tb')
+    // // 获取a
+    // var dels = document.querySelectorAll('.get')
+    // // 添加数据按钮
+    // var addBtn = document.querySelector("#j_btnAddData");
+    // // 获取遮罩层
+    // var mask = document.querySelector("#j_mask")
+    // // 输入框的div
+    // var formAdd = document.querySelector('#j_formAdd')
+    // // 隐藏的小叉
+    // var hide = document.querySelector('#j_hideFormAdd')
+    // // 课程
+    // var lesson = document.querySelector('#j_txtLesson')
+    // // 所属的学院
+    // var school = document.querySelector('#j_txtBelSch')
+    // // 表单输入框下面的添加按钮
+    // var formBtn = document.querySelector('#j_btnAdd')
+
+
+    // // 当点击表格中的"GET"可以删除当前行
+    // tbody.onclick = function (e) {
+    //   this.removeChild(e.target.parentNode.parentNode)
+    // }
+
+    // // 当点击"添加数据"遮罩层和添加数据的文本框都会显示
+    // addBtn.onclick = function () {
+    //   mask.style.display = 'block';
+    //   formAdd.style.display = 'block';
+    // }
+    // // 当点击文本框对应盒子右上角"X"遮罩层和这个盒子都会隐藏
+    // hide.onclick = function () {
+    //   mask.style.display = 'none';
+    //   formAdd.style.display = 'none';
+    // }
+
+
+    // // 点击“添加”按钮 在课程文本框和所属学院文本框中都输入内容的时候 数据在表格中创建一行 罩层和这个盒子都会隐藏
+    // // 1.给添加按钮绑定事件
+    // formBtn.onclick = function () {
+    //   // 2.获取文本框的值 获取所属学院文本框的值
+    //   let lessonValue = lesson.value;
+    //   let schoolValue = school.value;
+    //   // console.log(lessonValue, schoolValue)
+    //   // 3.判断一下如果不为空 
+    //   if (lessonValue.trim().length !== 0 && schoolValue.trim().length !== 0) {
+    //     // 3.1.获取tbody中的内容
+    //     let tbodyStr = tbody.innerHTML;
+    //     // console.log(tbodyStr);
+    //     // 3.2 构建tr的结构 并且填充数据
+    //     tbodyStr += `
+    //     <tr>
+    //       <td>${lessonValue}</td>
+    //       <td>${schoolValue}</td>
+    //       <td><a href="javascrip:;" class="get">GET</a></td>
+    //     </tr>
+    //     `;
+
+    //     // 3.3 把所有tr的结构写道tbody中
+    //     tbody.innerHTML = tbodyStr;
+    //     // 3.4 让遮罩层和这个盒子都会隐藏
+    //     mask.style.display = 'none';
+    //     formAdd.style.display = 'none';
+    //     // 写完一个 清空
+    //     lesson.value = '';
+    //     school.value = "";
+    //   } else {
+    //     // 4.判断一下 如果其中有一个为空
+    //     mask.style.display = 'none';
+    //     formAdd.style.display = 'none';
+    //     // alert("数据填写错误")
+    //     lesson.value = '';
+    //     school.value = "";
+    //   }
+
+    // }
+
+
+    // jQuery版本
+    //  - 当点击表格中的"GET"可以删除当前行
+    // 父元素.on(事件类型, [触发事件的元素], 事件处理函数)
+    // $('tbody .get').click(function () {
+    //   $(this).parent().parent().remove()
+    // })
+
+    $('tbody').on('click', '.get', function () {
+      // $(this).parent().parent().remove()
+      $(this).parents('tr').remove();
+    })
+
+    // 在jquery中任何情况都用on
+
+
+    //  - 当点击"添加数据"遮罩层和添加数据的文本框都会显示
+    $('.btnAdd').click(function () {
+      $('.mask').show();
+      $('.form-add').show();
+    })
+    //  - 当点击文本框对应盒子右上角"X"遮罩层和这个盒子都会隐藏
+    $('#j_hideFormAdd').click(function () {
+      $('.mask').hide();
+      $('.form-add').hide();
+    })
+    //  - 当课程文本框或者是所属学院文本框的内容都为空，或者是有一个为空，那么点击"添加"按钮，都不会在表格中创建一行，并且遮罩层和这个盒子都会隐藏
+    //  - 当在课程文本框和所属学院文本框中都输入内容的时候，点击“添加”按钮，根据数据在表格中创建一行，并且遮罩层和这个盒子都会隐藏
+    $('#j_btnAdd').on('click', function () {
+      let lessonValue = $('#j_txtLesson').val().trim();
+      let schoolValue = $('#j_txtBelSch').val().trim();
+      if (lessonValue.length !== 0 && schoolValue.length !== 0) {
+        $('tbody').append(`
+        <tr>
+          <td>${lessonValue}</td>
+          <td>${schoolValue}</td>
+          <td><a href="javascrip:;" class="get">GET</a></td>
+        </tr>
+        `)
+      }
+
+      $('.mask').hide();
+      $('.form-add').hide();
+
+      $('#j_txtLesson').val('')
+      $('#j_txtBelSch').val('')
+    })
+
+    //  - 注意：当根据数据表格中的添加一行之后，再次点击"GET"这一行还能删除当前行
+
+
+
+  </script>
+
+</body>
+
+</html>

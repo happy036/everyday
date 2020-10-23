@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 随意写一个 input -->
+    <input type="text" name="" id="date">
+
+    <script src="./laydate/laydate.js"></script>
+    <script>
+        laydate.render({
+            elem: '#date',
+            range: true,
+            format: 'yyyy年MM月dd日',
+            calendar: true
+                // trigger: 'click'
+        });
+    </script>
+</body>
+
+</html>

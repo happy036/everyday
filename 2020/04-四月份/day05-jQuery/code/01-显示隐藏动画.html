@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- html代码 -->
+    <button class="showbtn">显示</button>
+    <button class="hidebtn">隐藏</button>
+    <button class="togglebtn">显示/隐藏</button>
+    <div></div>
+    <!-- JavaScript代码 -->
+    <script src="./lib/jquery-3.4.1.min.js"></script>
+    <script>
+        // show([总时间,[动画速度],[回调函数]])
+        $('.showbtn').on('click', function() {
+            $('div').show(1000, function() {
+                console.log("显示出来了")
+            })
+        })
+
+        // hide([speed,[easing],[fn]])
+        $(".hidebtn").on('click', function() {
+            $('div').hide(1000, function() {
+                console.log('隐藏')
+            })
+        })
+
+        // toggle([speed],[easing],[fn])
+        $('.togglebtn').on('click', function() {
+            $('div').toggle(1000, function() {
+                console.log('切换')
+            })
+        })
+    </script>
+</body>
+
+</html>

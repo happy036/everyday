@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: black;
+        }
+        
+        ul {
+            width: 640px;
+            height: 400px;
+            list-style: none;
+            border: 1px solid #fff;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        ul li {
+            float: left;
+            width: 200px;
+            height: 180px;
+            margin-top: 10px;
+            background-color: black;
+            opacity: 0.5;
+        }
+        
+        ul li:nth-child(2) {
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+        
+        ul li:nth-child(5) {
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+        
+        ul li img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .white {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="white"><img src="01.jpg" alt=""></li>
+        <li><img src="02.jpg" alt=""></li>
+        <li><img src="03.jpg" alt=""></li>
+        <li><img src="04.jpg" alt=""></li>
+        <li><img src="05.jpg" alt=""></li>
+        <li><img src="06.jpg" alt=""></li>
+    </ul>
+    <script>
+        let ul = document.querySelector('ul')
+        let lis = document.querySelectorAll('li')
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].onmouseenter = function() {
+                for (let j = 0; j < lis.length; j++) {
+                    lis[j].classList.remove("white")
+                }
+                this.classList.add("white")
+            }
+            lis[i].onmouseleave = function() {
+                this.classList.remove('white')
+            }
+        }
+        ul.onmouseleave = function() {
+                for (let j = 0; j < lis.length; j++) {
+                    lis[j].classList.add("white")
+                }
+            }
+            // for (let i = 0; i < lis.length; i++) {
+            //     lis[i].onmouseenter = function() {
+            //         for (let j = 0; j < lis.length; j++) {
+            //             lis[j].classList.remove("white")
+            //         }
+            //         this.classList.add("white")
+            //     }
+            //     lis[i].onmouseleave = function() {
+            //         lis[i].classList.remove("white")
+            //     }
+            // }
+            // ul.onmouseleave = function() {
+            //         for (let j = 0; j < lis.length; j++) {
+            //             lis[j].classList.add('white')
+            //         }
+            //     }
+
+
+
+        // for (let i = 0; i < lis.length; i++) {
+        //     lis[i].onmouseover = function() {
+        //         for (let j = 0; j < lis.length; j++) {
+        //             lis[j].classList.remove('white')
+        //         }
+        //         lis[i].classList.add('white')
+        //     }
+        //     lis[i].onmouseout = function() {
+        //         lis[i].classList.remove('white')
+        //     }
+        // }
+        // ul.onmouseout = function() {
+        //     for (let j = 0; j < lis.length; j++) {
+        //         lis[j].classList.add('white')
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

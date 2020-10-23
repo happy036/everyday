@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/13.css">
+
+</head>
+
+<body>
+    <div class="top">
+        <img src="image/top1.png" alt="" />
+    </div>
+    <div class="louceng">
+        <!-- 楼层1 -->
+        <div class="jd jia" style="height: 404px;">
+            <img src="image/jia.png" alt="" />
+        </div>
+        <!-- 楼层2 -->
+        <div class="jd dian" style="height: 412px;">
+            <img src="image/dian.png" alt="" />
+        </div>
+        <!-- 楼层3 -->
+        <div class="jd fu" style="height: 414px;">
+            <img src="image/fu.png" alt="" />
+        </div>
+        <!-- 楼层4 -->
+        <div class="jd mei" style="height: 411px;">
+            <img src="image/mei.png" alt="" />
+        </div>
+    </div>
+    <div class="bottom">
+        <img src="image/bottom.png" alt="" />
+    </div>
+    <!-- 侧边栏 -->
+    <div class="subnav">
+        <ul>
+            <li>家电通讯</li>
+            <li>电脑数码</li>
+            <li>服饰精品</li>
+            <li>美容珠宝</li>
+        </ul>
+        <div class="back">返回</div>
+
+    </div>
+    <script>
+        //获取元素 
+        let slideBar = document.querySelector('.subnav');
+        let jdtx = document.querySelector('.louceng .jia');
+        let dnsm = document.querySelector('.louceng .dian');
+        let fsjp = document.querySelector('.louceng .fu');
+        let mrzb = document.querySelector('.louceng .mei');
+        let item = document.querySelectorAll('.subnav ul li');
+        let list = document.querySelectorAll('.louceng>div');
+        window.onscroll = function() {
+            let pageScrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+            let jdtxTop = jdtx.offsetTop;
+            if (pageScrollTop >= jdtxTop) {
+                slideBar.style.display = 'block';
+            } else {
+                slideBar.style.display = 'none';
+            }
+
+
+            if (window.pageYOffset >= jdtx.offsetTop) {
+                for (let i = 0; i < item.length; i++) {
+                    item[i].className = '';
+                }
+                item[0].className = "current";
+            }
+            if (window.pageYOffset >= dnsm.offsetTop) {
+                for (let i = 0; i < item.length; i++) {
+                    item[i].className = '';
+                }
+                item[1].className = "current";
+            }
+            if (window.pageYOffset >= fsjp.offsetTop) {
+                for (let i = 0; i < item.length; i++) {
+                    item[i].className = '';
+                }
+                item[2].className = "current";
+            }
+            if (window.pageYOffset >= mrzb.offsetTop) {
+                for (let i = 0; i < item.length; i++) {
+                    item[i].className = '';
+                }
+                item[3].className = "current";
+            }
+        }
+
+        for (let i = 0; i < item.length; i++) {
+            item[i].onclick = function() {
+                let index = i
+                let listoffset = list[index].offsetTop
+                document.documentElement.scrollTop = listoffset
+            }
+        }
+    </script>
+</body>
+
+</html>

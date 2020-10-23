@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <button>开</button>
+    <script>
+        let flag = true
+        let but = document.querySelector('button')
+        but.onclick = function() {
+            if (flag == true) {
+                document.body.style.backgroundColor = "white"
+                this.innerText = "关"
+                flag = false
+            } else {
+                document.body.style.backgroundColor = "black"
+                this.innerText = "开"
+                flag = true
+            }
+        }
+
+
+
+        // but.onclick = function() {
+        //         if (flag == true) {
+        //             document.body.style.backgroundColor = "white"
+        //             this.innerText = "关"
+        //             flag = false
+        //         } else {
+        //             document.body.style.backgroundColor = "black"
+        //             this.innerText = "开"
+        //             flag = true
+        //         }
+        //     }
+
+
+
+        // but.onclick = function() {
+        //     if (flag == true) {
+        //         document.body.style.backgroundColor = "white"
+        //         this.innerText = "关"
+        //         flag = false
+        //     } else {
+        //         document.body.style.backgroundColor = "black"
+        //         this.innerText = "开"
+        //         flag = true
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

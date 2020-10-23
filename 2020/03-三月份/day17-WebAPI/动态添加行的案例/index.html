@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+    <div class="wrap">
+        <div>
+            <input type="button" value="添加数据" id="j_btnAddData" class="btnAdd" />
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>课程名称</th>
+                    <th>所属学院</th>
+                    <th>已学会</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <td>JavaScript</td>
+                    <td>传智播客-前端与移动开发学院</td>
+                    <td><a href="javascrip:;" class="get">GET</a></td>
+                </tr>
+                <tr>
+                    <td>css</td>
+                    <td>传智播客-前端与移动开发学院</td>
+                    <td><a href="javascrip:;" class="get">GET</a></td>
+                </tr>
+                <tr>
+                    <td>html</td>
+                    <td>传智播客-前端与移动开发学院</td>
+                    <td><a href="javascrip:;" class="get">GET</a></td>
+                </tr>
+                <tr>
+                    <td>jQuery</td>
+                    <td>传智播客-前端与移动开发学院</td>
+                    <td><a href="javascrip:;" class="get">GET</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="j_mask" class="mask"></div>
+    <!--遮挡的div-->
+    <div id="j_formAdd" class="form-add">
+        <div class="form-add-title">
+            <span>添加数据</span>
+
+            <div id="j_hideFormAdd">x</div>
+        </div>
+        <div class="form-item">
+            <label class="lb" for="j_txtLesson">课程名称：</label>
+            <input class="txt" type="text" id="j_txtLesson" placeholder="请输入课程名称">
+        </div>
+        <div class="form-item">
+            <label class="lb" for="j_txtBelSch">所属学院：</label>
+            <input class="txt" type="text" id="j_txtBelSch" value="传智播客-前端与移动开发学院">
+        </div>
+        <div class="form-submit">
+            <input type="button" value="添加" id="j_btnAdd">
+        </div>
+    </div>
+    <script>
+        // 获取tbody
+        var tbody = document.querySelector('#j_tb')
+            // 获取a
+        var dels = document.querySelectorAll('.get')
+            // 添加数据按钮
+        var addBtn = document.querySelector("#j_btnAddData");
+        // 获取遮罩层
+        var mask = document.querySelector("#j_mask")
+            // 输入框的div
+        var formAdd = document.querySelector('#j_formAdd')
+            // 隐藏的小叉
+        var hide = document.querySelector('#j_hideFormAdd')
+            // 课程
+        var lesson = document.querySelector('#j_txtLesson')
+            // 所属的学院
+        var school = document.querySelector('#j_txtBelSch')
+            // 表单输入框下面的添加按钮
+        var formBtn = document.querySelector('#j_btnAdd')
+            // 当点击表格中的"GET"可以删除当前行
+        tbody.onclick = function(e) {
+            this.removeChild(e.target.parentNode.parentNode)
+        }
+
+        addBtn.onclick = function() {
+            mask.style.display = "block"
+            formAdd.style.display = "block"
+        }
+
+        hide.onclick = function() {
+            mask.style.display = "none"
+            formAdd.style.display = "none"
+        }
+
+        formBtn.onclick = function() {
+            let lessonValue = lesson.value
+            let schoolValue = school.value
+            if (lessonValue.trim().length !== 0 && schoolValue.trim().length !== 0) {
+                let tbodyStr = tbody.innerHTML
+                tbodyStr += `
+        <tr>
+          <td>${lessonValue}</td>
+          <td>${schoolValue}</td>
+          <td><a href="javascrip:;" class="get">GET</a></td>
+        </tr>
+
+        `
+                tbody.innerHTML = tbodyStr
+                mask.style.display = "none"
+                formAdd.style.display = "none"
+            } else {
+                mask.style.display = "none"
+                formAdd.style.display = "none"
+                lesson.value = ""
+                school.value = ""
+            }
+        }
+    </script>
+
+</body>
+
+</html>

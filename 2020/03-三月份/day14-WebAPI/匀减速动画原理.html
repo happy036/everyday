@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+            position: absolute;
+            top: 140px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>按钮</button>
+    <div></div>
+    <script>
+        let oBtn = document.querySelector('button');
+        let oDiv = document.querySelector('div');
+        oBtn.onclick = function() {
+            animate(oDiv, {
+                width: 500,
+                height: 500,
+                left: 200
+            }, function() {
+                animate(oDiv, {
+                    width: 50,
+                    height: 50,
+                    left: 100
+                })
+            })
+        }
+
+        function get(element, attr) {
+            return window.getComputedStyle ? window.getComputedStyle(element, null)[attr] : element.currentStyle[attr];
+        }
+
+        function animate(element, targetObj, callback) {
+            clearInterval(element.timer)
+            let flag = true
+            element.timer = setInterval(function() {
+                for (attr in targetObj) {
+                    let current = parseInt(get(element, attr))
+                    let target = targetObj[attr]
+                    let step = (target - current) / 10
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step)
+                    current += step
+                    element.style[attr] = current + "px"
+                    if (current !== target) {
+                        flag = false
+                    }
+                }
+                if (flag == true) {
+                    clearInterval(element.timer)
+                    callback()
+                }
+            }, 20)
+        }
+    </script>
+</body>
+
+</html>

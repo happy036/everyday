@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>京东商城</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .slider {
+            height: 340px;
+            width: 790px;
+            margin: 100px auto;
+            position: relative;
+        }
+        
+        .slider li {
+            position: absolute;
+            display: none;
+        }
+        
+        .slider li:first-child {
+            display: block;
+        }
+        
+        .arrow {
+            display: none;
+        }
+        
+        .slider:hover .arrow {
+            display: block;
+        }
+        
+        .arrow-left,
+        .arrow-right {
+            font-family: "SimSun", "宋体";
+            width: 30px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 60px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 30px;
+        }
+        
+        .arrow-left:hover,
+        .arrow-right:hover {
+            background-color: rgba(0, 0, 0, .5);
+        }
+        
+        .arrow-left {
+            left: 0;
+        }
+        
+        .arrow-right {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <ul>
+            <li>
+                <a href="#">
+                    <image src="image/jd1.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <image src="image/jd2.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <image src="image/jd3.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <image src="image/jd4.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <image src="image/jd5.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <image src="image/jd6.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <image src="image/jd7.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <image src="image/jd8.jpg" alt="">
+                </a>
+            </li>
+        </ul>
+        <!--箭头-->
+        <div class="arrow">
+            <span class="arrow-left">&lt;</span>
+            <span class="arrow-right">&gt;</span>
+        </div>
+    </div>
+
+    <script src="./lib/jquery-3.4.1.min.js"></script>
+    <script>
+        let index = 0
+        $('.arrow-right').on('click', function() {
+            index++
+            if (index > $('.slider li').length - 1) {
+                index = 0
+            }
+            $('.slider li').eq(index).fadeIn(500).siblings().fadeOut()
+        })
+        $('.arrow-left').on('click', function() {
+            index--
+            if (index < 0) {
+                index = $('.slider li').length - 1
+            }
+            $('.slider li').eq(index).fadeIn(500).siblings().fadeOut()
+        })
+        setInterval(function() {
+            $('.arrow-right').click()
+        }, 5000)
+    </script>
+
+
+</body>
+
+</html>

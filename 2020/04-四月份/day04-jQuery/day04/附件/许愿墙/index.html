@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <!-- 头部 -->
+    <header>
+        <div class="send"></div>
+    </header>
+    <!-- 主体内容体 -->
+    <main>
+        <!-- 这个是许愿签的模板 -->
+        <!-- <div class="list">
+            <div class="list-top">
+                <span>拉拉</span>
+                <span>No.00001</span>
+            </div>
+            <div class="list-center">
+                大家今天要好好把后台布局完成大家今天要好好把后台布局完成大家今天要好好把后台布局完成
+            </div>
+            <div class="list-bottom">
+                <span>今天08:30</span>
+                <span></span>
+            </div>
+        </div> -->
+    </main>
+    <!-- 遮罩层 -->
+    <div class="mask">
+        <div class="box">
+            <div class="mask-title">
+                <span>许下你的愿望</span>
+                <span class="fr close"></span>
+            </div>
+            <div class="mask-content">
+                <div class="mask-nickname">
+                    <h3>昵称:</h3>
+                    <input type="text">
+                </div>
+                <div class="mask-wish">
+                    <h3>愿望:(您还可以输入 <i>50</i> 个字)</h3>
+                    <textarea name="" id="" cols="30" rows="10" maxlength="50"></textarea>
+                </div>
+                <div class="release">
+                    <img src="./img/send-btn.png" alt="" class="fr">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../lib/jquery-3.4.1.min.js"></script>
+    <script>
+        var list = [{
+            nicknane: "拉拉",
+            content: "大家今天要好好把后台布局完成大家今天要好好把后台布局完成大家今天要好好把后台布局完成"
+        }, {
+            nicknane: "哈哈",
+            content: "今天天气不错，风和日丽的"
+        }, {
+            nicknane: "秀秀",
+            content: "真搞不懂你们地球人，月亮有什么好看的，全是坑，还是对面那哥们好看，"
+        }, {
+            nicknane: "萌萌",
+            content: "今天你拿苹果支付了么"
+        }, {
+            nicknane: "帅帅",
+            content: "新的一年，所有的人健康快乐"
+        }, {
+            nicknane: "姚姚",
+            content: "希望疫情早日过去"
+        }, {
+            nicknane: "老杨",
+            content: "我在学校等你们来"
+        }, {
+            nicknane: "丁丁",
+            content: "今天的新校区好美丽，风景无限好"
+        }]
+        for (let i = 0; i < list.length; i++) {
+            let date = new Date()
+            let hour = date.getHours()
+            let minutes = date.getMinutes()
+            hour = hour > 9 ? hour : "0" + hour
+            minutes = minutes > 9 ? minutes : "0" + minutes
+            let now = `${hour}:${minutes}`
+            let ops = parseInt(Math.random() * 500) + 'px'
+            let efts = parseInt(Math.random() * 1000) + 'px'
+            $('main').append(`        <div class="list">
+            <div class="list-top">
+                <span>${list[i].nicknane}</span>
+                <span>No.00001</span>
+            </div>
+            <div class="list-center">
+                ${list[i].content}
+            </div>
+            <div class="list-bottom">
+                <span>今天${now}</span>
+                <span></span>
+            </div>
+        </div>`)
+            $('.list').eq(i).css({
+                "top": ops,
+                "left": efts,
+            })
+        }
+
+        $('.send').click(function() {
+            $('.mask').show()
+        })
+        $('.fr').click(function() {
+            $('.mask').hide()
+        })
+        $('.mask-wish>textarea').on("input", function() {
+            $('.mask-wish>h3').html(`愿望:(您还可以输入 <i>${50-$(this).val().length}</i> 个字)`)
+        })
+    </script>
+</body>
+
+</html>

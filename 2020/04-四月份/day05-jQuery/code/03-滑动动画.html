@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- html代码 -->
+    <button class="showbtn">显示</button>
+    <button class="hidebtn">隐藏</button>
+    <button class="togglebtn">显示/隐藏</button>
+    <div></div>
+    <!-- JavaScript代码 -->
+    <script src="./lib/jquery-3.4.1.min.js"></script>
+    <script>
+        // slideDown([speed],[easing],[fn])
+        $('.showbtn').on('click', function() {
+            // 让div经过3秒完全显示出来
+            $('div').slideDown(200, function() {
+                console.log('下拉')
+            })
+        })
+
+        // slideUp([speed,[easing],[fn]])
+        $('.hidebtn').on('click', function() {
+            // 让div经过3秒完全隐藏起来
+            $('div').slideUp(200, function() {
+                console.log('卷曲')
+            })
+        })
+
+
+        // slideToggle([speed],[easing],[fn])
+        $('.togglebtn').on('click', function() {
+            // 让div经过3秒完全隐藏起来，当完全隐藏起来之后 弹出一句话，完全隐藏起来了
+            $('div').slideToggle(200, function() {
+                console.log('切换')
+            })
+        })
+    </script>
+</body>
+
+</html>

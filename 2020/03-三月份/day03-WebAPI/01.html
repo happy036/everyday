@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            border: 1px solid #ccc;
+            color: #ccc;
+        }
+        
+        div span:last-child {
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>您的成绩:</span><input type="text" placeholder="请输入分数"><img><span>请输入您的成绩</span>
+    </div>
+    <script>
+        let input = document.querySelector('input')
+        let span = document.querySelectorAll('span')[1]
+        let img = document.querySelector('img')
+        input.onblur = function() {
+            let v = input.value
+            if (v == "") {
+                input.style.border = "1px solid red"
+                img.src = "error.png"
+                span.style.color = "red"
+                span.innerHTML = "请您输入数字"
+            } else if (isNaN(v) == true) {
+                input.style.border = "1px solid red"
+                input.style.color = "#333"
+                img.src = "error.png"
+                span.style.color = "red"
+                span.innerHTML = "请您输入数字"
+            } else if (v > 100) {
+                input.style.border = "1px solid red"
+                input.style.color = "#333"
+                img.src = "error.png"
+                span.style.color = "red"
+                span.innerHTML = "成绩不能超出100"
+            } else if (v < 0) {
+                input.style.border = "1px solid red"
+                input.style.color = "#333"
+                img.src = "error.png"
+                span.style.color = "red"
+                span.innerHTML = "成绩不能小于0"
+            } else if (v >= 0 && v <= 100) {
+                input.style.border = "1px solid #008000"
+                input.style.color = "#333"
+                img.src = "right.png"
+                span.style.color = "#91b914"
+                span.innerHTML = "输入成绩正确"
+            }
+        }
+    </script>
+</body>
+
+</html>

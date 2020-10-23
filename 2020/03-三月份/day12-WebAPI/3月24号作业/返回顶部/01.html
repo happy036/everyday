@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 200%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: fixed;
+            top: 45%;
+            right: 0;
+            margin-right: 10px;
+        }
+        
+        ul li {
+            display: block;
+            width: 50px;
+            height: 50px;
+            background-color: #d9d9d9;
+            margin-bottom: 5px;
+        }
+        
+        ul li:first-child {
+            background-image: url(./images/sbtn.png);
+            background-position: 0px 0px;
+            position: relative;
+        }
+        
+        ul li:first-child img {
+            position: absolute;
+            top: -59px;
+            right: 50px;
+            display: none;
+        }
+        
+        ul li:nth-child(2) {
+            background-image: url(./images/sbtn.png);
+            background-position: 0px -50px;
+            position: relative;
+        }
+        
+        ul li:nth-child(2) img {
+            position: absolute;
+            top: -59px;
+            right: 50px;
+            display: none;
+        }
+        
+        ul li:nth-child(3) {
+            background-image: url(./images/sbtn.png);
+            background-position: 0px -150px;
+        }
+        
+        ul li:nth-child(4) {
+            background-image: url(./images/sbtn.png);
+            background-position: 0px -100px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><img src="./images/lrtk_weixin.png" alt=""></li>
+        <li><img src="./images/lrtk_app.png" alt=""></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        let ul = document.querySelector('ul')
+        let li = document.querySelectorAll("li")
+        let img = document.querySelectorAll('img')
+        li[0].addEventListener('mouseover', function() {
+            img[0].style.display = "block"
+            this.style.backgroundPosition = "-50px 0px"
+        })
+
+        li[0].addEventListener('mouseout', function() {
+            img[0].style.display = "none"
+            this.style.backgroundPosition = "0px 0px"
+        })
+
+        li[1].addEventListener('mouseover', function() {
+            img[1].style.display = "block"
+            this.style.backgroundPosition = "-50px -50px"
+        })
+
+        li[1].addEventListener('mouseout', function() {
+            img[1].style.display = "none"
+            this.style.backgroundPosition = "0px -50px"
+        })
+
+        li[2].addEventListener('mouseover', function() {
+            this.style.backgroundPosition = "-50px -150px"
+        })
+
+        li[2].addEventListener('mouseout', function() {
+            this.style.backgroundPosition = "0px -150px"
+        })
+
+        let one = ul.offsetTop
+        window.addEventListener('scroll', function() {
+            let two = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
+            if (two >= one) {
+                li[3].style.display = "block"
+                li[3].addEventListener('mouseover', function() {
+                    this.style.backgroundPosition = "-50px -100px"
+                })
+
+                li[3].addEventListener('mouseout', function() {
+                    this.style.backgroundPosition = "0px -100px"
+                })
+            } else {
+                li[3].style.display = "none"
+            }
+        })
+        li[3].onclick = function() {
+            document.documentElement.scrollTop = 0
+            document.body.scrollTop = 0
+        }
+    </script>
+</body>
+
+</html>

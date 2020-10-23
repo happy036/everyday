@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            margin: 100px auto;
+        }
+        
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            padding-top: 10px;
+        }
+        
+        li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background-image: url(./star2.png);
+            background-repeat: no-repeat;
+        }
+        
+        div {
+            width: 250px;
+            height: 50px;
+            border: 1px solid #cccccc;
+        }
+        
+        .add {
+            background-image: url(./star1.png);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <span></span>
+    </div>
+    <script src="../../../lib/jquery-3.4.1.min.js"></script>
+    <script>
+        let $num
+        let arr = ["极差", "失望", "一般", "满意", "惊喜"]
+        $("li").on('mouseover', function() {
+            let index = $(this).index()
+            $(this).addClass('add').prevAll().addClass('add')
+            $(this).nextAll().removeClass('add')
+            $('span').html(arr[index])
+        })
+
+        $('li').on('mouseout', function() {
+            $('li').removeClass('add')
+            $('span').html('')
+            $("li").eq($num).addClass('add').prevAll().addClass('add')
+            $('span').html(arr[$num])
+        })
+
+        $('li').on('click', function() {
+            $num = $(this).index()
+        })
+    </script>
+</body>
+
+</html>

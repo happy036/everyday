@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- html代码 -->
+    <button class="showbtn">显示</button>
+    <button class="hidebtn">隐藏</button>
+    <button class="togglebtn">显示/隐藏</button>
+    <div></div>
+    <!-- JavaScript代码 -->
+    <script src="./lib/jquery-3.4.1.min.js"></script>
+    <script>
+        // fadeIn([speed],[easing],[fn])
+        $('.showbtn').on('click', function() {
+            $('div').fadeIn(1000, function() {
+                alert('fadeIn')
+            })
+        })
+
+        // fadeOut([speed],[easing],[fn])
+        $('.hidebtn').on('click', function() {
+            $('div').fadeOut(1000, function() {
+                alert('fadeOut')
+            })
+        })
+
+
+        // fadeToggle([speed,[easing],[fn]])
+        $('.togglebtn').on('click', function() {
+            $('div').fadeToggle(1000, function() {
+                alert('fadeToggle')
+            })
+        })
+
+        // $('.showbtn').on('click', function() {
+        //     $('div').fadeTo(1000, 0.25)
+        // })
+    </script>
+</body>
+
+</html>

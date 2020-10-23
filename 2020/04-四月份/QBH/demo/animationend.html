@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: orangered;
+      animation: change 5s linear;
+    }
+
+    @keyframes change {
+      from {
+        height: 200px;
+      }
+
+      to {
+        height: 500px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    // 获取元素box
+    var box = document.querySelector('.box');
+    // 给box添加animationend事件 监听动画结束
+    // animationend 会写成webkitAnimationEnd
+    box.addEventListener("animationend", function () {
+      console.log("动画完成");
+    })
+  </script>
+</body>
+</html>

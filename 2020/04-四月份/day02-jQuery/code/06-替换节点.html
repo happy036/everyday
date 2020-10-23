@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <div class="box">
+        <b>你好</b>
+    </div>
+    <script src="./lib/jquery-3.4.1.min.js"></script>
+    <script>
+        //点击按钮，把b标签换成a标签
+        $('button').click(function() {
+            $('b').replaceWith('<a href="http://www.baidu.com">百度</a>')
+        })
+    </script>
+</body>
+
+</html>

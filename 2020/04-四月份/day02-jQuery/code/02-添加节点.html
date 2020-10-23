@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <div class="box">
+        <b>你好</b>
+    </div>
+    <!-- 引入jQuery -->
+    <script src="./lib/jquery-3.4.1.min.js"></script>
+
+    <script>
+        // 给box中添加一个元素
+
+
+        // 回顾: js中创建元素的三种方式
+        // 1.元素.innerHTML
+        // 2.document.write()
+        // 3.document.createElement('标签')
+
+
+        // jQuery中
+        // 方法1: $('html标签')
+        // 方法2: $('元素').html('html标签')
+        // 方法3: 插入到元素里面的后面
+        // append(content)  父元素.append(子元素)
+        // appendTo(content) 子元素.appendTo(父元素)
+
+        // $('button').click(function () {
+        //   $('.box').append('<a href="http://www.baidu.com">百度</a>')
+        // })
+
+        // $('button').click(function() {
+        //         $('<a href="http://www.baidu.com">百度</a>').appendTo($('div'))
+        //     })
+        // 方法4: 插入到元素里面的前面
+
+        // $('button').click(function() {
+        //     $('.box').prepend('<strong>我在b前面</strong>')
+        // })
+
+        // $('button').click(function() {
+        //     $('<strong>我在b前面</strong>').prependTo($('.box'))
+        // })
+
+        // 方法5: 插入到某个元素外面的后面/前面
+        $('button').click(function() {
+            // $('.box').after(`<a href="http://www.baidu.com">百度</a>`)
+            // $('.box').before(`<a href="http://www.baidu.com">百度</a>`)
+            $('<strong>我在b前面</strong>').insertAfter("b")
+        })
+    </script>
+</body>
+
+</html>

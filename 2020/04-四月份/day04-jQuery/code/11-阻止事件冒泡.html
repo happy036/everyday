@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .outer {
+      width: 400px;
+      height: 400px;
+      background-color: red;
+    }
+
+    .inner {
+      width: 200px;
+      height: 200px;
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="inner"></div>
+  </div>
+  <script src="./lib/jquery-3.4.1.min.js"></script>
+  <script>
+    $('.inner').click(function (e) {
+      console.log(111111);
+      e.stopPropagation();
+    })
+    $('.outer').click(function () {
+      console.log(22222);
+    })
+  </script>
+</body>
+
+</html>

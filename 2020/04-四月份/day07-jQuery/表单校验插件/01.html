@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="login" action="">
+        <fieldset>
+            <legend>登录</legend>
+            <div>
+                账户: <input type="text" name="username">
+            </div>
+            <div>
+                密码: <input type="text" name="password">
+            </div>
+            <button>注册</button>
+            <button>登录</button>
+        </fieldset>
+    </form>
+    <script src="./lib/jquery-3.4.1.min.js"></script>
+    <script src="./jquery-validation-1.15.0/dist/jquery.validate.min.js"></script>
+    <script>
+        $('#login').validate({
+            rules: {
+                username: {
+                    required: true,
+                    rangelength: [6, 5]
+                },
+                password: {
+                    required: true
+                }
+            },
+            messages: {
+                username: {
+                    required: "请填写用户名",
+                    rangelength: "用户名长度在6-18之间"
+                },
+                password: {
+                    required: "请输入密码"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

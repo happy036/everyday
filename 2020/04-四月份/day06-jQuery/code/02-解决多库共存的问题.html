@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>按钮</button>
+  <script src="./lib/jquery-3.4.1.min.js"></script>
+
+  <script>
+    // var $ = 10;
+    // // Uncaught TypeError: $ is not a function
+    // $('button').on('click', function () {
+    //   console.log("姚姚真能吃")
+    // })
+
+    // 方案一: 把$换成jQuery
+    // var $ = 10;
+    // // Uncaught TypeError: $ is not a function
+    // jQuery('button').on('click', function () {
+    //   console.log("姚姚真能吃")
+    // })
+
+    // 方法二: 把$使用权给释放 换成别的符号 $.noConflict();
+    // var jq = $.noConflict();
+    // var $ = 10;
+    // // Uncaught TypeError: $ is not a function
+    // jq('button').on('click', function () {
+    //   console.log("姚姚真能吃")
+    // })
+
+
+  </script>
+</body>
+
+</html>

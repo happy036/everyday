@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+
+</head>
+
+<body>
+    <img src="" alt="" id="im">
+    <script>
+        // let img = document.querySelector('img')
+        // fn()
+        // let time = setInterval(fn, 1000)
+
+        // function fn() {
+        //     let date = new Date()
+        //     let hour = date.getHours()
+        //     let s = date.getSeconds()
+        //     hour = hour > 9 ? hour : "0" + hour
+        //     s = s > 9 ? s : "0" + s
+        //     img.src = `./meimei/${hour}_${s}.jpg`
+        // }
+
+        // let img = document.querySelector("img")
+        // fn()
+        // let time = setInterval(fn, 1000)
+
+        // function fn() {
+        //     let date = new Date()
+        //     let hour = date.getHours()
+        //     let s = date.getSeconds()
+        //     hour = hour > 9 ? hour : "0" + hour
+        //     s = s > 9 ? s : "0" + s
+        //     img.src = `./meimei/${hour}_${s}.jpg`
+        // }
+
+        let img = document.querySelector("img")
+        fn()
+        let time = setInterval(fn, 1000)
+
+        function fn() {
+            let date = new Date()
+            let hour = date.getHours()
+            let s = date.getSeconds()
+            hour = hour > 9 ? hour : "0" + hour
+            s = s > 9 ? s : "0" + s
+            img.src = `./meimei/${hour}_${s}.jpg`
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <script src="./lib/jquery-3.4.1.min.js"></script>
+    <script>
+        // var $ = 10
+        // jQuery('button').on('click', function() {
+        //     console.log('你好')
+        // })
+
+        var jq = $.noConflict()
+        var $ = 10
+        jq('button').on('click', function() {
+            console.log('你好')
+        })
+    </script>
+</body>
+
+</html>

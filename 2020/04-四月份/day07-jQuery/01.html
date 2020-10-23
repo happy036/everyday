@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="add">添加数据</button>
+    <button class="get">获取数据</button>
+    <button class="remove">删除某一条数据</button>
+    <button class="cle">清空数据</button>
+    <script>
+        document.querySelector('.add').onclick = function() {
+                window.localStorage.setItem("name2", "张四")
+                localStorage.setItem('name', '["张三","里斯"]')
+                localStorage.setItem('name1', '{"name":"zs","age": 13,"family": "young"}')
+            }
+            // document.querySelector('.get').onclick = function() {
+            //     console.log(localStorage.getItem('name2'));
+            //     console.log(JSON.parse(localStorage.getItem('name')));
+            //     console.log(JSON.parse(localStorage.getItem('name1')));
+            // }
+            // document.querySelector('.remove').onclick = function() {
+            //     localStorage.removeItem('name2')
+            // }
+            // document.querySelector('.cle').onclick = function() {
+            //     localStorage.clear()
+            //  }
+    </script>
+</body>
+
+</html>

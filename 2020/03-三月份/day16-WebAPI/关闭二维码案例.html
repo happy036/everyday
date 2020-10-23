@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+        }
+        
+        .none {
+            display: none;
+        }
+        
+        i {
+            position: absolute;
+            top: 0;
+            left: -16px;
+            width: 16px;
+            height: 16px;
+            text-align: center;
+            line-height: 16px;
+            border: 1px solid #333;
+            border-right: none;
+        }
+        
+        img {
+            border: 1px solid #cccccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="2.jpg" alt="">
+        <i>X</i>
+    </div>
+    <script>
+        let i = document.querySelector('i')
+        let div = document.querySelector('div')
+        i.onclick = function() {
+            div.classList.add('none')
+        }
+
+        i.onclick = function() {
+            div.classList.add('none')
+        }
+
+        i.onclick = function() {
+            div.classList.add('none')
+        }
+    </script>
+</body>
+
+</html>

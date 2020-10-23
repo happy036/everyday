@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.timer {
+            margin: 100px auto;
+            width: 190px;
+            height: 260px;
+            background-image: url(1.png);
+        }
+        
+        .time {
+            position: absolute;
+            left: 50%;
+            margin-left: -61px;
+            top: 300px;
+            width: 122px;
+            overflow: hidden;
+        }
+        
+        .time span,
+        .time b {
+            float: left
+        }
+        
+        .time span {
+            width: 32px;
+            height: 32px;
+            background-color: black;
+            color: #fff;
+            line-height: 32px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        
+        .time b {
+            margin: 0 4px;
+            line-height: 32px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="timer">
+        <div class="time">
+            <span class="hour">00</span>
+            <b>:</b>
+            <span class="min">00</span>
+            <b>:</b>
+            <span class="second">00</span>
+        </div>
+    </div>
+    <script>
+        // let hour = document.querySelector('.hour')
+        // let min = document.querySelector('.min')
+        // let second = document.querySelector('.second')
+        // let open = +new Date('2020-3-22 00:00:00')
+        // let timer = setInterval(count, 1000)
+
+        // function count() {
+        //     let now = +new Date()
+        //     let times = (open - now)
+        //     let h = parseInt(times / 1000 / 60 / 60)
+        //     let mins = parseInt(times / 1000 / 60 % 60)
+        //     let s = parseInt(times / 1000 % 60)
+        //     h = h > 9 ? h : "0" + h
+        //     mins = mins > 9 ? mins : "0" + mins
+        //     s = s > 9 ? s : "0" + s
+        //     hour.innerHTML = h
+        //     min.innerHTML = mins
+        //     second.innerHTML = s
+        // }
+
+        // let hour = document.querySelector('.hour')
+        // let min = document.querySelector('.min')
+        // let second = document.querySelector('.second')
+        // let open = +new Date('2020-3-22 00:00:00')
+        // let timer = setInterval(count, 1000)
+
+        // function count() {
+        //     let now = +new Date()
+        //     let times = (open - now)
+        //     let h = parseInt(times / 1000 / 60 / 60)
+        //     let mins = parseInt(times / 1000 / 60 % 60)
+        //     let s = parseInt(times / 1000 % 60)
+        //     h = h > 9 ? h : "0" + h
+        //     mins = mins > 9 ? mins : "0" + mins
+        //     s = s > 9 ? s : "0" + s
+        //     hour.innerHTML = h
+        //     min.innerHTML = mins
+        //     second.innerHTML = s
+        // }
+
+        // let hour = document.querySelector('.hour')
+        // let min = document.querySelector('.min')
+        // let second = document.querySelector('.second')
+        // let open = +new Date('2020-3-22 00:00:00')
+        // let timer = setInterval(count, 1000)
+
+        // function count() {
+        //     let now = +new Date()
+        //     let times = (open - now)
+        //     let h = parseInt(times / 1000 / 60 / 60)
+        //     let mins = parseInt(times / 1000 / 60 % 60)
+        //     let s = parseInt(times / 1000 % 60)
+        //     h = h > 9 ? h : "0" + h
+        //     mins = mins > 9 ? mins : "0" + mins
+        //     s = s > 9 ? s : "0" + s
+        //     hour.innerHTML = h
+        //     min.innerHTML = mins
+        //     second.innerHTML = s
+        // }
+    </script>
+</body>
+
+</html>
