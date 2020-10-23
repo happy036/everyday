@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 2.用指定整数替换指定数组中的元素值，要求：
+        // 使用javasctipt实现如下要求完成：
+        // 1).定义一个数组arr，数组arr的值分别是1、2、3、4、5、6、7、8、9
+        // 2).用户输出一个新的的整数num
+        // 3).如果整数num为偶数，则用num替换数组arr中所有的偶数下标的元素值，
+        //   如果整数num为奇数，则用num替换数组arr中所有的奇数下标的元素值
+        // 4)	.在控制台上打印修改后的数组中的所有的元素值
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        var num = +prompt("请您输入一个新的整数")
+        for (var i = 0; i < arr.length; i++) {
+            if (num % 2 == 0 && i % 2 == 0) {
+                arr[i] = num
+            } else if (num % 2 != 0 && i % 2 != 0) {
+                arr[i] = num
+            }
+        }
+        alert(arr)
+
+
+        // 3. 编写函数function getNumTimes(),函数中完成下面功能：
+        //  1)函数中定义长度是5的数组，数组元素为1-99(包含1和99)之间的随机数，打印出该数组的元素。
+        //  2)提示用户输入2-5之间的数字num,
+        //  3)遍历数组arr,
+        //  4)筛选出数组中元素是num整数倍的所有数组元素，存放进一个新的数组中，该新的数组作为该方法返回值返回
+        function getNumTimes() {
+            var arr = []
+            for (var i = 0; i < 5; i++) {
+                arr.push(Math.ceil(Math.random() * (99 - 1) + 1))
+            }
+            alert(arr)
+            var num = +prompt("请输入2~5之间的数字")
+            var arr1 = []
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] % num == 0) {
+                    arr1.push(arr[i])
+                }
+            }
+            return arr1
+        }
+        alert(getNumTimes())
+
+        // 4.用户定义一个数字，数字的范围在 1-9999之间， 
+        // 如果输入的数字是 1位数，则数字前面补全 3个0，使之成为”000x”
+        // 如果输入的数字是2位数，则数字前面补全2个0,  使之成为”00xx”
+        // 如果输入的数字是3位数，则数字前面补全1个0，使之成为”0xxx”
+        // 如果输入的数字是4位数，则不用补全。
+        // 最后将结果打印出来。
+
+        var  num  =  +prompt("请输入范围1-9999之间的数字")
+        if (num >= 1 && num < 10) {
+            alert("000" + num)
+        } else if (num >= 10 && num < 100) {
+            alert("00" + num)
+        } else if (num >= 100 && num < 1000) {
+            alert("0" + num)
+        } else {
+            alert(num)
+        }
+    </script>
+</body>
+
+</html>

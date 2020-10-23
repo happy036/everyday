@@ -1,0 +1,28 @@
+header {
+  background-color: #1a1a1f;
+  overflow: hidden;
+}
+
+header a {
+  font-size: calc(33rem / 75);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.return {
+  float: left;
+  margin-left: calc(21rem / 75);
+}
+
+.off {
+  float: left;
+  margin-left: calc(21rem / 75);
+}
+
+h3 {
+  float: left;
+  font-size: calc(36rem / 75);
+  color: #ffffff;
+  margin-left: calc(104rem / 75);
+}
+/*# sourceMappingURL=750-1.css.map */

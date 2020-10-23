@@ -1,0 +1,287 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: calc(90rem / 64);
+    background-color: #ff9b25;
+}
+
+header i {
+    position: absolute;
+    top: calc(29rem / 64);
+    left: calc(21rem / 64);
+    width: calc(20rem / 64);
+    height: calc(32rem / 64);
+    background-image: url(../images/Rectangle1copy16.png);
+    background-size: calc(20rem / 64) calc(32rem / 64);
+}
+
+header span {
+    font-size: calc(32rem / 64);
+    line-height: calc(90rem / 64);
+    color: #fff;
+    margin-left: calc(56rem / 64);
+}
+
+main {
+    width: 100%;
+    background-color: #f7f4f1;
+    padding: 0 calc(24rem / 64);
+    box-sizing: border-box;
+}
+
+.one {
+    width: 100%;
+    overflow: hidden;
+}
+
+.one-title {
+    padding-top: calc(28rem / 64);
+    padding-bottom: calc(28rem / 64);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.one-title h3 {
+    float: left;
+    font-size: calc(26rem / 64);
+}
+
+.one-title span {
+    float: right;
+    font-size: calc(26rem / 64);
+    color: #a1a0a0;
+}
+
+.one-show {
+    overflow: hidden;
+    width: calc(592rem / 64);
+    height: calc(319rem / 64);
+    background-image: url(../images/椭圆3副本232.png);
+    background-size: calc(592rem / 64) calc(238rem / 64);
+    background-repeat: no-repeat;
+    background-color: #fff;
+    padding: 0 calc(28rem / 64);
+    box-sizing: border-box;
+    border-radius: calc(7rem / 64);
+}
+
+.one-show h3 {
+    font-size: calc(45rem / 64);
+    color: #fff;
+    padding-top: calc(36rem / 64);
+    margin-bottom: calc(14rem / 64);
+}
+
+.one-show p {
+    font-size: calc(32rem / 64);
+    color: #bdf3ce;
+}
+
+.time {
+    height: calc(35rem / 64);
+    margin-top: calc(26rem / 64);
+}
+
+.time span {
+    position: relative;
+    float: left;
+    font-size: calc(20rem / 64);
+    color: #fff;
+    padding-left: calc(31rem / 64);
+    box-sizing: border-box;
+}
+
+.time span::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: calc(24rem / 64);
+    height: calc(24rem / 64);
+    background-image: url(../images/形状1.png);
+    background-size: calc(24rem / 64) calc(24rem / 64);
+    background-repeat: no-repeat;
+}
+
+.time b {
+    float: right;
+    font-weight: normal;
+    padding: calc(4rem / 64);
+    box-sizing: border-box;
+    background-color: #2a603b;
+    border-radius: calc(5rem / 64);
+    color: #b7ecc7;
+}
+
+.share {
+    width: 100%;
+    margin-top: calc(24rem / 64);
+    padding: calc(11rem / 64) 0;
+    box-sizing: border-box;
+}
+
+.share a {
+    display: inline-block;
+    font-size: calc(26rem / 64);
+    color: #888888;
+    width: 49%;
+    padding: calc(12rem / 64) 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+.share a:first-child {
+    position: relative;
+    border-right: 1px solid #e8e2d9;
+    box-sizing: border-box;
+}
+
+.share a:first-child::before {
+    content: "";
+    position: absolute;
+    top: calc(17rem / 64);
+    left: calc(61rem / 64);
+    width: calc(27rem / 64);
+    height: calc(27rem / 64);
+    background-image: url(../images/圆角矩形\ 2.png);
+    background-size: calc(27rem / 64) calc(27rem / 64);
+}
+
+.share a:last-child {
+    position: relative;
+}
+
+.share a:last-child::before {
+    content: "";
+    position: absolute;
+    top: calc(17rem / 64);
+    left: calc(57rem / 64);
+    width: calc(26rem / 64);
+    height: calc(29rem / 64);
+    background-image: url(../images/share.png);
+    background-size: calc(26rem / 64) calc(29rem / 64);
+}
+
+.two-show {
+    overflow: hidden;
+    width: calc(592rem / 64);
+    height: calc(252rem / 64);
+    padding: 0 calc(28rem / 64);
+    background-image: url(../images/SALE副本.png);
+    background-size: calc(592rem / 64) calc(225rem / 64);
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+}
+
+.tstop b {
+    font-size: calc(30rem / 64);
+    color: #fff;
+}
+
+.tstop p {
+    display: inline-block;
+    font-size: calc(69rem / 64);
+    color: #fff;
+}
+
+.tstop span {
+    font-size: calc(24rem / 64);
+    color: #eac7f7;
+}
+
+.t-time p {
+    color: #ffffff;
+    font-size: calc(22rem / 64);
+    margin-top: calc(30rem / 64);
+    padding-bottom: calc(14rem / 64);
+}
+
+.t-time b {
+    float: left;
+    font-weight: normal;
+    font-size: calc(20rem / 64);
+    color: #fff;
+}
+
+.t-time span {
+    float: right;
+    font-size: calc(22rem / 64);
+    padding: calc(4rem / 64);
+    box-sizing: border-box;
+    background-color: #6a4279;
+    color: #f2d8fb;
+    border-radius: calc(5rem / 64)
+}
+
+.two-show2 {
+    overflow: hidden;
+    width: calc(592rem / 64);
+    height: calc(319rem / 64);
+    background-image: url(../images/椭圆3副本23.png);
+    background-size: calc(592rem / 64) calc(238rem / 64);
+    background-repeat: no-repeat;
+    background-color: #fff;
+    padding: 0 calc(28rem / 64);
+    box-sizing: border-box;
+    border-radius: calc(7rem / 64);
+}
+
+.share2 {
+    width: 100%;
+    margin-top: calc(74rem / 64);
+    padding: calc(11rem / 64) 0;
+    box-sizing: border-box;
+}
+
+.share2 a {
+    display: inline-block;
+    font-size: calc(26rem / 64);
+    color: #888888;
+    width: 32.333%;
+    padding: calc(12rem / 64) 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+.share2 a:first-child {
+    position: relative;
+}
+
+.share2 a:first-child::before {
+    content: "";
+    position: absolute;
+    top: calc(0rem / 64);
+    left: calc(0rem / 64);
+    width: calc(26rem / 64);
+    height: calc(29rem / 64);
+    background-image: url(../images/share副本.png);
+    background-position: 0 0;
+}
+
+.three {
+    width: calc(595rem / 64);
+    height: calc(228rem / 64);
+    background-image: url(../images/添加优惠.png);
+    background-size: calc(595rem / 64) calc(228rem / 64);
+    background-repeat: no-repeat;
+    margin: calc(26rem / 64) 0;
+}
+
+.four {
+    font-size: calc(26rem / 64);
+    color: #b3b2b1;
+    padding: calc(34rem / 64) 0;
+    padding-bottom: calc(59rem / 64);
+}
+
+.four p:nth-child(2) {
+    padding: calc(17rem / 64) 0;
+}

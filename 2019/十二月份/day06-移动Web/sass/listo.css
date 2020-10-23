@@ -1,0 +1,50 @@
+li {
+  height: 40px;
+}
+
+li a {
+  display: inline-block;
+  width: 37px;
+  height: 40px;
+  background-image: url(../img/spirte.png);
+  background-repeat: no-repeat;
+  background-color: #fbfbfb;
+}
+
+li:first-child a {
+  background-position: -1px 0px;
+}
+
+li:nth-child(2) a {
+  background-position: -2px -483px;
+}
+
+li:nth-child(3) a {
+  background-position: -1px -521px;
+}
+
+li:nth-child(4) a {
+  background-position: -2px -240px;
+}
+
+li:nth-child(5) a {
+  background-position: -43px -561px;
+  background-color: #f97f67;
+}
+
+li span {
+  display: inline-block;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  vertical-align: top;
+  padding-left: 5px;
+  padding-right: 13px;
+}
+
+li span:last-child {
+  display: none;
+  background-color: #f97f67;
+}
+/*# sourceMappingURL=listo.css.map */

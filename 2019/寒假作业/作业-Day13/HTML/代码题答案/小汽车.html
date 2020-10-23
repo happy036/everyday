@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            width: 100px;
+            height: 50px;
+            animation: car 10s infinite;
+        }
+        
+        @keyframes car {
+            0% {
+                transform: translateX(0);
+            }
+            45% {
+                transform: translate(1000px);
+            }
+            50% {
+                transform: translate(1000px) rotateY(180deg);
+            }
+            90% {
+                transform: translate(0) rotateY(180deg);
+            }
+            100% {
+                transform: translate(0) rotate(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../代码题/images/car.jpg" alt="">
+</body>
+
+</html>

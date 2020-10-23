@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 定义一个函数， 接收一个字符串， 将接收的字符串首字母转大写， 其余字母转小写， 返回转换后的字符串
+    // 示例： 输入 "helloWORLD"
+    // 返回： "Helloworld"
+
+    // 我的
+    // var str = "helloWORLD"
+
+    // function change(str) {
+    //   // 这个的意思就是将首字母大写,      从第二个字母到最后转小写
+    //   str = str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+
+    //   return str
+    // }
+    // console.log(change(str)) // Helloworld
+
+
+    // 袁旭东
+    // var str = "helloWORLD"
+    // // 将所有的字符串转成小写
+    // str = str.toLowerCase();
+    // // 用第一个字符的大写，题换以前的第一个字符
+    // str = str.replace(str[0], str[0].toUpperCase())
+    // console.log(str) // Helloworld
+
+
+    // 周可
+    // let input = 'helloWORLD'
+    // // 将所有的字符串转成小写,然后转成字符串数组
+    // let result = input.toLowerCase().split(""); //["h","e",...]
+    // // 数组的第0项转成大写"H"，覆盖原来的"h"
+    // result[0] = result[0].toUpperCase();
+    // // 打印转换好的字符串
+    // let str = '';
+    // for (let i = 0; i < result.length; i++) {
+    //   // 然后周可做了一个字符串的拼接
+    //   str += result[i];
+    // }
+    // console.log(str);   // Helloworld
+
+
+
+    // 范志伟
+    // var str = 'helloWORLD';
+
+    // function fn(str) {
+    //   // 转字符串数组
+    //   var arr = str.split('');
+    //   // 数组的第1项转成大写，并且把"H"添加到新数组xarr
+    //   var xarr = [arr[0].toUpperCase()];
+    //   // 循环遍历数组，
+    //   for (var i = 1; i < arr.length; i++) {
+    //     xarr.push(arr[i].toLowerCase());
+    //   }
+    //   return xarr.join('') // 转字符串
+    // }
+    // var jg = fn(str);
+    // console.log(jg); // Helloworld
+
+
+    // 徐启超
+    // var str = "helloWORLD";
+    // // 将所有字符变成小写
+    // str = str.toLowerCase();
+    // // 提取首字母转换为大写并与其余的字母拼接起来
+    // var str = str.charAt(0).toUpperCase() + str.slice(1);
+    // console.log(str)
+
+
+
+
+
+    // 2. 接收用户输入的一句英文， 将其中的单词以反序输出。 "how are you" - > "woh era uoy"
+    // 1).切割空格 [
+    //   "how",
+    //   "are",
+    //   "you"
+    // ]
+    // 2).取出每个字符反转
+    // 3) 拼接反转后的字符串
+
+    // var str = "how are you"
+    // var arr = str.split(" ");
+    // console.log(arr) // ["how", "are", "you"]   
+
+    // // 2).取出每个字符反转
+    // for (var i = 0; i < arr.length; i++) {
+    //   // 数组的每一项是一个字符串
+    //   // ["h","o","w"]
+    //   arr[i] = arr[i].split("").reverse().join("")
+    // }
+    // console.log(arr) // ["woh", "era", "uoy"]
+
+    // // 3) 拼接反转后的字符串
+    // // 将数组转成字符串
+    // console.log(arr.join(" ")) // woh era uoy
+
+
+
+
+    // 3. 获取指定数组中元素值为偶数并且小于指定整数的元素个数， 要求如下：
+    // 使用javascript定义函数完成要求： 获取指定数组arr中元素值小于指定整数 newnum并且元素值为偶数的元素个数， 返回获取到的元素个数
+    // 1) 定义数组arr
+    // 2) 用户输入5个整数， 并存入数组arr中， 输入前提示当前输入的是第几个整数
+    // 3) 用户在输入1个整数newnum
+    // 4) 传递数组arr和num调用getInfo(arr, num) 函数， 获取返回值， 并在控制台打印输出
+    // var arr = []
+    // for (var i = 1; i <= 5; i++) {
+    //   var number = +prompt(`请您输入第${i}个整数`)
+    //   // 把数据存储都数组里面
+    //   arr.push(number)
+    // }
+
+    // var newnum = +prompt("请您在输入一个整数")
+
+    // function getInfo(arr, num) {
+    //   // 累加个数
+    //   var count = 0;
+    //   for (var i = 0; i < arr.length; i++) {
+    //     if (arr[i] < num && arr[i] % 2 == 0) {
+    //       count++;
+    //     }
+    //   }
+    //   return count;
+    // }
+
+    // console.log(getInfo(arr, newnum))
+
+
+
+    // 4. 使用javascrpt完成如下功能：
+    // 1） 给定如下数据：
+    // 花卉数据（ 每行数据分别代表： 分类、 名称、 价格、 产地。 都属于花卉类）
+    // 多肉植物, 金手指, 30, 中国
+    // 多肉植物, 仙人掌, 10, 中国
+    // 观花植物, 风信子, 28, 法国
+    // 观花植物, 紫罗兰, 19, 法国
+    // 水培植物, 米兰花, 20, 俄罗斯
+    // 水培植物, 铁兰, 26, 俄罗斯
+
+    // 1. 定义花卉对象， 对象拥有
+    // 属性： 名称type， 类别name， 价格price， 产地addr， 对象的属性值是上面的数据
+
+    // 2） 完成功能如下：
+    // 功能1
+    // 补全函数，
+    // function getFlowers() 获取存放有花卉对象的数组， 将下面每行数据封装成一个对象， 将所有的对象放入到一个数组中， 将数组返回
+    function getFlowers() {   
+      var arr = [{    
+        type: '多肉植物',   
+        name: '金手指',
+        price: 30,
+        addr: '中国'
+      }, {
+        type: '多肉植物',
+        name: '仙人掌',
+        price: 10,
+        addr: '中国'
+      }, {
+        type: '观花植物',
+        name: '风信子',
+        price: 28,
+        addr: '法国'
+      }, {
+        type: '观花植物',
+        name: '紫罗兰',
+        price: 19,
+        addr: '法国'
+      }, {
+        type: '水培植物',
+        name: '米兰花',
+        price: 20,
+        addr: '俄罗斯'
+      }, {
+        type: '水培植物',
+        name: '铁兰',
+        price: 26,
+        addr: '俄罗斯'
+      }]
+
+      return arr
+
+    }
+
+    var arr = getFlowers();
+    console.log(arr)
+
+    // 功能2
+    // 补全函数，
+    // function printAvgPrice(flowerList, flowerType)， 第一个参数为花卉对象数组， 第二个参数为花卉类别， 该方法求出花卉类数组中 该
+    //花卉类别的平均价格， 将价格打印在控制台上。
+    // 格式： 多肉植物: 20 元
+
+    // function printAvgPrice(flowerList, flowerType) {
+    //   // 累加金额
+    //   var totalprice = 0;
+    //   // 累加数量
+    //   var count = 0;
+
+    //   for (var i = 0; i < arr.length; i++) {
+    //     if (arr[i].type == flowerType) {
+    //       totalprice += arr[i].price
+    //       count++;
+    //     }
+    //   }
+    //   return `${flowerType}的平均价格是${totalprice/count}`
+    // }
+    // console.log(printAvgPrice(arr, "水培植物"))  
+
+
+    // 功能3
+    // function getMinAddr(flowerList) 找出传入参数的花卉对象数组中, 价格最低的花卉对象所在的产地名称， 将产地名称返回
+     function getMinAddr(flowerList){
+        // 假设一个价格最低的
+        var min = flowerList[0].price;
+        // 假设最小值的索引是0
+        var minIndex = 0;
+        for(var i = 0;i<flowerList.length;i++){
+          if(min>flowerList[i].price){
+            min = flowerList[i].price
+            //找最小值的索引
+            minIndex = i;
+          }
+        }
+        return `价格最小的产地是${flowerList[minIndex].addr}`
+     }
+      getMinAddr(arr)
+
+  
+  </script>
+</body>
+
+</html>

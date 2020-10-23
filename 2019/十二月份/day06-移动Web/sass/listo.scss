@@ -1,0 +1,44 @@
+@mixin kuan{
+    width: 37px;
+    height: 40px;
+}
+li{
+    height: 40px;
+    a{
+        display: inline-block;
+        @include kuan;
+        background-image: url(../img/spirte.png);
+        background-repeat: no-repeat;
+        background-color: #fbfbfb;
+    }
+    &:first-child a{
+        background-position: -1px 0px;
+    }
+    &:nth-child(2) a{
+        background-position: -2px -483px;
+    }
+    &:nth-child(3) a{
+        background-position: -1px -521px;
+    }
+    &:nth-child(4) a{
+        background-position: -2px -240px;
+    }
+    &:nth-child(5) a{
+        background-position: -43px -561px;
+        background-color: #f97f67;
+    }
+    span{
+        display: inline-block;
+        font-size: 12px;
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+        vertical-align: top;
+        padding-left: 5px;
+        padding-right: 13px;
+        &:last-child{
+            display: none;
+            background-color: #f97f67;
+        }
+    }
+}

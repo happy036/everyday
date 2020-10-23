@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //3.下列代码控制台打印出的值是多少？写出执行过程
+function test(){  
+      b();  
+      var a=1;
+     function b(){
+          console.log(a);  // ？
+          var a=2;
+      }
+}
+test(); 
+/*分为两部分 第一部分为2-9   只读不执行   第二部分为10   执行
+调用函数test  执行里面的代码 调用函数b  因为a只声明 没赋值 所以返回结果为undefined*/
+
+    </script>
+</body>
+</html>

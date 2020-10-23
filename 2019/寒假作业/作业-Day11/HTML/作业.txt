@@ -1,0 +1,46 @@
+1.伸缩布局 （总结所有的知识点 主轴、侧轴）
+
+(1) display:flex
+    给谁添加了display:flex,谁就是伸缩容器
+(2) 主轴方向
+    1.只要将一个元素变为了伸缩的容器, 那么里面的伸缩项自动就会水平排版
+    2.默认会按照主轴从左向右的方向排版
+    flex-direction:属性就是专门用于设置主轴的方向的,
+    默认取值是row(从左至右)
+    row-reverse(从右至左)
+    flex-direction: column(主轴修改为垂直方向)
+(3) 伸缩项主轴的对齐方式
+    justify-content: flex-start;设置伸缩容器中的伸缩项, 和伸缩容器主轴的起点对齐    
+    justify-content: flex-end设置伸缩容器中的伸缩项, 和伸缩容器主轴的终点对齐
+    justify-content: center;设置伸缩容器中的伸缩项居中
+    justify-content: space-between; 两端对齐, 第一个伸缩项会和主轴的起点对齐,最后一个伸缩项会和主轴的终点对齐,其它项目平分多余的间隙
+    justify-content: space-around; 环绕对齐, 给所有伸缩项的两遍都添加间隙
+(4) 伸缩项侧轴的对齐方式
+    align-items: flex-start 侧轴的默认对齐方式: 和侧轴的起点对齐    
+    align-items: flex-end和侧轴的终点对齐
+    align-items: center 和侧轴的中点对齐
+    align-items: baseline按照所有伸缩项内容的基线对齐
+    align-items: stretch拉伸对齐
+(5) 主轴侧轴交叉问题
+    无论主轴变为从上至下, 还是从下至上
+    侧轴永远都会和主轴十字交叉, 但是侧轴的起点永远都在左边
+(6) 伸缩布局的换行显示
+    伸缩容器宽度小于所有伸缩项宽度时, 系统会自动等比缩放伸缩项
+    如果不想让系统自动等比缩放伸缩项, 那么可以设置一个属性
+    flex-wrap: wrap;    
+    默认值:flex-wrap: nowrap;
+    flex-wrap: wrap-reverse 将最前面一行显示到最后一行, 其它行依次往上显示
+    注意点: 设置行的对齐方式, 参考点就是侧轴
+(7) 侧轴换行的行对齐方式
+    align-content: flex-start
+    align-content: flex-end
+    align-content: center
+    align-content: space-between
+    align-content: space-around
+    align-content:strech(默认值)
+    属性的含义和justify-content一样
+(8) 伸缩项排序
+    在伸缩布局中, 可以利用order属性来给伸缩项进行排序
+    默认情况下order的取值是0, 那么order会按照取值的大小来排序
+    值小的排在前面, 值大的排在后面
+2.代码题

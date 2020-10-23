@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/reset.css">
+    <style>
+        html,
+        body {
+            background-color: #c9cdcd;
+        }
+        
+        .show {
+            margin: 0 auto;
+            width: 542px;
+        }
+        
+        header {
+            width: 542px;
+            height: 108px;
+        }
+        
+        header a {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        
+        header a img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .nav {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        
+        .one,
+        .two {
+            display: flex;
+            width: 100%;
+            height: 90px;
+            border-radius: 5px;
+        }
+        
+        .one {
+            margin-bottom: 5px;
+        }
+        
+        .left {
+            flex: 1;
+            text-align: center;
+            padding-top: 16px;
+        }
+        
+        .left span {
+            color: #fff;
+        }
+        
+        .left p {
+            margin: 0 auto;
+            margin-top: 16px;
+        }
+        
+        .one:nth-child(1) .left p {
+            width: 46px;
+            height: 31px;
+            background-image: url(../代码题/img/sprite.png);
+            background-position: 6px -104px;
+            background-size: 182%;
+        }
+        
+        .one:nth-child(2) .left p {
+            width: 46px;
+            height: 31px;
+            background-image: url(../代码题/img/sprite.png);
+            background-position: 6px -234px;
+            background-size: 182%;
+        }
+        
+        .one:nth-child(3) .left p {
+            width: 46px;
+            height: 31px;
+            background-image: url(../代码题/img/sprite.png);
+            background-position: 8px -146px;
+            background-size: 182%;
+        }
+        
+        .two {
+            flex-wrap: wrap;
+        }
+        
+        .two a {
+            display: block;
+            width: 33.333%;
+            height: 45px;
+            border-left: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 45px;
+            color: #fff;
+        }
+        
+        .two a:nth-last-child(-n+3) {
+            border-bottom: none;
+        }
+        
+        .two a:nth-child(1),
+        .two a:nth-child(4) {
+            border-left: none;
+        }
+        
+        .right {
+            display: flex;
+            flex-wrap: wrap;
+            flex: 2;
+        }
+        
+        .right a {
+            display: block;
+            width: 50%;
+            height: 45px;
+            border-left: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 45px;
+            color: #fff;
+        }
+        
+        .right a:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+        
+        .one:nth-child(1) {
+            background-color: #ff7878;
+        }
+        
+        .one:nth-child(2) {
+            background-color: #3495ff;
+        }
+        
+        .one:nth-child(3) {
+            background-color: #3baf1e;
+        }
+        
+        .two {
+            background-color: #ff9a1a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="show">
+        <header>
+            <a href="#"><img src="../代码题/img/banner.jpg" alt=""></a>
+        </header>
+        <main>
+            <div class="nav">
+                <div class="one">
+                    <div class="left">
+                        <span>酒店</span>
+                        <p></p>
+                    </div>
+                    <div class="right">
+                        <a href="#">海外酒店</a>
+                        <a href="#">团购</a>
+                        <a href="#">特价酒店</a>
+                        <a href="#">民宿.客栈</a>
+                    </div>
+                </div>
+                <div class="one">
+                    <div class="left">
+                        <span>酒店</span>
+                        <p></p>
+                    </div>
+                    <div class="right">
+                        <a href="#">海外酒店</a>
+                        <a href="#">团购</a>
+                        <a href="#">特价酒店</a>
+                        <a href="#">民宿.客栈</a>
+                    </div>
+                </div>
+                <div class="one">
+                    <div class="left">
+                        <span>酒店</span>
+                        <p></p>
+                    </div>
+                    <div class="right">
+                        <a href="#">海外酒店</a>
+                        <a href="#">团购</a>
+                        <a href="#">特价酒店</a>
+                        <a href="#">民宿.客栈</a>
+                    </div>
+                </div>
+                <div class="two">
+                    <a href="#">团购</a>
+                    <a href="#">民宿.客栈</a>
+                    <a href="#">海外酒店</a>
+                    <a href="#">团购</a>
+                    <a href="#">特价酒店</a>
+                    <a href="#">民宿.客栈</a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

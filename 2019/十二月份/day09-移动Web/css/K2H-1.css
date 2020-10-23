@@ -1,0 +1,76 @@
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    header {
+        position: relative;
+        width: 100%;
+        height: calc(90rem / 64);
+        background-color: #ff9b25;
+    }
+    
+    header i {
+        position: absolute;
+        top: calc(29rem / 64);
+        left: calc(21rem / 64);
+        width: calc(20rem / 64);
+        height: calc(32rem / 64);
+        background-image: url(../images/Rectangle1copy16.png);
+        background-size: calc(20rem / 64) calc(32rem / 64);
+    }
+    
+    header span {
+        font-size: calc(32rem / 64);
+        line-height: calc(90rem / 64);
+        color: #fff;
+        margin-left: calc(56rem / 64);
+    }
+    
+    main {
+        width: 100%;
+        background-color: #f7f4f1;
+        padding: calc(27rem / 64) calc(24rem / 64) 0 calc(24rem / 64);
+        box-sizing: border-box;
+    }
+    
+    .one {
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    .one-title h3 {
+        float: left;
+        font-size: calc(26rem / 64);
+        margin-top: calc(28rem / 64);
+        margin-bottom: calc(32rem / 64);
+    }
+    
+    .one-title span {
+        float: right;
+        font-size: calc(26rem / 64);
+        color: #a1a0a0;
+        margin-top: calc(28rem / 64);
+        margin-bottom: calc(32rem / 64);
+    }
+    
+    .one-show img {
+        width: 100%;
+        height: calc(227rem / 64);
+    }
+    
+    footer {
+        width: 100%;
+        background-color: #f7f4f1;
+        padding-top: calc(122rem / 64);
+        padding-bottom: calc(165rem / 64);
+    }
+    
+    footer p {
+        color: #a1a0a0;
+        font-size: calc(22rem / 64);
+        line-height: calc(36rem / 64);
+    }

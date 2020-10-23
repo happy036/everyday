@@ -1,0 +1,109 @@
+1.总结浏览器内核。
+safari   Webkit内核
+chrome(opera)  Blink内核
+ie  Trident内核
+firefox  Gecko内核
+
+2.Web 标准构成以及好处
+标准构成：
+结构(structure) 表现(presentation)  行为(Behavior)
+
+好处：
+1.让web的发展前景更广阔
+2.内容能被更广泛的设备访问
+3.更容易被搜索引擎搜索
+4.降低网站流量费用
+5.使网站更易于维护
+6.提高页面浏览速度
+
+3**1.关于WEB标准下列说法正确的是: ** C
+
+A html决定页面的行为，css决定页面的样式，js决定页面的结构
+
+B html决定页面的样式，css决定页面的结构，js决定页面的行为
+
+C html决定页面的结构，css决定页面的样式，js决定页面的行为
+
+D 以上都不正确
+
+
+4. **web 标准里边规定三层分离不包括哪部分** D
+
+A．HTM
+
+B．CSS
+
+C．JavaScript
+
+D．PHP
+
+
+5.**关于WEB标准下列说法正确的是** B
+
+A．html相当于人的动作行为，CSS相当于人的穿着打扮，javascript相当于人的骨架结构；
+
+B．html相当于人的骨架结构，CSS相当于人的穿着打扮，javascript相当于人的动作行为；
+
+C．html相当于人的穿着打扮，CSS相当于人的骨架结构，javascript相当于人的动作行为；
+
+D．html相当于人的骨架结构，CSS相当于人的动作行为，javascript相当于人的穿着打扮；
+
+
+6.HTML 的了解及认识。
+HTML是一种用来描述网页的标记性语言。
+HTML文档基本结构:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网页标题</title>
+</head>
+<body>
+</body>
+</html>
+
+7.文档类型<!DOCTYPE>的作用，字符集<meta charset="UTF-8" />的作用
+<!DOCTYPE>的作用：
+告知浏览器文档使用哪种HTML或XHTML规范
+字符集<meta charset="UTF-8" />的作用：
+便于计算机能够识别和存储各种文字
+
+8.总结我们学过的所有标签，例如：p 块级 独占一行 是具有段落的语义
+<html>   定义 HTML 文档。
+     <head>   定义关于文档的信息。
+     <title>  定义文档的标题。
+     <body>   定义文档的主体。
+     <h1> 一级标题 独占一行 是具有段落的语义
+     <h2> 二级标题 独占一行 是具有段落的语义
+     <h3> 三级标题 独占一行 是具有段落的语义
+     <b> 定义粗体文本。
+     <del> 定义被删除文本。
+     <em> 定义强调文本。
+     <i> 定义斜体文本。 
+     <hr> 定义水平线。
+     <br> 定义简单的折行。
+     <img> 定义图像。
+     <video>   定义视频
+     <a> 定义超链接
+     <link> 定义文档与外部资源的关系。
+     <ul> 定义无序列表。
+     <ol> 定义有序列表。
+     <li> 定义列表的项目。
+    <form> 定义供用户输入的 HTML 表单。
+     <input> 定义输入控件。
+     <textarea> 定义多行的文本输入控件。
+     <button> 定义按钮。
+     <select> 定义选择列表（下拉列表）。
+     <option> 定义选择列表中的选项。
+     <table> 定义表格
+     <th> 定义表格中的表头单元格。
+     <tr> 定义表格中的行。
+     <td> 定义表格中的单元。
+     <div> 定义文档中的节。
+     <span> 定义文档中的节。
+     <style> 定义文档的样式信息。
+     <header>  定义 section 或 page 的页眉。 HTML5新标签
+     <footer> 定义 section 或 page 的页脚。 HTML5新标签
+
+9.代码题
+

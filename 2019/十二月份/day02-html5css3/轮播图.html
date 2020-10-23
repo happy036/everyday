@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .show{
+            position: relative;
+            width: 900px;
+            height: 200px;
+            border: 1px solid black;
+            overflow: hidden;
+            margin: 100px auto;
+        }
+        ul{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            width: 3000px;
+            animation:qianxi 4s  linear infinite;
+            overflow: hidden;
+        }
+        .show:hover ul {
+      animation-play-state: paused;
+    }
+ 
+        @keyframes qianxi{
+            0%{
+                left: 0;
+            }
+              100% {left: -550px;
+              }
+        }
+
+        li{
+            float: left;
+        }
+        li img{
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="show">
+        <ul>
+            <li><img src="./img/微信图片_20191003204753.jpg" alt=""></li>
+            <li><img src="./img/微信图片_20191106210305.jpg" alt=""></li>
+            <li><img src="./img/微信图片_20191106210319.jpg" alt=""></li>
+            <li><img src="./img/微信图片_20191106210325.jpg" alt=""></li>
+            <li><img src="./img/微信图片_20191106210329.jpg" alt=""></li>
+            <li><img src="./img/微信图片_20191003204753.jpg" alt=""></li>
+            <li><img src="./img/微信图片_20191106210305.jpg" alt=""></li>
+            <li><img src="./img/微信图片_20191106210319.jpg" alt=""></li>
+            <li><img src="./img/微信图片_20191106210325.jpg" alt=""></li>
+            <li><img src="./img/微信图片_20191106210329.jpg" alt=""></li>           
+        </ul>
+    </div>
+</body>
+</html>

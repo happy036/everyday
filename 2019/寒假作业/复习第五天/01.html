@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str = prompt("请输入一句英文")
+        str1 = str.split(" ")
+        for (var i = 0; i < str1.length; i++) {
+            var str2 = ""
+            for (var j = str1.length - 1; j >= 0; j--) {
+                str2 += str1[i][j]
+            }
+            str1[i] = str2
+        }
+        str = str1.join(" ")
+        console.log(str)
+    </script>
+</body>
+
+</html>

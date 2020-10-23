@@ -1,0 +1,47 @@
+div {
+  background-color: 0;
+  width: 500px;
+  height: 500px;
+}
+
+div {
+  background-color: #000000;
+}
+
+.flash-content span {
+  font-size: 24px;
+}
+
+.flash-content span a {
+  font-size: 10px;
+}
+
+.flash-content span a i {
+  font-size: 9px;
+}
+
+.flash-content:hover {
+  color: 0;
+}
+
+article ~ article {
+  border-top: 1px solid #cccccc;
+}
+
+article > footer {
+  background-color: #eeeeee;
+}
+
+article dl > dt {
+  color: #333333;
+}
+
+article dl > dd {
+  color: #555555;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+}
+/*# sourceMappingURL=min.css.map */

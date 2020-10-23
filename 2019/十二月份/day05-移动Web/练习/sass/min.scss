@@ -1,0 +1,54 @@
+@import"./mon.scss";
+$red:#000000;
+
+div{
+    background-color: $red;
+}
+
+.flash-content{
+    span{
+        font-size: 24px;
+
+        a{
+            font-size: 10px;
+
+            i{
+                font-size: 9px;
+            }
+        }
+    }
+    &:hover{
+        color: blue($color: #000000);
+    }
+
+
+}
+
+article{
+    ~article{
+        border-top: 1px solid #cccccc;
+    }
+    >footer{
+        background-color: #eeeeee;
+    }
+    dl >{
+        dt{
+            color: #333333;
+        }
+        dd{
+            color: #555555;
+        }
+    }
+}
+
+@mixin oo($hei,$wid) {
+    width: $hei;
+    height: $wid;
+}
+
+.box{
+    @include oo(200px,200px)
+}
+
+
+

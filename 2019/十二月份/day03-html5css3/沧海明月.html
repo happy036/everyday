@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #0ea9b1;
+            margin: 0;
+            padding: 0;
+        }
+        .moon{
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+        .bt{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .bt img{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .bt img:first-child{
+            animation: sea 2s linear infinite;
+        }
+        .bt img:last-child{
+            animation: sea2 2s linear infinite;
+        }
+        @keyframes sea{
+            0%{
+                transform: translate(0,0);
+            }
+            50%{
+                transform: translate(0,-20px);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+        @keyframes sea2{
+            0%{
+                transform: translate(0,0);
+            }
+            50%{
+                transform: translate(0,20px);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="moon"></div>
+    <div class="bt">
+        <img src="./img/1.png" alt="">
+        <img src="./img/2.png" alt="">
+    </div>
+</body>
+</html>

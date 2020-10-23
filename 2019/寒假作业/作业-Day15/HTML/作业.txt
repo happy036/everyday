@@ -1,0 +1,32 @@
+1.总结所有的让元素水平居中的方法
+
+方式一margin：auto
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   margin: auto;
+方式二translate
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+方式三flex
+ 给父盒子添加 
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+2.em和rem的区别
+
+em相对于元素的字体大小来计算，如果元素没有字体大小 ，则继续向上查找，直至有设置字体大小的元素，如果一直没有，就是根据浏览器默认的字体大小进行计算。
+rem是根据html元素字体大小进行计算的
+
+3.less与sass的区别
+
+区别  （1）在语法定义方面，比方说定义变量方面，Less通过@定义变量，Sass通过$定义变量，像混合器方面，Less是通过.minxin的方式定义，Sass是通过@minxin的方式
+      （2）Sass支持条件语句，可以使用if{}else{},for{}循环等等，而Less不支持
+
+
+4.代码题

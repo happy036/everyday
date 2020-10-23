@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .content {
+            width: 1172px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .nav span {
+            display: inline-block;
+            margin-top: 20px;
+            margin-bottom: 22px;
+        }
+
+        .nav span:first-child {
+            margin-left: 36px;
+            font-size: 23px;
+            color: #4f6575;
+        }
+
+        .nav span:last-child {
+            margin-left: 982px;
+            color: #928d91;
+        }
+
+        .show {
+            padding-bottom: 10px;
+        }
+        .show a{
+            display: inline-block;
+            width: 556px;
+            height: 160px;
+            overflow: hidden;
+        }
+        .show a:first-child {
+            margin: 0 11px;
+        }
+
+        .show img {
+            transition: all 2s;
+        }
+
+        .show img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="nav">
+            <span>品牌专区</span>
+            <span>更多+</span>
+        </div>
+        <div class="show">
+            <a><img src="./img/1.jpeg" alt=""></a>
+            <a><img src="./img/2.jpeg" alt=""></a>
+        </div>
+    </div>
+</body>
+
+</html>

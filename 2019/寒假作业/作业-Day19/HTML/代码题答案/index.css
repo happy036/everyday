@@ -1,0 +1,207 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    position: relative;
+    width: 100%;
+}
+
+header img {
+    width: 100%;
+    height: calc(185rem / 75);
+}
+
+.h-bottom {
+    width: 100%;
+    height: calc(184rem / 75);
+    background-color: #fafafa;
+    text-align: center;
+}
+
+.h-bottom p {
+    padding-top: calc(75rem / 75);
+    padding-bottom: calc(22rem / 75);
+    font-size: calc(28rem / 75);
+    font-weight: bolder;
+}
+
+.h-bottom span {
+    font-size: calc(24rem / 75);
+    font-weight: bolder;
+    color: #a5a5a5;
+}
+
+.h-img {
+    position: absolute;
+    top: 33%;
+    left: 43%;
+    width: calc(123rem / 75);
+    height: calc(123rem / 75);
+    border-radius: 50%;
+    border: calc(3rem / 75) solid #ffffff;
+}
+
+.nav {
+    width: 100%;
+}
+
+.nav a {
+    display: block;
+    float: left;
+    width: 33.333%;
+    height: calc(217rem / 75);
+    text-align: center;
+    border-top: calc(1rem / 75) solid #ededed;
+    border-right: calc(1rem / 75) solid #ededed;
+}
+
+.nav a i {
+    display: block;
+    width: calc(96rem / 75);
+    height: calc(96rem / 75);
+    margin: 0 auto;
+    background-image: url(../代码题/images/icons.png);
+    background-size: calc(520rem / 75) calc(520rem / 75);
+    margin-top: calc(41rem / 75);
+    margin-bottom: calc(22rem / 75);
+}
+
+.nav a:nth-child(1) i {
+    background-position: 0 calc(-60rem / 75);
+}
+
+.nav a:nth-child(2) i {
+    background-position: calc(-200rem / 75) calc(-60rem / 75);
+}
+
+.nav a:nth-child(3) i {
+    background-position: calc(-400rem / 75) calc(-60rem / 75);
+    border-right: none;
+}
+
+.nav a:nth-child(4) i {
+    background-position: 0 calc(-200rem / 75);
+}
+
+.nav a:nth-child(5) i {
+    background-position: calc(-200rem / 75) calc(-200rem / 75);
+}
+
+.nav a:nth-child(6) i {
+    background-position: calc(-400rem / 75) calc(-200rem / 75);
+    border-right: none;
+}
+
+.nav a span {
+    display: block;
+    font-size: calc(28rem / 75);
+}
+
+.setting {
+    padding-bottom: calc(28rem / 75);
+    border-bottom: calc(1rem / 75) solid #ededed;
+}
+
+.s-title h3 {
+    font-size: calc(26rem / 75);
+    font-weight: bolder;
+    padding-left: calc(20rem / 75);
+    padding-top: calc(31rem / 75);
+    padding-bottom: calc(23rem / 75);
+    border-top: calc(1rem / 75) solid #ededed;
+    border-bottom: calc(2rem / 75) solid #ededed;
+}
+
+.s-bottom div i {
+    float: left;
+    display: block;
+    width: calc(52rem / 75);
+    height: calc(46rem / 75);
+    margin-top: calc(33rem / 75);
+    margin-left: calc(36rem / 75);
+    background-image: url(../代码题/images/icons.png);
+    background-size: calc(520rem / 75) calc(520rem / 75);
+}
+
+.s-bottom div:first-child i {
+    background-position: 0 calc(-360rem / 75);
+}
+
+.s-bottom div:nth-child(2) i {
+    background-position: calc(-100rem / 75) calc(-360rem / 75);
+    margin-top: calc(46rem / 75);
+}
+
+.s-bottom div:nth-child(3) i {
+    background-position: calc(-200rem / 75) calc(-360rem / 75);
+    margin-top: calc(72rem / 75);
+}
+
+.s-bottom div p {
+    float: right;
+    font-size: calc(26rem / 75);
+    font-weight: bolder;
+    color: #686868;
+    padding-right: calc(31rem / 75);
+    padding-top: calc(35rem / 75);
+    padding-bottom: calc(30rem / 75);
+    border-bottom: 1px solid #ededed;
+}
+
+.s-bottom div p span {
+    display: block;
+    float: left;
+    margin-top: calc(2rem / 75);
+}
+
+.s-bottom div p s {
+    float: right;
+    display: block;
+    width: calc(20rem / 75);
+    height: calc(36rem / 75);
+    background-image: url(../代码题/images/icons.png);
+    background-size: calc(520rem / 75) calc(520rem / 75);
+    background-position: calc(-298rem / 75) calc(-360rem / 75);
+    margin-left: calc(466rem / 75);
+}
+
+.footer a {
+    display: block;
+    float: left;
+    text-align: center;
+    padding: 0 calc(59rem / 75);
+}
+
+.footer a i {
+    display: block;
+    width: calc(50rem / 75);
+    height: calc(43rem / 75);
+    background-image: url(../代码题/images/icons.png);
+    background-size: calc(520rem / 75) calc(520rem / 75);
+    margin: 0 auto;
+    margin-top: calc(12rem / 75);
+    margin-bottom: calc(7rem / 75);
+}
+
+.footer a:first-child i {
+    background-position: 0 calc(-460rem / 75);
+}
+
+.footer a:nth-child(2) i {
+    background-position: calc(-100rem / 75) calc(-460rem / 75);
+}
+
+.footer a:nth-child(3) i {
+    background-position: calc(-200rem / 75) calc(-460rem / 75);
+}
+
+.footer a:nth-child(4) i {
+    background-position: calc(-300rem / 75) calc(-460rem / 75);
+}
+
+.footer a span {
+    display: block;
+    font-size: calc(24rem / 75);
+    color: #686868;
+}

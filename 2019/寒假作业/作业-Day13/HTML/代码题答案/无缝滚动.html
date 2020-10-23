@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .show {
+            position: relative;
+            width: 900px;
+            height: 200px;
+            border: 1px solid black;
+            overflow: hidden;
+            margin: 100px auto;
+        }
+        
+        ul {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            width: 4200px;
+            animation: round 10s linear infinite;
+            overflow: hidden;
+        }
+        
+        .show:hover ul {
+            animation-play-state: paused;
+        }
+        
+        @keyframes round {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: -1800px;
+            }
+        }
+        
+        li {
+            float: left;
+        }
+        
+        li img {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="show">
+        <ul>
+            <li><img src="../代码题/images/nav1.jpg" alt=""></li>
+            <li><img src="../代码题/images/nav2.jpg" alt=""></li>
+            <li><img src="../代码题/images/nav3.jpg" alt=""></li>
+            <li><img src="../代码题/images/nav4.jpg" alt=""></li>
+            <li><img src="../代码题/images/nav5.jpg" alt=""></li>
+            <li><img src="../代码题/images/nav6.jpg" alt=""></li>
+            <li><img src="../代码题/images/nav7.jpg" alt=""></li>
+            <li><img src="../代码题/images/nav1.jpg" alt=""></li>
+            <li><img src="../代码题/images/nav2.jpg" alt=""></li>
+            <li><img src="../代码题/images/nav3.jpg" alt=""></li>
+            <li><img src="../代码题/images/nav4.jpg" alt=""></li>
+            <li><img src="../代码题/images/nav5.jpg" alt=""></li>
+            <li><img src="../代码题/images/nav6.jpg" alt=""></li>
+            <li><img src="../代码题/images/nav7.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: calc(90rem / 64);
+    background-color: #ff9b25;
+}
+
+header i {
+    position: absolute;
+    top: calc(29rem / 64);
+    left: calc(21rem / 64);
+    width: calc(20rem / 64);
+    height: calc(32rem / 64);
+    background-image: url(../images/Rectangle1copy16.png);
+    background-size: calc(20rem / 64) calc(32rem / 64);
+}
+
+header span {
+    font-size: calc(32rem / 64);
+    line-height: calc(90rem / 64);
+    color: #fff;
+    margin-left: calc(56rem / 64);
+}
+
+main {
+    width: 100%;
+    background-color: #f4f3f2;
+    padding-top: calc(34rem / 64);
+    padding-bottom: calc(49rem / 64);
+}
+
+.content {
+    background-color: #fff;
+    border-top: 1px solid #f2f2f2;
+}
+
+.c-one {
+    padding: calc(37rem / 64) calc(25rem / 64);
+    overflow: hidden;
+}
+
+.c-one h2 {
+    float: left;
+    font-size: calc(38rem / 64);
+    color: #444444;
+}
+
+.c-one s {
+    float: right;
+    color: #cccccc;
+    font-size: calc(27rem / 64);
+    margin-top: calc(12rem / 64);
+}
+
+.c-two {
+    overflow: hidden;
+    padding: 0 calc(25rem / 64);
+    padding-top: calc(32rem / 64);
+    padding-bottom: calc(18rem / 64);
+    border-top: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.c-two h2 {
+    font-size: calc(38rem / 64);
+    color: #444444;
+}
+
+.c-two s {
+    float: right;
+    color: #cccccc;
+    font-size: calc(27rem / 64);
+    margin-top: calc(-9rem / 64);
+}
+
+.c-two p {
+    color: #bebebe;
+    line-height: 1.5;
+}
+
+.c-three,
+.c-four {
+    border-bottom: 1px solid #f2f2f2;
+}
+
+footer {
+    padding: 0 calc(25rem / 64);
+    background-color: #f4f3f2;
+}
+
+.foot {
+    width: calc(594rem / 64);
+    height: calc(86rem / 64);
+    background-color: #ff9b25;
+    text-align: center;
+    line-height: calc(86rem / 64);
+    border-radius: calc(10rem / 64);
+}
+
+.foot i {
+    font-size: calc(34rem / 64);
+    color: #fff;
+}
+
+.last {
+    padding-top: calc(162rem / 64);
+    padding-bottom: calc(67rem / 64);
+}
+
+.last p {
+    font-size: calc(24rem / 64);
+    color: #999999;
+}
+
+.last p:nth-child(-n+3) {
+    padding-bottom: calc(19rem / 64);
+}

@@ -1,0 +1,172 @@
+@media screen and (min-width: 1280px) {
+    .container {
+        width: 1280px;
+    }
+}
+
+.row>div:first-child {
+    padding-left: 0;
+}
+
+.logo {
+    background-color: #3a95de;
+}
+
+.logo img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.logo span {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+}
+
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul li {
+    background-color: #eeeeee;
+}
+
+.nav ul li:hover {
+    background-color: #ffffff;
+}
+
+.nav a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
+    color: #666;
+    padding-left: 28px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+nav li a i {
+    top: 2px !important;
+    margin-right: 5px;
+}
+
+.news ul {
+    list-style: none;
+}
+
+.news li {
+    width: 25%;
+    float: left;
+    height: 128px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width:991px) {
+    .nav li {
+        float: left;
+        width: 20%;
+    }
+    .news {
+        padding-top: 10px;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .nav li a {
+        font-size: 14px;
+    }
+    .news li:nth-child(1) {
+        width: 100% !important;
+    }
+    .news li {
+        width: 50% !important;
+    }
+    .push h3 {
+        font-size: 14px;
+    }
+}
+
+.news li a p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 41px;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 12px;
+    color: #ffffff;
+    margin-bottom: 0;
+    padding: 0 10px;
+    padding-top: 5px;
+}
+
+.news li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.news li a img {
+    width: 100%;
+    height: 100%;
+}
+
+.news li:nth-child(1) a p {
+    font-size: 20px;
+    line-height: 41px;
+    padding-top: 0;
+}
+
+.news li:nth-child(1) {
+    width: 50%;
+    height: 266px;
+}
+
+.push {
+    border-top: 1px solid #cccccc;
+}
+
+.push .row {
+    border-bottom: 1px solid #cccccc;
+    padding: 10px 0;
+}
+
+.row {
+    margin-left: 0;
+}
+
+.pic {
+    margin-top: 10px;
+}
+
+.pic img {
+    width: 100%;
+}
+
+.top img {
+    width: 100%;
+}
+
+.hot {
+    display: block;
+    border: 1px solid #cccccc;
+    margin-top: 20px;
+    padding: 0 20px 20px;
+}
+
+.hot span {
+    border-radius: 0;
+}
+
+.last .hot {
+    text-decoration: none;
+}

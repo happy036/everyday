@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.下列代码控制台打印出的值是多少?写出执行过程
+function b(x, y, a) {
+  a = 10
+  alert(arguments[2]);//10
+}
+
+b(1, 2, 3);
+//调用函数b(x,y,a),实参值传给形参，又给a重新赋值a=10,arguments是伪数组，所以打印值为10.
+
+    </script>
+</body>
+</html>

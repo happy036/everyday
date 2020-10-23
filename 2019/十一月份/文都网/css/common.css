@@ -1,0 +1,21 @@
+/* 版心 */
+.container {
+    position: relative;
+    margin: 0 auto;
+    width: 1200px;
+}
+
+/* 清除浮动 */
+.clearfix:after,
+.clearfix:before {
+    content: "";
+    display: block;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}

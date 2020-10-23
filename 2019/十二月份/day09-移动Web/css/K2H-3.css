@@ -1,0 +1,218 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: calc(90rem / 64);
+    background-color: #ff9b25;
+}
+
+header i {
+    position: absolute;
+    top: calc(29rem / 64);
+    left: calc(21rem / 64);
+    width: calc(20rem / 64);
+    height: calc(32rem / 64);
+    background-image: url(../images/Rectangle1copy16.png);
+    background-size: calc(20rem / 64) calc(32rem / 64);
+}
+
+header span {
+    font-size: calc(32rem / 64);
+    line-height: calc(90rem / 64);
+    color: #fff;
+    margin-left: calc(56rem / 64);
+}
+
+header s {
+    font-size: calc(30rem / 64);
+    line-height: calc(90rem / 64);
+    color: #fff;
+    margin-left: calc(306rem / 64);
+}
+
+main {
+    padding-top: calc(33rem / 64);
+    background-color: #f7f4f1;
+}
+
+.content {
+    border-top: 1px solid #f3f3f3;
+    border-bottom: 1px solid #f3f3f3;
+    background-color: #fff;
+}
+
+.c-one {
+    padding: calc(39rem / 64) calc(23rem / 64);
+}
+
+.c-one h2 {
+    font-size: calc(32rem / 64);
+    color: #555555;
+}
+
+.c-two {
+    overflow: hidden;
+    border-top: 1px solid #f3f3f3;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.t-one {
+    overflow: hidden;
+    float: left;
+    width: calc(366rem / 64);
+    padding: 0 calc(23rem / 64);
+    padding-top: calc(31rem / 64);
+    padding-bottom: calc(15rem / 64);
+    border-right: 1px solid #f3f3f3;
+}
+
+.t-one i {
+    display: block;
+    float: left;
+    font-size: calc(32rem / 64);
+    color: #555555;
+}
+
+.t-one s {
+    display: block;
+    float: right;
+    font-size: calc(32rem / 64);
+    color: #dddddd;
+    margin-left: calc(149rem / 64);
+    margin-top: calc(11rem / 64);
+}
+
+.t-one p {
+    color: #bfbfbf;
+    line-height: 1.5;
+}
+
+.t-two {
+    float: right;
+    overflow: hidden;
+    width: calc(274rem / 64);
+    padding: calc(41rem / 64) calc(23rem / 64);
+}
+
+.t-two i {
+    display: block;
+    float: left;
+    font-size: calc(32rem / 64);
+    color: #555555;
+}
+
+.t-two s {
+    display: block;
+    float: right;
+    font-size: calc(32rem / 64);
+    color: #dddddd;
+}
+
+.c-three {
+    overflow: hidden;
+}
+
+.c-three h2 {
+    display: inline-block;
+}
+
+.c-three i {
+    float: right;
+    color: #bfbfbf;
+    font-size: calc(24rem / 64);
+    padding-top: calc(5rem / 64);
+}
+
+.four {
+    overflow: hidden;
+    padding: calc(31rem / 64) calc(23rem / 64);
+    border-top: 1px solid #f3f3f3;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.four i {
+    display: block;
+    float: left;
+    font-size: calc(32rem / 64);
+    color: #555555;
+}
+
+.four s {
+    display: block;
+    font-size: calc(32rem / 64);
+    color: #dddddd;
+    margin-left: calc(412rem / 64);
+}
+
+.four p {
+    color: #bfbfbf;
+    line-height: 1.5;
+}
+
+.five {
+    overflow: hidden;
+    padding: calc(31rem / 64) calc(23rem / 64);
+}
+
+.five h2 {
+    display: block;
+    float: left;
+    font-size: calc(32rem / 64);
+    color: #555555;
+    margin-top: calc(16rem / 64);
+}
+
+.f-one {
+    float: right;
+    overflow: hidden;
+    padding: calc(5rem / 64);
+    border: 1px solid #c4c4c4;
+    border-radius: calc(11rem / 64);
+}
+
+.f-one s {
+    display: block;
+    float: right;
+    width: calc(59rem / 64);
+    height: calc(50rem / 64);
+    background-color: #3baca7;
+    border-radius: calc(6rem / 64);
+}
+
+.f-one i {
+    float: left;
+    color: #c9c9c9;
+    padding: calc(12rem / 64);
+}
+
+footer {
+    padding: 0 calc(23rem / 64);
+    background-color: #f7f4f1;
+    padding-top: calc(48rem / 64);
+    padding-bottom: calc(263rem / 64);
+}
+
+.last {
+    width: calc(594rem / 64);
+    height: calc(83rem / 64);
+    background-color: #ff9b25;
+    border-radius: calc(9rem / 64);
+    text-align: center;
+}
+
+.last h2 {
+    font-size: calc(34rem / 64);
+    color: #fff;
+    line-height: 2.5;
+}

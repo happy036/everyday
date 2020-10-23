@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .content{
+            width: 1475px;
+            margin: 100px auto;
+        }
+        .nav{
+            padding: 12px 0;
+            border-bottom: 3px solid #3884e5;
+        }
+        .nav a:first-child{
+            font-size: 18px;
+            text-decoration: none;
+            color: #30312c;
+            margin-right: 38px;
+        }
+        .nav a:last-child{
+            position: relative;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        .nav a:last-child::before{
+            content: "";
+            position: absolute;
+            bottom: -12px;
+            left: 33px;
+            width: 0;
+            height: 0;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid #3884e5;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+        }
+        .show{
+            border-bottom: 1px solid #e7dbe6;
+            border-left: 1px solid #e7dbe6;
+            border-right: 1px solid #e7dbe6;
+            background-color: #f9f9f9;
+        }
+        .show-nav a{
+            display: inline-block;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .show-nav a:first-child{
+            padding: 6px 10px;
+            color: #ffffff;
+            background-color: #3884e5;
+            border-radius: 7%;
+            margin-top: 19px;
+            margin-bottom: 13px;
+            margin-left: 24px;
+            margin-right: 1287px;
+        }
+        .show-content{
+            list-style: none;
+            padding-left: 24px;
+        }
+        .show-content li{
+            position: relative;
+            display: inline-block;
+            width: 275px;
+            height: 193px;
+            margin-right: 7px;
+            overflow: hidden;
+        }
+        .show-content li:last-child{
+            margin-right: 0;
+        }
+        .show-content li img{
+            width: 275px;
+            height: 193px;
+            transition: all 2s;
+        }
+        .show-content li img:hover{
+            transform: scale(1.1);
+        }
+        .show-content li small{
+            position: absolute;
+            width: 275px;
+            height: 75px;
+            line-height: 30px;
+            padding-top: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            color: #ffffff;
+            transform: translate(0,40px);
+        }
+        .show-content li:hover small{
+            transform: translate(0,0);
+            transition: all 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="nav">
+            <a href="#">目的地攻略</a>
+            <a href="#">旅游旗舰店</a>
+        </div>
+        <div class="show">
+            <div class="show-nav">
+                <a href="#">精选</a>
+                <a href="#">更多旗舰馆></a>
+            </div>
+            <ul class="show-content">
+                <li><img src="./img/1.jpg" alt=""><small>韶关旅游体验馆<br>活力之旅，善美韶关</small></li>
+                <li><img src="./img/2.jpg" alt=""><small>韶关旅游体验馆<br>活力之旅，善美韶关</small></li>
+                <li><img src="./img/3.jpg" alt=""><small>韶关旅游体验馆<br>活力之旅，善美韶关</small></li>
+                <li><img src="./img/4.jpg" alt=""><small>韶关旅游体验馆<br>活力之旅，善美韶关</small></li>
+                <li><img src="./img/5.jpg" alt=""><small>韶关旅游体验馆<br>活力之旅，善美韶关</small></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
