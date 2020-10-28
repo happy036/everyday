@@ -4,15 +4,15 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import About from "../components/About";
 import Home from "../components/Home";
 // 定义路由
-const router = [
+const routes = [
   { path: '/', component: About },
   { path: '/home', component: Home }
 ]
 // 创建路由
-const routers = createRouter({
+const router = createRouter({
   history: createWebHashHistory(),
   // 定义好的路由
-  router
+  routes
 })
 // 导出路由
-export default routers
+export default router
