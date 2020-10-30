@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+        }
+        a{
+            vertical-align: middle;
+        }
+        #app{
+          width: 100%;
+          height: 100%;  
+        }
+        .title{
+            font-size: 30px;
+            text-align: center;
+        }
+        .center{
+           height: 100px; 
+        }
+        li{
+            list-style: none;
+            text-align: center;
+        }
+        .center li {
+            /* display: inline-block; */
+            margin: 5px auto;
+        }
+        .const .home {
+            text-align: center;
+            
+        }
+        .const .login {
+            text-align: center;
+        }
+        
+        .const .user {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 标题 -->
+        <div class="title"><h2>HOME页面</h2></div>
+        <hr>
+        <!-- 按钮部分 -->
+        <div class="center">
+            <ul>
+                <li><a href="">HOME页面</a></li>
+                <li><a href="">LOGIN页面</a></li>
+            </ul>
+        </div>
+        <hr>
+        <!-- 主体部分（组件） -->
+        <div class="const">
+            <!-- home组件 -->
+            <div class="home">
+                <h3>这里是home页面内容</h3>
+                
+            </div>
+            <!-- login组件 -->
+            <div class="login">
+                <h3>这里是login页面内容</h3>
+                <ul>
+                    <!-- 点击账号密码登录 为input登录 -->
+                    <li><a href="">账号密码登录</a> </li>
+                    <!-- 点击微信扫码登录 为二维码(vue自带图片) -->
+                    <li><a href="">微信扫码登录</a> </li>
+                </ul>
+                <div>
+                    <!-- 账号密码登录子路由 -->
+                    <div>
+                        <input type="text" placeholder="请输入邮箱">
+                        <br>
+                        <input type="text" placeholder="请输入密码"> 
+                        <br>
+                        <a href="">登入</a>
+                    </div>
+                    <!-- 扫码登录路由 -->
+                    <!-- <div class="saoma">
+                        <img src="./img/logo.png" alt="">
+                    </div> -->
+                   
+                </div>
+                <br>
+                <button>后退一步</button>
+            </div>
+            <!-- user组件 -->
+            <div class="user">
+                <h3>这里是XX用户的个人空间</h3>
+                <button>后退一步</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

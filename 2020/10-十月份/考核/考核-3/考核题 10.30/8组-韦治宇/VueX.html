@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueX</title>
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+        }
+        button{
+            text-align: center;
+            margin: 0 auto;
+        }
+        a {
+            vertical-align: middle;
+        }
+
+        #app {
+            width: 100%;
+            height: 100%;
+        }
+
+        h1 {
+            color: tomato;
+            text-align: center;
+        }
+        h2{
+            text-align: center;
+        }
+        p{
+            text-align: center;
+        }
+        .content {}
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- 标题 -->
+        <div class="title">
+            <h1>Vuexxxxxxxxx</h1>
+        </div>
+        <hr>
+
+
+        <!-- 主体内容 -->
+        <div class="content">
+            <!-- state的使用 -->
+            <div class="state">
+                <h2>state的使用</h2>
+                <p>我的名字叫：XXX</p>
+                <p>我的年龄是：XXX</p>
+                <p>我的爱好是：XXX</p>
+            </div>
+            <hr>
+
+            <!-- mutation的使用 -->
+            <div class="mutation">
+                <h2>mutation的使用</h2>
+                <p>数据为：</p>
+                <center><button>mutation按钮</button></center>
+            </div>
+            <hr>
+
+            <!-- action的使用 -->
+            <div class="action">
+                <h2>action的使用</h2>
+                <p>数据为：</p>
+                <center><button>action按钮</button></center>
+            </div>
+            <hr>
+            <!-- getter的使用 -->
+            <div class="getter">
+                <h2>getter的使用</h2>
+                <p>数据为：</p>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

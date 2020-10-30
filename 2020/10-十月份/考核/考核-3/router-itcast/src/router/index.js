@@ -15,6 +15,19 @@ const routes = [
     path: "/goods",
     component: () => import('../components/Goods')
   },
+  {
+    path: "/orders",
+    component: () => import('../components/Orders')
+  },
+  {
+    path: "/settings",
+    component: () => import('../components/Settings')
+  },
+  {
+    path: "/userinfo/:id",
+    component: () => import('../components/UserInfo'),
+    props: true
+  },
 ];
 
 const router = createRouter({

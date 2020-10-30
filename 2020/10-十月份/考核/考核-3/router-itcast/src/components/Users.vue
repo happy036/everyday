@@ -35,6 +35,11 @@ export default {
         { id: 4, name: "赵六", age: 40 }
       ]
     };
+  },
+  methods: {
+    goDetail(id) {
+      this.$router.push("/userinfo/" + id);
+    }
   }
 };
 </script>
