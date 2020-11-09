@@ -1,15 +1,15 @@
 <template>
   <div>
-    <Ref></Ref>
+    <Computed></Computed>
   </div>
 </template>
 
 <script>
-import Ref from "./components/Ref.vue";
-
+// import Ref from "./components/Ref.vue";
+import Computed from "./components/Computed";
 export default {
   name: "App",
-  components: { Ref }
+  components: { Computed }
 };
 </script>
 
