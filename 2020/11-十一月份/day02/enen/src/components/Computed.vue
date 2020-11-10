@@ -13,13 +13,13 @@ export default {
       get: () => {
         return num.value + 1;
       },
-      set: val => {
-        num.value = val - 1;
-        console.log(num.value);
-      }
+      // set: val => {
+      //   num.value = val - 1;
+      //   console.log(num.value);
+      // }
     });
     function changeNum() {
-      num.value = 2;
+      num.value = 8;
     }
 
     return {
