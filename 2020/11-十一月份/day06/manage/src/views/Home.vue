@@ -8,15 +8,52 @@
           <img src="@/assets/logo.png" alt="" /><span>后台管理系统</span>
         </router-link>
       </div>
-      <a-menu theme="dark" mode="inline">
-        <a-sub-menu key="sub1">
-          <template #title>
-            <span><user-outlined /><span>用户管理</span></span>
+      <a-menu
+        theme="dark"
+        mode="inline"
+        :openKeys="openKeys"
+        @openChange="onOpenChange"
+      >
+        <a-sub-menu
+          :key="item.id"
+          :index="index"
+          v-for="(item, index) in menuList"
+        >
+          <template #title v-if="item.path == 'users'">
+            <span
+              ><user-outlined /><span>{{ item.authName }}</span></span
+            >
           </template>
-          <a-menu-item key="3"
+          <template #title v-else-if="item.path == 'rights'">
+            <span
+              ><CodeSandboxOutlined /><span>{{ item.authName }}</span></span
+            >
+          </template>
+          <template #title v-else-if="item.path == 'goods'">
+            <span
+              ><ShoppingOutlined /><span>{{ item.authName }}</span></span
+            >
+          </template>
+          <template #title v-else-if="item.path == 'orders'">
+            <span
+              ><ContainerOutlined /><span>{{ item.authName }}</span></span
+            >
+          </template>
+          <template #title v-else-if="item.path == 'reports'">
+            <span
+              ><AreaChartOutlined /><span>{{ item.authName }}</span></span
+            >
+          </template>
+
+          <a-menu-item
+            :key="subitem.id"
+            :subindex="subindex"
+            v-for="(subitem, subindex) in item.children"
             ><appstore-outlined />
             <span
-              ><router-link to="/userlist">用户列表</router-link></span
+              ><router-link :to="subitem.path" style="color: #fff">{{
+                subitem.authName
+              }}</router-link></span
             ></a-menu-item
           >
         </a-sub-menu>
@@ -67,25 +104,82 @@ import {
   AppstoreOutlined,
   UserOutlined,
   MenuUnfoldOutlined,
+  CodeSandboxOutlined,
   MenuFoldOutlined,
+  ShoppingOutlined,
+  ContainerOutlined,
+  AreaChartOutlined,
 } from "@ant-design/icons-vue";
+// 引入http方法
+import { httpGet } from "@/utils/http";
+// 引入接口
+import { rights } from "@/api";
 export default {
   data() {
     return {
+      // 折叠
       collapsed: false,
+      // 侧边栏菜单
+      menuList: [],
+      // 默认打开那一项
+      openKeys: [],
+      // 所有项
+      rootSubmenuKeys: [],
     };
+  },
+  created() {
+    this.getMenuList();
   },
   methods: {
     delOut() {
       window.sessionStorage.removeItem("token");
       this.$router.push("/login");
     },
+    getMenuList() {
+      httpGet(rights.AsideMenus)
+        .then((response) => {
+          // console.log(response);
+          // 解构赋值
+          let { data, meta } = response;
+          // 判断数据是否获取成功
+          if (meta.status == 200) {
+            // 把后台数据赋值给menuList数组
+            this.menuList = data;
+            // console.log(this.menuList);
+            // 保存一级菜单id
+            this.menuList.forEach((item) => {
+              this.rootSubmenuKeys.push(item.id);
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    // 点击当前 关闭其他菜单
+    onOpenChange(openKeys) {
+      //  获取最后一次选中的openKey
+      const latestOpenKey = openKeys.find(
+        (key) => this.openKeys.indexOf(key) === -1
+      );
+      // 如果最后一次openkye在rootSubmenuKey中找不到
+      if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+        // 就把点击的哪个openkey放到默认打开的那个数组
+        this.openKeys = openKeys;
+      } else {
+        this.openKeys = latestOpenKey ? [latestOpenKey] : [];
+      }
+    },
   },
   components: {
     AppstoreOutlined,
     UserOutlined,
     MenuUnfoldOutlined,
+    CodeSandboxOutlined,
     MenuFoldOutlined,
+    ShoppingOutlined,
+    ContainerOutlined,
+    AreaChartOutlined,
   },
 };
 </script>

@@ -132,19 +132,14 @@ import {
   TaobaoCircleOutlined,
   WeiboCircleOutlined,
 } from "@ant-design/icons-vue";
-
-// 引入http方法
-import { httpPost } from "@/utils/http";
-// 引入接口
-import { user } from "@/api";
 // 引入全局提示消息框
 import { message } from "ant-design-vue";
 export default {
   data() {
     return {
       form: {
-        username: "admin",
-        password: "123456",
+        username: "",
+        password: "",
       },
       rules: {
         username: [
@@ -173,37 +168,31 @@ export default {
       this.$refs.ruleForm
         .validate()
         .then(() => {
-          // 引入请求地址
-          let url = user.LoginUser;
-          // console.log(url);
-          // 整理参数
-          let params = {
+          // console.log(this);
+          // console.log("values", this.form);
+          // 收集数据
+          let pramas = {
             username: this.form.username,
             password: this.form.password,
           };
           // 发起请求
-          httpPost(url, params)
+          this.$axios
+            .post("/login", pramas)
             .then((response) => {
-              // console.log(response);
-              let { data, meta } = response;
-
-              //  如果meta中的status为400 说明登录失败
+              console.log(response);
+              let { data, meta } = response.data;
+              // message.success(meta.msg);
               if (meta.status == 400) {
                 return message.error(meta.msg);
               }
-
-              // 如果meta中的status为200 说明登陆成功
               if (meta.status == 200) {
-                // 提示一下用户 登录成功
                 message.success(meta.msg);
-                // 把后端返回的token存到sessionStorage中(sessionStorage存储数据的时间是打开浏览器存储 关闭浏览器 数据消失)
                 window.sessionStorage.setItem("token", data.token);
-                //  路由跳转到首页
                 this.$router.push("/home");
               }
             })
             .catch((error) => {
-              throw new Error(error);
+              console.log(error);
             });
         })
         .catch((error) => {

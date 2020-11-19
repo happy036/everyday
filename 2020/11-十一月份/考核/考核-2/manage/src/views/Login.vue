@@ -122,6 +122,7 @@
 </template>
 
 <script>
+// 引入小图标
 import {
   UserOutlined,
   LockOutlined,
@@ -131,6 +132,8 @@ import {
   TaobaoCircleOutlined,
   WeiboCircleOutlined,
 } from "@ant-design/icons-vue";
+// 引入全局提示消息框
+import { message } from "ant-design-vue";
 export default {
   data() {
     return {
@@ -161,10 +164,36 @@ export default {
   },
   methods: {
     onSubmit() {
+      // 让这个表单域进行校验
       this.$refs.ruleForm
         .validate()
         .then(() => {
-          console.log("values", this.form);
+          // console.log(this);
+          // console.log("values", this.form);
+          // 收集数据
+          let pramas = {
+            username: this.form.username,
+            password: this.form.password,
+          };
+          // 发起请求
+          this.$axios
+            .post("/login", pramas)
+            .then((response) => {
+              console.log(response);
+              let { data, meta } = response.data;
+              // message.success(meta.msg);
+              if (meta.status == 400) {
+                return message.error(meta.msg);
+              }
+              if (meta.status == 200) {
+                message.success(meta.msg);
+                window.sessionStorage.setItem("token", data.token);
+                this.$router.push("/home");
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         })
         .catch((error) => {
           console.log("error", error);
