@@ -45,6 +45,8 @@ instance.interceptors.response.use(
       // 否则的话抛出错误
       case 200:
         return Promise.resolve(response);
+      case 201:
+        return Promise.resolve(response);
       // 服务器状态码不是2开头的情况
       //  这里可以跟你们的后台开发人员协商好统一的错误状态码
       // 然后根据返回的状态码进行一些操作，例如登录过期提示，错误提示等等
@@ -75,14 +77,14 @@ instance.interceptors.response.use(
     // 计算重试次数
     config.__retryCount += 1;
     // 创建一个新的Promise 来处理 exponential backoff
-    let backoff = new Promise(function(resolve) {
-      setTimeout(function() {
+    let backoff = new Promise(function (resolve) {
+      setTimeout(function () {
         resolve();
       }, config.retryDelay || 1);
     });
 
     // return the promise in which  recalls axios to retry the request
-    return backoff.then(function() {
+    return backoff.then(function () {
       return instance(config);
     });
   }
