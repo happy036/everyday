@@ -31,7 +31,7 @@
       </a-form>
       <!-- 表格 -->
       <a-table
-        :row-key="(record) => record.id"
+        :row-key="record => record.id"
         :columns="tableColumns"
         :data-source="tableData"
         :pagination="false"
@@ -73,7 +73,7 @@
         style="margin-top: 25px"
         v-model:current="current"
         :total="total"
-        :show-total="(total) => `共 ${total} 条`"
+        :show-total="total => `共 ${total} 条`"
         show-size-changer
         @showSizeChange="onShowSizeChange"
         :page-size-options="pageSizeOptions"
@@ -243,7 +243,7 @@ import {
   EditOutlined,
   DeleteOutlined,
   SettingOutlined,
-  ExclamationCircleOutlined,
+  ExclamationCircleOutlined
 } from "@ant-design/icons-vue";
 // 引入全局提示消息框
 import { message, Modal } from "ant-design-vue";
@@ -286,8 +286,8 @@ export default {
         {
           title: "操作",
           key: "operation",
-          slots: { customRender: "operation" },
-        },
+          slots: { customRender: "operation" }
+        }
       ],
       // 表格数据
       tableData: [],
@@ -305,50 +305,50 @@ export default {
         username: "",
         password: "",
         email: "",
-        mobile: "",
+        mobile: ""
       },
       addUserRules: {
         username: [
           {
             required: true,
             message: "请输入用户名",
-            trigger: "blur",
+            trigger: "blur"
           },
           {
             min: 4,
             max: 16,
             message: "长度在4~16之间",
-            trigger: "blur",
-          },
+            trigger: "blur"
+          }
         ],
         password: [
           {
             required: true,
             message: "请输入密码",
-            trigger: "blur",
+            trigger: "blur"
           },
           {
             min: 6,
             max: 16,
             message: "长度在6~16之间",
-            trigger: "blur",
-          },
+            trigger: "blur"
+          }
         ],
         email: [{ validator: checkemail, trigger: "change" }],
-        mobile: [{ validator: checkmobile, trigger: "change" }],
+        mobile: [{ validator: checkmobile, trigger: "change" }]
       },
       // 编辑用户
       editUserModel: {},
       editUserRules: {
         email: [{ validator: checkemail, trigger: "change" }],
-        mobile: [{ validator: checkmobile, trigger: "change" }],
+        mobile: [{ validator: checkmobile, trigger: "change" }]
       },
       editvisible: false,
       // 分配角色
       rolevisible: false,
       userInfo: {},
       selectrole: null,
-      roleList: [],
+      roleList: []
     };
   },
   methods: {
@@ -356,9 +356,9 @@ export default {
     getUsers() {
       httpGet(user.GetUsers, {
         pagenum: this.current,
-        pagesize: this.pagesize,
+        pagesize: this.pagesize
       })
-        .then((response) => {
+        .then(response => {
           // console.log(response);
           let { meta, data } = response;
           // 如果后台返回的状态码为200,则代表请求成
@@ -375,7 +375,7 @@ export default {
             });
           }
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         });
     },
@@ -401,10 +401,10 @@ export default {
             username: this.addUserModel.username,
             password: this.addUserModel.password,
             email: this.addUserModel.email,
-            mobile: this.addUserModel.mobile,
+            mobile: this.addUserModel.mobile
           };
           httpPost(user.AddUsers, params)
-            .then((res) => {
+            .then(res => {
               let { meta } = res;
               if (meta.status == 400) {
                 return message.success(meta.msg);
@@ -417,11 +417,11 @@ export default {
                 this.getUsers();
               }
             })
-            .catch((err) => {
+            .catch(err => {
               console.log(err);
             });
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -436,7 +436,7 @@ export default {
         okText: "确定",
         onOk() {
           httpDelete(user.DeleteUsers + `/${id}`)
-            .then((res) => {
+            .then(res => {
               // console.log(res);
               let { meta } = res;
               if (meta.status == 400) {
@@ -450,25 +450,25 @@ export default {
                 _this.getUsers();
               }
             })
-            .catch((err) => {
+            .catch(err => {
               console.log(err);
             });
         },
-        onCancel() {},
+        onCancel() {}
       });
     },
     // 回显用户信息
     handleReadUser(id) {
       this.editvisible = true;
       httpGet(user.GetUser + `/${id}`)
-        .then((res) => {
+        .then(res => {
           // console.log(res);
           let { data, meta } = res;
           if (meta.status == 200) {
             this.editUserModel = data;
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -481,7 +481,7 @@ export default {
             user.EditUser + `/${this.editUserModel.id}`,
             this.editUserModel
           )
-            .then((res) => {
+            .then(res => {
               // console.log(res);
               let { meta } = res;
               if (meta.status == 200) {
@@ -490,11 +490,11 @@ export default {
                 this.getUsers();
               }
             })
-            .catch((err) => {
+            .catch(err => {
               console.log(err);
             });
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -504,21 +504,21 @@ export default {
       this.userInfo = user;
       // console.log(this.userInfo);
       httpGet(roles.getRoles)
-        .then((res) => {
+        .then(res => {
           // console.log(res);
           let { data, meta } = res;
           if (meta.status == 200) {
             this.roleList = data;
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
     // 更改角色
     handleEditRole() {
       httpPut(`users/${this.userInfo.id}/role`, { rid: this.selectrole })
-        .then((res) => {
+        .then(res => {
           // console.log(res);
           let { meta } = res;
           if (meta.status == 400) {
@@ -531,26 +531,26 @@ export default {
             this.getUsers();
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
     // 更改状态
     handleState(checked, event) {
       httpPut(`users/${event.target.id}/state/${checked}`)
-        .then((res) => {
+        .then(res => {
           console.log(res);
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
-    },
+    }
   },
   components: {
     EditOutlined,
     DeleteOutlined,
-    SettingOutlined,
-  },
+    SettingOutlined
+  }
 };
 </script>
 

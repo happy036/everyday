@@ -105,13 +105,13 @@
 
 <script>
 UserOutlined,
-AppstoreOutlined,
-MenuUnfoldOutlined,
-CodeSandboxOutlined,
-MenuFoldOutlined,
-ShoppingOutlined,
-ContainerOutlined,
-AreaChartOutlined;
+  AppstoreOutlined,
+  MenuUnfoldOutlined,
+  CodeSandboxOutlined,
+  MenuFoldOutlined,
+  ShoppingOutlined,
+  ContainerOutlined,
+  AreaChartOutlined;
 // 引入菜单小图标
 import {
   UserOutlined,
@@ -121,7 +121,7 @@ import {
   MenuFoldOutlined,
   ShoppingOutlined,
   ContainerOutlined,
-  AreaChartOutlined,
+  AreaChartOutlined
 } from "@ant-design/icons-vue";
 
 // 引入请求方法 httpGet
@@ -143,7 +143,7 @@ export default {
       // 默认打开的那一项
       openKeys: [],
       // 所有项
-      rootSubmenuKeys: [],
+      rootSubmenuKeys: []
     };
   },
   methods: {
@@ -156,7 +156,7 @@ export default {
     },
     getMenuList() {
       httpGet(rights.AsideMenus)
-        .then((response) => {
+        .then(response => {
           // 解构赋值出 data 和meta
           let { data, meta } = response;
           // 判断数据是否获取成功
@@ -164,13 +164,13 @@ export default {
             // 把后台数据赋值给menuList数组
             this.menuList = data;
             // 保存一级菜单id
-            this.menuList.forEach((item) => {
+            this.menuList.forEach(item => {
               this.rootSubmenuKeys.push(item.id);
             });
             // console.log(this.rootSubmenuKeys)
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -178,7 +178,7 @@ export default {
     onOpenChange(openKeys) {
       //  获取最后一次选中的openKey
       const latestOpenKey = openKeys.find(
-        (key) => this.openKeys.indexOf(key) === -1
+        key => this.openKeys.indexOf(key) === -1
       );
       // 如果最后一次openkye在rootSubmenuKey中找不到
       if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
@@ -187,7 +187,7 @@ export default {
       } else {
         this.openKeys = latestOpenKey ? [latestOpenKey] : [];
       }
-    },
+    }
   },
   components: {
     UserOutlined,
@@ -197,8 +197,8 @@ export default {
     CodeSandboxOutlined,
     ShoppingOutlined,
     ContainerOutlined,
-    AreaChartOutlined,
-  },
+    AreaChartOutlined
+  }
 };
 </script>
 

@@ -20,8 +20,17 @@ const routes = [
       { path: "/welcome", component: () => import("@/components/Welcome") },
       // UserList组件
       { path: "/users", component: () => import("@/components/Users") },
-      { path: '/rights', component: () => import('@/components/Rights') },
-      { path: '/roles', component: () => import('@/components/Roles') }
+      { path: "/rights", component: () => import("@/components/Rights") },
+      { path: "/roles", component: () => import("@/components/Roles") },
+      { path: "/orders", component: () => import("@/components/Orders") },
+      { path: "/reports", component: () => import("@/components/Reports") },
+      { path: "/goods", component: () => import("@/components/Goods") },
+      { path: "/goodsAdd", component: () => import("@/components/GoodsAdd") },
+      { path: "/params", component: () => import("@/components/Params") },
+      {
+        path: "/categories",
+        component: () => import("@/components/Categories")
+      }
     ]
   }
 ];

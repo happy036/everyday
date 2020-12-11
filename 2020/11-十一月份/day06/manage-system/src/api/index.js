@@ -3,23 +3,36 @@ export const user = {
   LoginUser: "login", // 用户登录
   GetUsers: "users", // 获取所有用户
   // 添加用户
-  AddUsers: 'users',
+  AddUsers: "users",
   // 删除用户
-  DeleteUsers: 'users',
+  DeleteUsers: "users",
   // 查询用户
-  GetUser: 'users',
+  GetUser: "users",
   // 更新用户
-  EditUser: 'users'
+  EditUser: "users"
 };
 
 // 关于权限的接口
 export const rights = {
-  AsideMenus: "menus",// 获取左侧菜单权限
-  GetRights: 'rights/list'
+  AsideMenus: "menus", // 获取左侧菜单权限
+  GetRights: "rights/list",
+  TreeRights: "rights/tree"
 };
 // 角色
 export const roles = {
-  getRoles: 'roles',
+  getRoles: "roles",
   // 添加角色
-  addRoles: 'roles'
-}
+  addRoles: "roles"
+};
+
+// 订单
+export const orders = {
+  GetOrders: "orders"
+};
+
+// 商品
+export const goods = {
+  GetGoods: "goods",
+  GetGoodsClassify: "categories",
+  AddGoods: "goods"
+};

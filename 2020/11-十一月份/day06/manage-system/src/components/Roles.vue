@@ -57,7 +57,7 @@
       </a-col>
     </a-row>
     <a-table
-      :row-key="(record) => record.id"
+      :row-key="record => record.id"
       :columns="tableColumns"
       :data-source="tableData"
       :pagination="false"
@@ -74,7 +74,11 @@
           <!-- 一级 -->
           <a-col :span="5">
             <span>
-              <a-tag color="blue" closable>{{ item1.authName }} </a-tag
+              <a-tag
+                color="blue"
+                @close="handleTagClose($event, record.id, item1.id)"
+                closable
+                >{{ item1.authName }} </a-tag
               ><CaretRightOutlined />
             </span>
           </a-col>
@@ -86,7 +90,11 @@
             >
               <a-col :span="8">
                 <span>
-                  <a-tag color="green" closable>{{ item2.authName }} </a-tag
+                  <a-tag
+                    color="green"
+                    @close="handleTagClose($event, record.id, item2.id)"
+                    closable
+                    >{{ item2.authName }} </a-tag
                   ><CaretRightOutlined />
                 </span>
               </a-col>
@@ -96,6 +104,7 @@
                   :key="item3.id"
                   color="orange"
                   closable
+                  @close="handleTagClose($event, record.id, item3.id)"
                   >{{ item3.authName }}
                 </a-tag>
               </a-col>
@@ -106,7 +115,7 @@
       <template #index="{ index }">
         {{ index + 1 }}
       </template>
-      <template #operation>
+      <template #operation="{ record }">
         <!-- 编辑 -->
         <a-button type="primary">
           <EditOutlined />
@@ -115,28 +124,53 @@
         <a-button type="danger" style="margin: 0 10px">
           <DeleteOutlined
         /></a-button>
-        <!-- 权限 -->
-        <a-button type="default" style="background-color: #e6a23c; color: #fff">
+        <!-- 角色 -->
+        <a-button
+          type="default"
+          style="background-color: #e6a23c; color: #fff"
+          @click="handleTreeRights(record)"
+        >
           <SettingOutlined
         /></a-button>
       </template>
     </a-table>
+    <!-- 树形权限展示模态框 -->
+    <a-modal
+      v-model:visible="treeVisible"
+      title="分配权限"
+      cancelText="取消"
+      okText="确定"
+      :afterClose="handleResetKey"
+      @ok="handleUpateTree"
+    >
+      <a-tree
+        checkable
+        :treeData="treeData"
+        :replaceFields="{ children: 'children', title: 'authName', key: 'id' }"
+        v-model:checkedKeys="defKeys"
+        defaultExpandAll
+      />
+    </a-modal>
   </a-layout>
 </template>
 
 <script>
 // 引入请求方法 httpGet
-import { httpGet, httpPost } from "@/utils/http";
+import { httpGet, httpPost, httpDelete } from "@/utils/http";
 
 // 引入请求路径
-import { roles } from "@/api";
+import { roles, rights } from "@/api";
+// 引入小图标
 import {
   EditOutlined,
   DeleteOutlined,
   SettingOutlined,
   CaretRightOutlined,
+  ExclamationCircleOutlined
 } from "@ant-design/icons-vue";
 import { message } from "ant-design-vue";
+import { createVNode } from "vue";
+import { Modal } from "ant-design-vue";
 export default {
   data() {
     return {
@@ -147,30 +181,34 @@ export default {
         {
           title: "操作",
           key: "operation",
-          slots: { customRender: "operation" },
-        },
+          slots: { customRender: "operation" }
+        }
       ],
       tableData: [],
       RoleUserModel: {
         roleName: "",
-        roleDesc: "",
+        roleDesc: ""
       },
       RoleUserRules: {
         roleName: [
           {
             required: true,
             message: "请输入用户名",
-            trigger: "blur",
+            trigger: "blur"
           },
           {
             min: 4,
             max: 16,
             message: "长度在4~16之间",
-            trigger: "blur",
-          },
-        ],
+            trigger: "blur"
+          }
+        ]
       },
       rolevisible: false,
+      treeVisible: false,
+      treeData: [],
+      defKeys: [],
+      roleId: ""
     };
   },
   created() {
@@ -179,14 +217,14 @@ export default {
   methods: {
     handlegetRoles() {
       httpGet(roles.getRoles)
-        .then((res) => {
+        .then(res => {
           //   console.log(res);
           let { data, meta } = res;
           if (meta.status == 200) {
             this.tableData = data;
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -199,10 +237,10 @@ export default {
         .then(() => {
           let params = {
             roleName: this.RoleUserModel.roleName,
-            roleDesc: this.RoleUserModel.roleDesc,
+            roleDesc: this.RoleUserModel.roleDesc
           };
           httpPost(roles.addRoles, params)
-            .then((res) => {
+            .then(res => {
               //   console.log(res);
               let { meta } = res;
               if (meta.status == 201) {
@@ -213,21 +251,103 @@ export default {
                 this.handlegetRoles();
               }
             })
-            .catch((err) => {
+            .catch(err => {
               console.log(err);
             });
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
+    handleTagClose(e, roleId, rightId) {
+      // console.log(e);
+      e.preventDefault();
+      const _this = this;
+      Modal.confirm({
+        title: "提示",
+        icon: createVNode(ExclamationCircleOutlined),
+        content: "您真的要删除吗?",
+        okText: "确认",
+        cancelText: "取消",
+        onOk() {
+          httpDelete(`roles/${roleId}/rights/${rightId}`)
+            .then(res => {
+              // console.log(res);
+              let { meta } = res;
+              if (meta.status == 200) {
+                // 提示
+                message.success(meta.msg);
+                // 刷新页面
+                _this.handlegetRoles();
+              }
+            })
+            .catch(err => {
+              console.log(err);
+            });
+        },
+        onCancel() {
+          message.warning("已取消删除");
+        }
+      });
+    },
+    handleTreeRights(record) {
+      this.roleId = record.id;
+      httpGet(rights.TreeRights)
+        .then(res => {
+          // console.log(res);
+          let { data, meta } = res;
+          if (meta.status == 200) {
+            // 所有权限
+            this.treeData = data;
+            this.treeVisible = true;
+            // 某一个角色所拥有的权限
+            this.handleLeafData(record, this.defKeys);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    // node角色信息
+    handleLeafData(node, arr) {
+      // 如果是第三层
+      if (!node.children) {
+        return arr.push(node.id);
+      }
+      // 如果是第一第二层，并且有children就重新执行
+      node.children.forEach(ele => this.handleLeafData(ele, arr));
+    },
+    // 清空tree中的数据
+    handleResetKey() {
+      this.defKeys = [];
+    },
+    handleUpateTree() {
+      httpPost(`roles/${this.roleId}/rights`, {
+        rids: this.defKeys.join(",")
+      })
+        .then(res => {
+          // console.log(res);
+          let { meta } = res;
+          if (meta.status == 200) {
+            // 提示
+            message.success(meta.msg);
+            // 关闭模态框
+            this.treeVisible = false;
+            // 刷新
+            this.handlegetRoles();
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   },
   components: {
     EditOutlined,
     DeleteOutlined,
     SettingOutlined,
-    CaretRightOutlined,
-  },
+    CaretRightOutlined
+  }
 };
 </script>
 

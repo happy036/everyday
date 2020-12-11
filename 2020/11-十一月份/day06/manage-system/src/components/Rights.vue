@@ -10,7 +10,7 @@
       <a-breadcrumb-item>权限列表</a-breadcrumb-item>
     </a-breadcrumb>
     <a-table
-      :row-key="(record) => record.id"
+      :row-key="record => record.id"
       :columns="tableColumns"
       :data-source="tableData"
       :pagination="false"
@@ -42,9 +42,9 @@ export default {
         { title: "#", key: "index", slots: { customRender: "index" } },
         { title: "权限名称", dataIndex: "authName", key: "authName" },
         { title: "路径", dataIndex: "path", key: "path" },
-        { title: "权限等级", key: "level", slots: { customRender: "level" } },
+        { title: "权限等级", key: "level", slots: { customRender: "level" } }
       ],
-      tableData: [],
+      tableData: []
     };
   },
   created() {
@@ -53,20 +53,19 @@ export default {
   methods: {
     getRights() {
       httpGet(rights.GetRights)
-        .then((res) => {
+        .then(res => {
           //   console.log(res);
           let { data, meta } = res;
           if (meta.status == 200) {
             this.tableData = data;
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
-    },
-  },
+    }
+  }
 };
 </script>
 
-<style>
-</style>
+<style></style>
