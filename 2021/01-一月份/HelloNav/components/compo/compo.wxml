@@ -1,0 +1,5 @@
+<!--components/compo/compo.wxml-->
+<view>
+  <text>compo组件{{name}}</text>
+  <button bindtap="handleData">点我查看数据</button>
+</view>

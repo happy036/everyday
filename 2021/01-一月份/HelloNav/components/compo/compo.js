@@ -1,0 +1,28 @@
+// components/compo/compo.js
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+
+  },
+
+  /**
+   * 组件的初始数据
+   */
+  data: {
+name:'张三'
+  },
+
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+    handleData(){
+      console.log(this.data.name)
+      this.setData({
+        name:'李四'
+      })
+    }
+  }
+})

@@ -1,0 +1,81 @@
+/**index.wxss**/
+.container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+.top{
+  width: 704rpx;
+  height: 216rpx;
+  background-color: #ffffff;
+  margin: 32rpx auto;
+  border-radius: 8rpx;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  float: left;
+  margin-top: 40rpx;
+}
+.top-font{
+  float: left;
+  font-size: 40rpx;
+  margin-top: 66rpx;
+  padding-left: 30rpx;
+}
+.money{
+  width: auto;
+  float: right;
+  margin-right: 30rpx;
+}
+.top-symbol{
+  padding-top: 55rpx;
+  font-size: 20rpx;
+  display: inline-block;
+}
+.top-price{
+  margin-top: 55rpx;
+  display: inline-block;
+  font-size: 40rpx;
+}
+.top-withdraw{
+  display: block;
+  color: #a3a3a3;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+}
+.right{
+  float: right;
+  font-size: 50rpx;
+  color: #bbbbbb;
+  margin-top: 55rpx;
+  margin-right: 50rpx;
+}
+.middle{
+  width: 704rpx;
+  height: 226rpx;
+  background-color: #fbd148;
+  margin: auto;
+  border-radius: 8rpx;
+  padding-left: 46rpx;
+  box-sizing: border-box;
+}
+.middle>view{
+  float: left;
+}
+.mid-income{
+  display: block;
+  padding-left: 20rpx;
+}
+.order{
+  text-align: center;
+  margin-left: 70px;
+}
+.mid-order{
+  display: block;
+}

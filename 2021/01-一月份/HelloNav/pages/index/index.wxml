@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 网络请求 -->
+  <button type="primary" bindtap="handleRequest">哈哈</button>
+  <text>首页</text>
+
+  <!-- 导航到非tabBar页面 -->
+  <navigator url="/pages/user/user">跳转到用户页面</navigator>
+
+  <button type="primary" bindtap="handleViewUser">跳转到用户页面</button>
+
+  <!-- 导航到tabBar页面 -->
+  <navigator url="/pages/logs/logs" open-type="switchTab">跳转到日志页面</navigator>
+  <button type="primary" bindtap="handleLog">日志</button>
+
+  <!-- 组件的使用 -->
+  <compo></compo>
+</view>

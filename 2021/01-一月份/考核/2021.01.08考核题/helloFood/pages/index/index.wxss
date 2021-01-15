@@ -1,0 +1,81 @@
+/**index.wxss**/
+.page-section{
+  height: 350rpx;
+  width: auto;
+  margin:20rpx
+}
+.bigTitle{
+  width: 100%;
+}
+.time{
+  float: left;
+  width: 50%;
+  text-align: center;
+  position: relative;
+}
+.time::after{
+  content: "";
+  display: block;
+  width: 41rpx;
+  height: 10rpx;
+  background-color: #00bb99;
+  position: absolute;
+  top: 25px;
+  right: 167rpx;
+}
+.special{
+  float: right;
+  width: 50%;
+  text-align: center;
+}
+
+.content{
+  padding-top: 74rpx;
+  height: 100%;
+  background-color: #f7f7f8;
+}
+
+.rice{
+  width: 350rpx;
+  height: 330rpx;
+  margin-left: 16rpx;
+  background-color: #ffffff;
+  position: relative;
+  float: left;
+}
+.love{
+  margin-left:24rpx;
+  width: 30rpx;
+  float: left;
+}
+.look{
+  width: 31rpx;
+  float: left;
+  margin-left: 87rpx;
+}
+.food{
+  width: 80rpx;
+  height: 80rpx;
+  float: right;
+  position: absolute;
+  bottom: 6rpx;
+  right: 4rpx;
+}
+.instant{
+  float: right;
+  width: 350rpx;
+  height: 472rpx;
+  margin-left: 17rpx;
+  margin-right: 17rpx;
+  background-color: #ffffff;
+  position: relative;
+  margin-bottom: 224rpx;
+}
+.food2{
+  width: 80rpx;
+  height: 80rpx;
+  float: right;
+  position: absolute;
+  bottom: 6rpx;
+  right: 4rpx;
+}

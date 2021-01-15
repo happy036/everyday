@@ -1,0 +1,5 @@
+<!--pages/user/user.wxml-->
+<view>
+<text>用户中心</text>
+<navigator open-type="navigateBack" delta="1">返回</navigator>
+</view>

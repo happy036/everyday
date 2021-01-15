@@ -1,0 +1,50 @@
+/**index.wxss**/
+.index-search {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.cateBox {
+  width: 100%;
+}
+
+.cateNav {
+  width: 112rpx;
+  height: 124rpx;
+  float: left;
+  margin: 0 32rpx
+}
+
+.fool-title {
+  height: 60rpx;
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+}
+
+.fool-show {
+  overflow: hidden;
+}
+
+.fool-left {
+  float: left;
+  width: 232rpx;
+  height: 400rpx;
+  margin-left: 10rpx;
+}
+
+.fool-right {
+  float: right;
+  width: 509rpx;
+  height: 400rpx;
+}
+
+.rightBox {
+  float: left;
+  width: 233rpx;
+  height: 189rpx;
+  margin-bottom: 8rpx;
+  margin-left: 11rpx;
+  margin-right: 13rpx;
+}

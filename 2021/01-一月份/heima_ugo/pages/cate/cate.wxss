@@ -1,0 +1,20 @@
+.cate-list {
+  display: flex;
+  height: 100%;
+}
+
+.cate-left {
+  height: calc(100vh - 90rpx);
+  width: 200rpx;
+  background-color: #f7f7f7;
+}
+
+.cate-item {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+
+.cate-right {
+  flex: 1
+}

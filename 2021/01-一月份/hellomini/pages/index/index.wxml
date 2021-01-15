@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 数据绑定 -->
+  <text>{{name}}</text>
+  <!-- 小程序中的事件 -->
+  <button bindtap="handleTap">点我看看</button>
+  <input type="text" bindinput="handleInput"/>
+  <text>{{str}}</text>
+
+ <!-- 小程序中的事件传参 -->
+ <button bindtap="handleArg"  data-fa="111">点击传参</button>
+ <!-- 下拉刷新 -->
+ <button bindtap="handleRefresh">下拉刷新</button>
+ <!-- 页面内转发 -->
+ <button open-type="share">转发</button>
+</view>

@@ -1,0 +1,60 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 轮播图 -->
+  <view class="page-section">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+      indicator-color='{{color}}' indicator-active-color="{{haha}}" style="height:100%">
+      <block wx:for="{{background}}" wx:key="*this">
+        <swiper-item>
+          <view class="swiper-item">
+            <cover-image src="{{item}}" style="height:100%"></cover-image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 大标题 -->
+  <view class="bigTitle">
+    <view class="time">日期</view>
+    <view class="special">专题</view>
+  </view>
+  <!-- 内容 -->
+  <view class="content">
+    <!-- 大米 -->
+    <view class="rice">
+      <cover-image style="height:181rpx" src="../../image/04.jpg"></cover-image>
+      <text style="font-size:33rpx;margin-left:24rpx;">忙里忙外 回家吃饭</text>
+      <text style="color:#e23e45;display:block;font-size:33rpx;margin-left:24rpx;width:150rpx">19.9元<text
+          style="color:#b6b6b6">起</text></text>
+      <view class="love">
+        <cover-image class="heard" style="display:inline" src="../../image/xin_5@2x.png"></cover-image>
+        <text class="price" style="font-size:30rpx;margin-left:5rpx;">1220</text>
+      </view>
+      <view class="look">
+        <cover-image class="heard" style="display:inline" src="../../image/chakan_1@2x.png"></cover-image>
+        <text class="price" style="font-size:30rpx;margin-left:5rpx;">1000</text>
+      </view>
+      <view class="food">
+        <cover-image src="../../image/组 35 拷贝 2@2x.png"></cover-image>
+      </view>
+    </view>
+    <!-- 方便面 -->
+    <view class="instant">
+      <cover-image style="height:334rpx" src="../../image/图层 76@2x.png"></cover-image>
+      <navigator url="/pages/examine/examine" style="font-size:33rpx;margin-left:24rpx;">如何研制一碗方便面?</navigator>
+      <text style="color:#e23e45;display:block;font-size:33rpx;margin-left:24rpx;width:150rpx">19.9元<text
+          style="color:#b6b6b6">起</text></text>
+      <view class="love">
+        <cover-image class="heard" style="display:inline" src="../../image/xin_5@2x.png"></cover-image>
+        <text class="price" style="font-size:30rpx;margin-left:5rpx;">1220</text>
+      </view>
+      <view class="look">
+        <cover-image class="heard" style="display:inline" src="../../image/chakan_1@2x.png"></cover-image>
+        <text class="price" style="font-size:30rpx;margin-left:5rpx;">1000</text>
+      </view>
+      <view class="food2">
+        <cover-image src="../../image/组 35 拷贝 2@2x.png"></cover-image>
+      </view>
+    </view>
+  </view>
+</view>

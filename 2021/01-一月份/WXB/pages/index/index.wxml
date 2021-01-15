@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 上面 -->
+  <view class="top">
+    <image src="/images/01.jpg" mode="aspectFit"></image>
+    <text class="top-font">赚钱小祝福</text>
+    <text class="right">></text>
+    <view class="money">
+      <text class="top-symbol">￥</text>
+      <text class="top-price">1200.00</text>
+      <text class="top-withdraw">可提现金额</text>
+    </view>
+  </view>
+  <!-- 中间 -->
+  <view class="middle">
+    <view class="income">
+      <text class="top-symbol">￥</text>
+      <text class="top-price">1200.00</text>
+      <text class="mid-income">今日营收</text>
+    </view>
+    <view class="order">
+      <text class="top-price">12</text>
+      <text class="mid-order">订单</text>
+    </view>
+    <view class="order">
+      <text class="top-price">12</text>
+      <text class="mid-order">顾客</text>
+    </view>
+  </view>
+</view>

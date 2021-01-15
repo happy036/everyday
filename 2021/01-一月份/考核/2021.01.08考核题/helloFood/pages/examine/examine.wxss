@@ -1,0 +1,73 @@
+/* pages/examine/examine.wxss */
+.ooo{
+  box-sizing: border-box;
+}
+.title{
+  height: 114rpx;
+  /* width: 100%; */
+  background-color: #ffffff;
+  text-align: left;
+  padding-left: 44rpx;
+  line-height: 114rpx;
+  font-size: 38rpx;
+  position: relative;
+  margin-top: 19rpx;
+}
+.title::after{
+  position: absolute;
+  content: "";
+  height: 10rpx;
+  width: 70rpx;
+  background-color: #2dbfa0;
+  bottom: 0;
+  left: 42rpx;
+}
+.love{
+height: 143rpx;
+background-color: #ffffff;
+text-align: left;
+line-height: 143rpx;
+padding: 0 44rpx;
+/* overflow: hidden; */
+}
+.heard{
+  width: 30rpx;
+  display: inline-block;
+}
+.photo{
+  padding: 0 44rpx;
+  width: auto;
+  background-color: #ffffff;
+  padding-bottom: 27rpx;
+}
+.one{
+  padding: 0 44rpx;
+  padding-bottom: 47rpx;
+  background-color: #ffffff;
+}
+.two{
+  padding: 0 44rpx;
+  padding-bottom: 29rpx;
+  background-color: #ffffff;
+}
+.photo2{
+  padding: 0 44rpx;
+  width: auto;
+  background-color: #ffffff;
+  padding-bottom: 27rpx;
+}
+.three{
+  padding: 0 44rpx;
+  background-color: #ffffff;
+  padding-bottom: 47rpx;
+}
+.four{
+  padding: 0 44rpx;
+  background-color: #ffffff;
+  padding-bottom: 50rpx;
+}
+.five{
+  padding: 0 44rpx;
+  background-color: #ffffff;
+  padding-bottom: 105rpx;
+}

@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 搜索 -->
+  <Search class="index-search"></Search>
+  <!-- 轮播图 -->
+  <view class="page-section">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrl}}" wx:key="*this">
+        <swiper-item>
+          <view class="swiper-item">
+            <cover-image src="{{item}}"></cover-image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 分类 -->
+  <view class="cateBox">
+    <block wx:for="{{cateNav}}" wx:key='index'>
+      <cover-image class="cateNav" src="{{item.image_src}}">
+      </cover-image>
+    </block>
+  </view>
+  <!-- 楼层 -->
+  <view class="foolBox">
+    <block wx:for="{{fool}}" wx:key="index">
+      <!-- 标题 -->
+      <view class="fool-title">
+        <cover-image src="{{item.floor_title.image_src}}"></cover-image>
+      </view>
+      <!-- 内容 -->
+      <view class="fool-show">
+        <!-- 左边 -->
+        <view class="fool-left">
+          <navigator url="{{item.product_list[0].navigator_url}}">
+            <cover-image style="height:100%" src="{{item.product_list[0].image_src}}"></cover-image>
+          </navigator>
+        </view>
+        <!-- 右边 -->
+        <view class="fool-right">
+          <block wx:for="{{item.product_list}}" wx:key="index">
+            <block wx:if="{{index != 0}}">
+              <navigator class="rightBox" url="{{item.navigator_url}}">
+                <cover-image src="{{item.image_src}}"></cover-image>
+              </navigator>
+            </block>
+          </block>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
