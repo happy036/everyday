@@ -1,0 +1,52 @@
+.tabsTitle{
+  display: flex;
+  padding: 15rpx 0;
+}
+.titleItem{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+.active{
+  color:#f2a5a7 ;
+  border-bottom: 5rpx solid #f2a5a7;
+}
+.goodsItem {
+  display: flex;
+  border-bottom: 2rpx solid #ccc;
+  padding: 25rpx 0;
+}
+
+.goodsImgWrap {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.goodsImgWrap image{
+  width: 70%;
+}
+
+.goodsInfoWrap {
+  flex: 3;
+}
+
+.goodsName {
+  /* 将对象作为弹性盒模型显示 */
+  display: -webkit-box;
+  overflow: hidden;
+  /* 设置或检索弹性盒模型的子元素的排列方式 */
+  -webkit-box-orient: vertical;
+  /* 限制文本为指定的行数 */
+  -webkit-line-clamp: 2;
+  font-size: 26rpx;
+  margin-top: 25rpx;
+}
+
+.goodsPrice{
+  margin-top: 52rpx;
+  color: #C00000;
+  font-size: 32rpx;
+}

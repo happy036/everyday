@@ -1,0 +1,32 @@
+<view class="container">
+  <!-- 搜索 -->
+  <Search class="cate-search"></Search>
+  <view class="tabsTitle">
+    <view class="titleItem {{item.isActive?'active':''}}" wx:for="{{tabs}}" wx:key="id" bindtap="handleTabsItemChange"
+      data-index="{{index}}">
+      {{item.value}}
+    </view>
+  </view>
+  <view class="tabsContent">
+    <block wx:if="{{tabs[0].isActive}}">
+      <view class="firstTab">
+        <navigator class="goodsItem" wx:for="{{goodsList}}" wx:key="goods_id"
+          url="/pages/goods_details/goods_details?goods_id={{item.goods_id}}">
+          <!-- 左侧图片容器 start -->
+          <view class="goodsImgWrap">
+            <image mode="widthFix" src="{{item.goods_small_logo?item.goods_small_logo:img}}"></image>
+          </view>
+          <!-- 左侧图片容器 ens -->
+          <!-- 右侧商品容器 start -->
+          <view class="goodsInfoWrap">
+            <view class="goodsName">{{item.goods_name}}</view>
+            <view class="goodsPrice">￥{{item.goods_price}}</view>
+          </view>
+          <!-- 右侧商品容器 end -->
+        </navigator>
+      </view>
+    </block>
+    <block wx:elif="{{tabs[1].isActive}}">1</block>
+    <block wx:elif="{{tabs[2].isActive}}">2</block>
+  </view>
+</view>

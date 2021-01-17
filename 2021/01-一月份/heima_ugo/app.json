@@ -3,7 +3,9 @@
     "pages/cate/cate",
     "pages/index/index",
     "pages/cart/cart",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/goods/goods",
+    "pages/goods_details/goods_details"
   ],
   "window":{
     "backgroundTextStyle": "light",
