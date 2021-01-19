@@ -1,3 +1,28 @@
-<view class="container">
-
+<view>
+  <!-- 轮播图 -->
+  <view class="page-section">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{showImg}}" wx:key="*this">
+        <swiper-item>
+          <view class="swiper-item">
+            <cover-image src="{{item.pics_sma_url}}" style="height:100%;width:100%"></cover-image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 标题 -->
+  <view class="title-box">
+  <view class="price">
+    ￥{{shopList.goods_price}}
+  </view>
+  <view class="name-box">
+    <view class="name">
+      {{shopList.goods_name}}
+    </view>
+    <view class="collection">
+      收藏
+    </view>
+  </view>
+</view>
 </view>

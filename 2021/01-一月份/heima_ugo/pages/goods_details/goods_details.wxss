@@ -1,1 +1,38 @@
-/* pages/goods_details/goods_details.wxss */
+page{
+  padding-top: 0;
+}
+.page-section{
+  height: 380rpx;
+}
+.page-section swiper{
+  height: 100%;
+}
+.swiper-item{
+  height: 100%;
+}
+.price {
+  color: #eb4466;
+  font-size: 36rpx;
+  margin: 20rpx 0;
+}
+.title-box {
+  padding: 20rpx;
+  padding-right: 0;
+}
+.name-box {
+  display: flex;
+  justify-content: space-between;
+}
+.name {
+  font-size: 26rpx;
+  margin-right: 20rpx;
+}
+.collection {
+  display: flex;
+  width: 240rpx;
+  font-size: 24rpx;
+  justify-content: center;
+  border-left: 2rpx solid #efefef;
+  color: gray;
+  align-items: center;
+}

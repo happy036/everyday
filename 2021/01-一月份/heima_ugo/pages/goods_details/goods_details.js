@@ -5,7 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    shopList: []
+    shopList: [],
+    // 轮播图数据
+    showImg:[],
+    indicatorDots: true,
+    vertical: false,
+    autoplay: true,
+    interval: 2000,
+    duration: 500,
   },
 
   /**
@@ -21,7 +28,8 @@ Page({
       success(res) {
         console.log(res)
         that.setData({
-          shopList: res.data.message
+          shopList: res.data.message,
+          showImg:res.data.message.pics
         })
       }
     })
