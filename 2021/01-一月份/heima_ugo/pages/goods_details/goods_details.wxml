@@ -13,6 +13,7 @@
   </view>
   <!-- 标题 -->
   <view class="title-box">
+  <!-- 价格 -->
   <view class="price">
     ￥{{shopList.goods_price}}
   </view>
