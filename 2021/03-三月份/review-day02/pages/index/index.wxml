@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+<view class="box">
+  <input type="text" value='{{mag}}'></input>
+</view>
+</view>

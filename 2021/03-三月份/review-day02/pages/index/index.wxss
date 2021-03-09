@@ -1,0 +1,4 @@
+/**index.wxss**/
+.box{
+  width: 100rpx;
+}
