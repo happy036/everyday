@@ -1,0 +1,29 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "preloadRule": {
+    "pages/index/index":{
+      "network": "all",
+      "packages": ["packageA"]
+    }
+  },
+  "subpackages":[
+    {
+      "root":"packageA",
+      "pages": [
+        "pages/cat",
+        "pages/dog"
+      ]
+    }
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
