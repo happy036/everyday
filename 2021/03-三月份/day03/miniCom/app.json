@@ -9,6 +9,9 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle":"black"
   },
+  "usingComponents": {
+    "glo":"/components/glo/glo"
+  },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
