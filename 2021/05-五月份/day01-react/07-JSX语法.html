@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./lib/react.development.js"></script>
+  <script src="./lib/react-dom.development.js"></script>
+  <script src="./lib/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+    // let simple = <div></div>
+    // 1.创建组件的方法
+    // 1.1使用构造函数的方式 返回就可以了  函数式组件
+    // 1.2class类 类组件
+    function Home() {
+      return (
+        <div className='aaaa'>
+          <span>哈哈哈哈哈♥😘</span>
+        </div>
+      )
+    }
+    ReactDOM.render(<Home />, document.querySelector('#app'))
+  </script>
+</body>
+
+</html>

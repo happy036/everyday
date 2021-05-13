@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="./lib/react.development.js"></script>
+  <script src="./lib/react-dom.development.js"></script>
+  <script src="./lib/babel.min.js"></script>
+  <script type="text/babel">
+    // 1.定义一个列表
+    const star = [
+      {
+        name: '高圆圆',
+        age: 33
+      },
+      {
+        name: '赵露思',
+        age: 28
+      },
+      {
+        name: '刘浩存',
+        age: 18
+      },
+      {
+        name: '迪丽热巴',
+        age: 17
+      }]
+    // 定义一个组件
+    // function Home() {
+    //   return (
+    //     <ul>{
+    //       star.map((item, index) => <li key={index}>{item.name}</li>)
+    //     }</ul>
+    //   )
+    // }
+    function Home() {
+      return (
+        <ul>{
+          star.map((item, index) => {
+            return <li key={index}>{item.name}</li>
+          })
+        }</ul>
+      )
+    }
+    ReactDOM.render(<Home />, document.querySelector('#app'))
+  </script>
+</body>
+
+</html>

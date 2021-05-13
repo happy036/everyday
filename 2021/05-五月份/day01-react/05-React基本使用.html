@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./lib/react.development.js"></script>
+  <script src="./lib/react-dom.development.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    // 1.创建虚拟DOM
+    // React.createElement(标签的名字,标签的属性,标签的内容)
+    // let oDiv = React.createElement('div', null, 'Hello React')
+    let btnClick = function () {
+      alert('111')
+    }
+    let oSpan = React.createElement('span', null, '我是Div中的span')
+    let oDiv = React.createElement('div', { title: '我是title', className: 'box', onClick: btnClick }, 'Hello React', oSpan)
+    // 2.把虚拟DOM渲染到真实的页面上
+    // ReactDOM.render(虚拟dom,挂载到哪个元素上)
+    // ReactDOM.render(oDiv, oSpan, document.querySelector('#app'), () => {
+    //   console.log('渲染完成')
+    // })//错误的,不能渲染多个
+    // ReactDOM.render(oSpan, document.querySelector('#app'), () => {
+    //   console.log('渲染完成1')
+    // })
+  </script>
+</body>
+
+</html>
