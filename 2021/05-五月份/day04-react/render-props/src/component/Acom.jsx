@@ -3,7 +3,7 @@ import Mouse from "./Mouse";
 class Acom extends React.Component {
   render() {
     return (
-      <div><Mouse><div>{mouse.x}--{mouse.y}</div></Mouse></div>
+      <div><Mouse>{(mouse) => { <div>{mouse.x}--{mouse.y}</div> }}</Mouse></div>
     )
   }
 }
