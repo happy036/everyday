@@ -1,0 +1,51 @@
+.aa-enter{
+  width: 200px;
+  height: 200px;
+  background-color: #333;
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateX(200%);
+}
+.aa-enter-active{
+  width: 200px;
+  height: 200px;
+  background-color: #333;
+  transition: all 2s;
+  margin-top: 20px;
+  opacity: 1;
+  transform: translateX(50%);
+}
+.aa-enter-done{
+  width: 200px;
+  height: 200px;
+  background-color: #333;
+  transition: all 2s;
+  margin-top: 20px;
+  opacity: 1;
+  transform: translateX(50%);
+}
+.aa-exit{
+  width: 200px;
+  height: 200px;
+  background-color: #333;
+  transition: all 2s;
+  margin-top: 20px;
+  transform: translateX(50%);
+}
+.aa-exit-active{
+  width: 200px;
+  height: 200px;
+  background-color: #333;
+  opacity: 0;
+  margin-top: 20px;
+  transform: translateX(200%);
+}
+.aa-exit-done{
+  width: 200px;
+  height: 200px;
+  background-color: #333;
+  transition: all 2s;
+  opacity: 0;
+  margin-top: 20px;
+  transform: translateX(200%);
+}
