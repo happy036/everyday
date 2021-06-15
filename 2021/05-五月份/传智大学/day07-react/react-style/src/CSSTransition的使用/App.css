@@ -1,0 +1,19 @@
+.box-enter{
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+  background-color: skyblue;
+}
+.box-enter-active{
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+  background-color: skyblue;
+  transition: all 3s;
+}
+.box-enter-done{
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+  background-color: skyblue;
+}
