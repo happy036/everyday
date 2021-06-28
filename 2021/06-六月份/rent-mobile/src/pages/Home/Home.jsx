@@ -32,7 +32,7 @@ class Home extends React.Component {
         // 初始化数据
         imgHeight: 176,
         swiperData: [],
-        isFinished: true
+        isFinished: false
     }
     componentDidMount() {
         let _this = this
