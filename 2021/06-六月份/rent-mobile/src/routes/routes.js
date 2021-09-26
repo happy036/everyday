@@ -2,10 +2,12 @@ import { Redirect } from "react-router-dom";
 // 导入组件
 import App from "../App";
 import Home from "../pages/Home/Home";
-// import CityList from "../pages/CityList/CityList";
+import CityList from "../pages/CityList/CityList";
 import FindHouse from "../pages/FindHouse/FindHouse";
 import News from "../pages/News/News";
 import Profile from "../pages/Profile/Profile";
+import Map from "../pages/Map/Map.jsx";
+import Search from "../pages/Search/Search.jsx";
 
 const routes = [{
     path: '/',
@@ -22,6 +24,10 @@ const routes = [{
             component: Home,
         },
         {
+            path: '/citylist',
+            component: CityList,
+        },
+        {
             path: '/findhouse',
             component: FindHouse,
         },
@@ -32,6 +38,14 @@ const routes = [{
         {
             path: '/profile',
             component: Profile,
+        },
+        {
+            path: '/map',
+            component: Map
+        },
+        {
+            path: '/search',
+            component: Search
         }
     ]
 }]
