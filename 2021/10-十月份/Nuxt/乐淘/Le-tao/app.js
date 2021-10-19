@@ -5,16 +5,37 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
+const jwt = require('koa-jwt');
+const { jwtSecret } = require('./config')
+const dotenv = require('dotenv') // 环境变量配置
+// 启动Node env环境 先运行
+dotenv.config();
 
 const index = require('./routes/index')
 const users = require('./routes/users')
-
+const category = require('./routes/category')
+const sms = require('./routes/sms')
 // error handler
 onerror(app)
+// 使用koa-jwt中间件 来拦截 客户端在调用服务端接口时，如果请求头中没有设置token，返回401
+app.use(function (ctx, next) {
+  return next().catch((err) => {
+    if (401 == err.status) {
+      ctx.status = 401;
+      ctx.body = 'Protected resource, use Authorization header to get access\n';
+    } else {
+      throw err;
+    }
+  });
+});
 
+// 设置哪些接口需要在token
+// jwt(加密信息)  加密信息一定要跟token生成使用加密字符串保持一致
+// unless 排除哪些不需要在请求带token
+app.use(jwt({ secret: jwtSecret }).unless({ path: [/^\/public/, /^\/users\/register/, /^\/users\/login/] }));
 // middlewares
 app.use(bodyparser({
-  enableTypes:['json', 'form', 'text']
+  enableTypes: ['json', 'form', 'text']
 }))
 app.use(json())
 app.use(logger())
@@ -35,6 +56,8 @@ app.use(async (ctx, next) => {
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+app.use(category.routes(), category.allowedMethods())
+app.use(sms.routes(), sms.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
