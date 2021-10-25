@@ -1,5 +1,7 @@
 const crypto = require('crypto');
-
+const axios = require('axios')
+const xml = require('xml2js');
+const { key } = require('../config/wx')
 // 封装一个加密方法  
 // 参数：用户注册的密码 拼接 一个字符串 合并后的字符串
 // 返回值： 返回一个Md5加密的密文
@@ -87,4 +89,41 @@ module.exports.getRandomByLength = (len) => {
 // 生成从min到max随机整数
 module.exports.getRandom = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
+}
+// 生成32位以内的随机字符串,而且是不重复的
+module.exports.getRandomStr = () => {
+    return 'letao' + this.getRandomByLength(6) + new Date().getTime();
+}
+// 生成商户订单号
+module.exports.getTrade_no = () => {
+    return this.getRandomStr() + this.getRandomByLength(5);
+}
+// 生成签名算法
+module.exports.createSign = (args) => {
+    // 第一步，设所有发送或者接收到的数据为集合M，
+    //  将集合M内非空参数值的参数按照参数名ASCII码从小到大排序（字典序），
+    // 使用URL键值对的格式（即key1=value1&key2=value2…）拼接成字符串stringA。
+    const stringA = Object.keys(args).sort().reduce((prev, next) => {
+        return prev += `${next}=${args[next]}&`;
+    }, '').concat(`key=${key}`);
+
+    return crypto.createHash('MD5').update(stringA).digest('hex').toUpperCase()
+}
+// 微信下单,订单处理,订单查询
+module.exports.orderHandle = (url, params) => {
+    return new Promise(async (resolve, reject) => {
+        const data = await axios({
+            url,
+            method: 'POST',
+            data: params
+        })
+        xml.parseString(data.data, function (err, res) {
+            const { return_code, result_code, return_msg } = res.xml;
+            if (return_code == 'SUCCESS' && result_code == 'SUCCESS' && return_msg == 'OK') {
+                resolve(res.xml);
+            } else {
+                reject(res);
+            }
+        })
+    })
 }

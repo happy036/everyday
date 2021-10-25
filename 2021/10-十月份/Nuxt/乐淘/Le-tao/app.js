@@ -8,13 +8,15 @@ const logger = require('koa-logger')
 const jwt = require('koa-jwt');
 const { jwtSecret } = require('./config')
 const dotenv = require('dotenv') // 环境变量配置
+const xmlParser = require('koa-xml-body')
 // 启动Node env环境 先运行
 dotenv.config();
-
+app.use(xmlParser)
 const index = require('./routes/index')
 const users = require('./routes/users')
 const category = require('./routes/category')
 const sms = require('./routes/sms')
+const order = require('./routes/order')
 // error handler
 onerror(app)
 // 使用koa-jwt中间件 来拦截 客户端在调用服务端接口时，如果请求头中没有设置token，返回401
@@ -32,7 +34,7 @@ app.use(function (ctx, next) {
 // 设置哪些接口需要在token
 // jwt(加密信息)  加密信息一定要跟token生成使用加密字符串保持一致
 // unless 排除哪些不需要在请求带token
-app.use(jwt({ secret: jwtSecret }).unless({ path: [/^\/public/, /^\/users\/register/, /^\/users\/login/] }));
+app.use(jwt({ secret: jwtSecret }).unless({ path: [/^\/public/, /^\/users\/register/, /^\/users\/login/, /^\/order/] }));
 // middlewares
 app.use(bodyparser({
   enableTypes: ['json', 'form', 'text']
@@ -58,7 +60,7 @@ app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 app.use(category.routes(), category.allowedMethods())
 app.use(sms.routes(), sms.allowedMethods())
-
+app.use(order.routes(), order.allowedMethods())
 // error-handling
 app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
