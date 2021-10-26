@@ -77,7 +77,7 @@ function onError(error) {
   }
 }
 
-/** 
+/**
  * Event listener for HTTP server "listening" event.
  */
 
@@ -87,6 +87,4 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
-
-  console.log("http://" + bind);
 }
