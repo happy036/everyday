@@ -35,6 +35,14 @@ export default ({ $request }, inject) => {
          */
         twoCategory(categoryId) {
             return $request.$get(`/twoCategory?id=${categoryId}`)
+        },
+        /**
+         * 登录
+         * @params {Object} data 登录请求参数对象
+         * @returns
+         */
+        Login(data) {
+            return $request.$post('/users/login', data)
         }
     })
 }
