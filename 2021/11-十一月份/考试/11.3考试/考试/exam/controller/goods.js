@@ -24,8 +24,10 @@ module.exports.addGoods = async (ctx) => {
 }
 module.exports.getOne = async (ctx) => {
     const { id } = ctx.request.query
-    // console.log(id, '1')
+    // console.log(id)
+    console.log(id, '1')
     const result = await getOneGoods(id)
+    console.log(result)
     ctx.body = {
         status: 0,
         data: '商品获取成功',
