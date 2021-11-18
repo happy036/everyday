@@ -1,5 +1,6 @@
 <template>
   <ul class="app-header-nav">
+    <!--  导航抽离组件-->
     <li class="home">
       <RouterLink to="/">首页</RouterLink>
     </li>

@@ -1,6 +1,7 @@
 <template>
-  <div class="app-header-sticky">
-    <div class="container">
+  <div class="app-header-sticky" :class="{ show: scrollTop > 78 }">
+    <!--  吸顶导航-->
+    <div class="container" v-show="scrollTop > 78">
       <RouterLink to="/" class="logo" />
       <AppHeaderNav />
       <div class="right">

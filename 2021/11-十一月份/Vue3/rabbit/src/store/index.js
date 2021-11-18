@@ -17,7 +17,7 @@ export default createStore({
       // 数据存储在localStorage时的key
       key: "rabbit",
       // 指定将哪些模块中的数据同步到本地
-      path: ["user", "cart"],
+      paths: ["user", "cart"],
     }),
   ],
 });

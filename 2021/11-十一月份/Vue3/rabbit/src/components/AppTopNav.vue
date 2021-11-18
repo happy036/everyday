@@ -1,5 +1,6 @@
 <template>
   <nav class="app-top-nav">
+    <!--  顶部导航-->
     <div class="container">
       <ul>
         <template v-if="user.profile.token">

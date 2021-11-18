@@ -1,4 +1,4 @@
-import { getCategory } from "@/api/category";
+import { getCategory } from "@/api/home";
 import { topCategories } from "@/api/constants";
 export default {
   namespaced: true,
@@ -10,6 +10,7 @@ export default {
   mutations: {
     setCategories(state, categorys) {
       state.list = categorys;
+      // console.log(state.list);
     },
     // 控制导航下拉菜单的显示
     open(state, id) {
@@ -27,7 +28,7 @@ export default {
     async getCategorys({ commit }) {
       // 发送请求获取数据
       const { result } = await getCategory();
-      console.log(result);
+      // console.log(result);
       // 为每一个一级分类数据添加open数据
       result.forEach((category) => (category.open = false));
       // 将数据存储在vuex中

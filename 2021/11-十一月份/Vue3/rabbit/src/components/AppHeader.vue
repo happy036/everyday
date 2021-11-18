@@ -1,5 +1,6 @@
 <template>
   <header class="app-header">
+    <!--  头部导航-->
     <div class="container">
       <h1 class="logo"><RouterLink to="/"></RouterLink></h1>
       <AppHeaderNav />
