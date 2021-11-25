@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 const HomePage = () => import("@/views/Home/HomePage");
-import oneCategoryPage from "@/views/category/oneCategoryPage";
-import twoCategoryPage from "@/views/category/twoCategoryPage";
+import TopCategoryPage from "@/views/category/TopCategoryPage";
+import subCategoryPage from "@/views/category/subCategoryPage";
 // 主页
 const routes = [
   {
@@ -9,12 +9,13 @@ const routes = [
     component: HomePage,
   },
   // 一级分类路由
-  { path: "/category/:id", component: oneCategoryPage },
+  { path: "/category/:id", component: TopCategoryPage },
   // 二级分类
-  { path: "/category/two/:id", component: twoCategoryPage },
+  { path: "/category/two/:id", component: subCategoryPage },
 ];
 
 const router = createRouter({
+  scrollBehavior: () => ({ top: 0 }),
   history: createWebHashHistory(),
   routes,
 });
