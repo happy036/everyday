@@ -6,13 +6,13 @@
         <template v-if="user.profile.token">
           <li>
             <a href="javascript:"
-              ><i class="iconfont icon-user"></i>{{ user.profile.account }}}</a
+              ><i class="iconfont icon-user"></i>{{ user.profile.account }}</a
             >
           </li>
-          <li><a href="javascript:">退出登录</a></li>
+          <li><a href="javascript:" @click="logout">退出登录</a></li>
         </template>
         <template v-else>
-          <li><a href="javascript:">请先登录</a></li>
+          <li><RouterLink to="/login">请先登录</RouterLink></li>
           <li><a href="javascript:">免费注册</a></li>
         </template>
         <li><a href="javascript:">我的订单</a></li>
@@ -29,6 +29,7 @@
 
 <script>
 import { useStore } from "vuex";
+import router from "@/router";
 // import { computed } from "vue";
 export default {
   name: "AppTopNav",
@@ -39,8 +40,18 @@ export default {
     //   store.state.user.profile.token = "test";
     // };
     const user = store.state.user;
+    // 退出登录
+    const logout = () => {
+      // 清除用户信息
+      store.commit("user/setUser", {});
+      // 清空本地购物车
+      store.commit("cart/setCart", []);
+      // 跳转到登录页面
+      router.push("/login");
+    };
     return {
       user,
+      logout,
     };
   },
 };

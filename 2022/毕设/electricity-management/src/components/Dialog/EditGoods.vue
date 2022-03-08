@@ -21,6 +21,7 @@
           action="http://localhost:3000/goods/updategood"
           :show-file-list="false"
           :on-change="handleChange"
+          :auto-upload="false"
         >
           <img
             v-if="ruleForm.goodsimg"
@@ -77,6 +78,11 @@ export default {
   setup(props, { emit }) {
     const ruleFormRef = ref();
     const ruleForm = computed(() => props.idGood);
+    if (ruleForm.value.effective === 0) {
+      ruleForm.value.effective = "失效";
+    } else {
+      ruleForm.value.effective = "有效";
+    }
     // 表单校验规则
     const rules = reactive({
       name: [

@@ -16,3 +16,13 @@ export function getTopCategoryById(id) {
 export function getCategorySubFilter(id) {
   return requestWithoutToken("/category/sub/filter", "get", { id });
 }
+
+/**
+ *
+ * 获取商品列表
+ * @param params 分类id,筛选条件,排序条件,分页信息
+ * @returns {AxiosPromise}
+ */
+export function getGoodsList(params) {
+  return requestWithoutToken("/category/goods", "post", params);
+}

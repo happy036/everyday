@@ -2,7 +2,10 @@ import axios from "axios";
 import store from "@/store";
 import router from "@/router";
 // 2. 创建 baseURL变量用于存储基准的请求地址
+// 开发环境
 const baseURL = "http://pcapi-xiaotuxian-front-devtest.itheima.net/";
+// 线上环境
+// const baseURL = "https://apipc-xiaotuxian-front.itheima.net/";
 // 1. 创建一个新的axios实例对象，专门用于配置和小兔仙应用相关的请求
 // 携带token
 const instanceWithToken = axios.create({ baseURL });
@@ -15,7 +18,7 @@ instanceWithToken.interceptors.request.use((config) => {
   // 如果token存在
   if (token) {
     // 将token存储在请求头中
-    config.headers.Authorization = `Bearer${token}`;
+    config.headers.Authorization = `Bearer ${token}`;
   }
   // 不返回,相当于没修改
   return config;
@@ -29,10 +32,11 @@ instanceWithToken.interceptors.response.use(
     return response.data;
   },
   (error) => {
+    // 检查token是否过期
     if (error.response.status === 401) {
       // 跳转到登录页面
       router.push("login").then(() => {
-        console.log("跳转成功");
+        console.log("登录失败");
       });
       //清空用户信息
       store.commit("user/setUser", {});

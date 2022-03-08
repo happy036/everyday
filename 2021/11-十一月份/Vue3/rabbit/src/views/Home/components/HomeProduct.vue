@@ -8,7 +8,7 @@
             :to="`/category/${sub.id}`"
             v-for="sub in item.children"
             :key="sub.id"
-            >{{ sub.name }}}</RouterLink
+            >{{ sub.name }}</RouterLink
           >
         </div>
         <XtxMore :path="`/category/${item.id}`" />

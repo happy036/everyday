@@ -22,12 +22,14 @@
 // };
 // export default library;
 import lazy from "@/components/directive/lazy";
+import Message from "@/components/library/Message";
 // require.context批量导入模块
 const importFn = require.context("./", false, /\.vue$/);
 const keys = importFn.keys();
 export default {
   install(app) {
     app.directive("lazy", lazy);
+    app.config.globalProperties.$message = Message;
     // 遍历文件路径
     keys.forEach((key) => {
       // 导入组件
