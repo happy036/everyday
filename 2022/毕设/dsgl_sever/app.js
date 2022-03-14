@@ -29,7 +29,9 @@ app.use(cors());
 const users = require('./routes/users')
 const goods = require('./routes/goods')
 const category = require('./routes/category')
-// app.use(jwt({ secret: jwtSecret }).unless({ path: [/^\/public/, /^\/users/] }))
+const order = require('./routes/order')
+const rights = require('./routes/rights')
+app.use(jwt({ secret: jwtSecret }).unless({ path: [/^\/public/, /^\/users/] }))
 //中间件
 app.use(bodyparser({
   enableTypes: ['json', 'form', 'text']
@@ -51,8 +53,10 @@ app.use(async (ctx, next) => {
 })
 // 注册路由
 app.use(users.routes(), users.allowedMethods())
-app.use(goods.routes(), users.allowedMethods())
-app.use(category.routes(), users.allowedMethods())
+app.use(goods.routes(), goods.allowedMethods())
+app.use(category.routes(), category.allowedMethods())
+app.use(order.routes(), order.allowedMethods())
+app.use(rights.routes(), rights.allowedMethods())
 // error-handling
 app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)

@@ -1,4 +1,4 @@
-const { register, findUserByName, login, getAllUsers, allUsersLimit, getIdUser, updateUser, deleteUser, searchUser } = require('../model/users')
+const { register, findUserByName, login, getAllUsers, allUsersLimit, getIdUser, updateUser, deleteUser, searchUser, searchUserLimit } = require('../model/users')
 const Joi = require('joi')
 const { jwtSecret } = require('../config')
 const jwt = require('jsonwebtoken');
@@ -46,7 +46,7 @@ module.exports.login = async (ctx) => {
         const token = await jwt.sign({
             username,
             password
-        }, jwtSecret, { expiresIn: '1h' });
+        }, jwtSecret, { expiresIn: '3h' });
         ctx.body = {
             code: 200,
             data: {
@@ -87,8 +87,8 @@ module.exports.findUser = async (ctx) => {
 }
 // 更新用户信息
 module.exports.updateUserInfo = async (ctx) => {
-    const { id, username, password, mobile, email, role } = ctx.request.body
-    const result = await updateUser({ id, username, password, mobile, email, role })
+    const { id, username, password, mobile, email, role_id } = ctx.request.body
+    const result = await updateUser({ id, username, password, mobile, email, role_id })
     ctx.body = {
         status: 200,
         data: { msg: '更新成功' }
@@ -105,12 +105,14 @@ module.exports.delUser = async (ctx) => {
 }
 // 搜索用户
 module.exports.serUser = async (ctx) => {
-    const { username } = ctx.request.query
+    const { username, pageSize, currentPage } = ctx.request.query
     // console.log(username)
     const result = await searchUser(username)
+    const resultLimit = await searchUserLimit(username, pageSize, currentPage)
     // console.log(result)
     ctx.body = {
         status: 200,
-        data: result
+        data: result,
+        datalimit: resultLimit
     }
 }

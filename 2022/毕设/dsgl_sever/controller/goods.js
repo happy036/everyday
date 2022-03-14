@@ -1,4 +1,4 @@
-const { getGoods, goodsLimit, searchgoods, deletegoods, updateGood, getGoodId, addGood } = require("../model/goods")
+const { getGoods, goodsLimit, searchgoods, deletegoods, updateGood, getGoodId, addGood, searchgoodslimit } = require("../model/goods")
 
 // 获取所有商品
 module.exports.getGoodsList = async (ctx) => {
@@ -16,11 +16,14 @@ module.exports.getGoodsList = async (ctx) => {
 }
 // 搜索商品
 module.exports.searchGoods = async (ctx) => {
+    console.log(ctx.request.query)
     const { search, pageSize, currentPage } = ctx.request.query
-    const result = await searchgoods(search, pageSize, currentPage)
+    const result = await searchgoods(search)
+    const resultLimt = await searchgoodslimit(search, pageSize, currentPage)
     ctx.body = {
         status: 200,
-        data: result
+        data: result,
+        datalimit: resultLimt
     }
 }
 // 删除商品

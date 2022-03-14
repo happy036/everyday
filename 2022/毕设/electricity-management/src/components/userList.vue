@@ -13,18 +13,19 @@
           font-size: 18px;
           border-radius: 5px;
         "
+        @blur="onGetAllUsers"
       ></el-input>
     </el-col>
     <el-button
       type="primary"
       size="large"
       style="height: 45px; width: 112px; font-size: 18px; margin-left: 10px"
-      @click="searchUser"
+      @click="onGetAllUsers"
       >查找用户</el-button
     >
   </el-row>
   <!--  表格-->
-  <el-table :data="userList" border style="width: auto">
+  <el-table :data="userList" border style="width: auto" class="tabletable">
     <el-table-column prop="id" label="#" width="50" />
     <el-table-column label="姓名" width="180">
       <template #default="scope">
@@ -36,9 +37,16 @@
     </el-table-column>
     <el-table-column prop="email" label="邮箱" width="300" />
     <el-table-column prop="mobile" label="电话" width="180" />
-    <el-table-column label="角色" width="180" id="roleButton">
+    <el-table-column label="角色" width="180" id="roleButton" prop="role_id">
       <template #default="scope">
-        <el-button type="primary" plain>{{ scope.row.role }}</el-button>
+        <el-tag size="large" v-if="scope.row.role_id === '1'">普通用户</el-tag>
+        <el-tag size="large" v-else-if="scope.row.role_id === '2'"
+          >普通管理员</el-tag
+        >
+        <el-tag size="large" v-else-if="scope.row.role_id === '3'"
+          >超级管理员</el-tag
+        >
+        <el-tag size="large" v-else>会员</el-tag>
       </template>
     </el-table-column>
     <el-table-column label="操作" #default="scope">
@@ -105,23 +113,33 @@ export default {
     const small = ref(false);
     const background = ref(false);
     const disabled = ref(false);
+    // 搜索用户
+    const searchName = ref("");
     // 获取所有用户数据
     const onGetAllUsers = () => {
-      let limit = {
-        pagesize: pageSize.value,
-        pagenum: currentPage.value,
-      };
-      // console.log(limit);
-      getAllUsers(limit).then((data) => {
-        userList.value = data.allUsersLimit;
-        totalCount.value = data.allUsersList.length;
-      });
+      if (searchName.value.trim().length === 0) {
+        let limit = {
+          pagesize: pageSize.value,
+          pagenum: currentPage.value,
+        };
+        // console.log(limit);
+        getAllUsers(limit).then((data) => {
+          userList.value = data.allUsersLimit;
+          totalCount.value = data.allUsersList.length;
+        });
+      } else {
+        onSearchUser(searchName.value, pageSize.value, currentPage.value).then(
+          (data) => {
+            userList.value = data.datalimit;
+            totalCount.value = data.data.length;
+          }
+        );
+      }
     };
     onMounted(onGetAllUsers);
     const { Edit, Delete } = require("@element-plus/icons-vue");
     // 每页显示的条数
     const handleSizeChange = (val) => {
-      console.log(val);
       // 改变每页显示的条数
       pageSize.value = val;
       // 在改变每页显示的条数时，要将页码显示到第一页
@@ -133,23 +151,23 @@ export default {
       currentPage.value = val;
       onGetAllUsers();
     };
-    // 添加用户弹出框是否出现
+    // 编辑用户弹出框是否出现
     const adduserVisible = ref(false);
     const idUserList = ref();
-    // 添加用户弹出框
+    // 编辑用户弹出框
     const editUser = (id) => {
       adduserVisible.value = true;
       getIdUser(id).then((data) => {
         idUserList.value = data.userList[0];
-      });
-    };
-    // 搜索用户
-    const searchName = ref("");
-    const searchUser = () => {
-      onSearchUser(searchName.value).then((data) => {
-        // console.log(data.data);
-        userList.value = data.data;
-        console.log(userList.value);
+        if (idUserList.value.role_id === 1) {
+          idUserList.value.role_id = "普通用户";
+        } else if (idUserList.value.role_id === 2) {
+          idUserList.value.role_id = "普通管理员";
+        } else if (idUserList.value.role_id === 3) {
+          idUserList.value.role_id = "超级管理员";
+        } else {
+          idUserList.value.role_id = "会员";
+        }
       });
     };
     // 删除用户
@@ -179,7 +197,6 @@ export default {
       adduserVisible,
       idUserList,
       onGetAllUsers,
-      searchUser,
       deleteUser,
       searchName,
     };
@@ -192,19 +209,18 @@ export default {
 </script>
 
 <style lang="less">
-.el-table {
-  font-size: 17px;
-  width: auto;
-  .el-table__cell {
-    text-align: center;
+.tabletable {
+  .el-table {
+    font-size: 17px;
+    width: auto;
   }
+}
+.el-table .el-table__cell {
+  text-align: center;
 }
 .el-table__row {
   height: 60px;
 }
-//.select-trigger {
-//  border: 1px solid #ccc;
-//}
 .el-input--large .el-input__inner {
   height: 46px;
 }

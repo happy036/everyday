@@ -28,6 +28,27 @@ const routes = [
     ],
   },
   {
+    path: "/rights",
+    component: HomePage,
+    redirect: "/rights/rightsList",
+    name: "rights",
+    meta: { title: "权限管理" },
+    children: [
+      {
+        path: "rightsList",
+        component: () => import("@/components/rightsList"),
+        name: "rightsList",
+        meta: { title: "权限列表" },
+      },
+      {
+        path: "rolesList",
+        component: () => import("@/components/rolesList"),
+        name: "rolesList",
+        meta: { title: "角色列表" },
+      },
+    ],
+  },
+  {
     path: "/goods",
     component: HomePage,
     redirect: "/goods/goodsList",
@@ -49,6 +70,21 @@ const routes = [
     ],
   },
   {
+    path: "/order",
+    component: HomePage,
+    redirect: "/order/orderList",
+    name: "order",
+    meta: { title: "订单管理" },
+    children: [
+      {
+        path: "orderList",
+        component: () => import("@/components/orderList"),
+        name: "orderList",
+        meta: { title: "订单列表" },
+      },
+    ],
+  },
+  {
     path: "/login",
     component: LoginPage,
     name: "Login",
@@ -63,7 +99,7 @@ router.beforeEach((to, from, next) => {
   // 获取token
   const isAuthenticated = window.localStorage.getItem("dsgl");
   // console.log(window.localStorage.getItem("dsgl"));
-  if (to.name !== "Login" && !isAuthenticated) next({ name: "Login" });
+  if (to.name !== "Login" && !isAuthenticated) next({ path: "/login" });
   else next();
 });
 export default router;

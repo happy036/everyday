@@ -1,5 +1,12 @@
 <template>
-  <el-button style="float: left" @click="addOneCate">添加一级分类</el-button>
+  <el-button
+    style="float: left"
+    size="large"
+    type="primary"
+    plain
+    @click="addOneCate"
+    >添加一级分类</el-button
+  >
   <el-tree
     :data="cateList"
     :props="defaultProps"
@@ -59,6 +66,7 @@ export default {
     const cateList = ref();
     const onGetCategory = () => {
       getCategories().then((data) => {
+        console.log(data.data);
         cateList.value = data.data;
       });
     };

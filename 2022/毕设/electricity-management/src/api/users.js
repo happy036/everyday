@@ -52,6 +52,10 @@ export function onDeleteUser(id) {
   return requestWithoutToken("/users/delUser", "get", { id });
 }
 // 搜索用户
-export function onSearchUser(username) {
-  return requestWithoutToken("/users/serUser", "get", { username });
+export function onSearchUser(username, pageSize, currentPage) {
+  return requestWithoutToken("/users/serUser", "get", {
+    username,
+    pageSize,
+    currentPage,
+  });
 }

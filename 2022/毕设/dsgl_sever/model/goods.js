@@ -10,8 +10,12 @@ module.exports.goodsLimit = async ({
     return await query(`select * from goods order by id limit ${(pagenum - 1) * pagesize},${pagesize}`)
 }
 // 搜索商品
-module.exports.searchgoods = async (search, pagesize, pagenum) => {
+module.exports.searchgoods = async (search) => {
     // console.log(search)
+    return await query(`SELECT * FROM goods WHERE name LIKE  \'%${search}%\'`)
+}
+// 搜索商品分页
+module.exports.searchgoodslimit = async (search, pagesize, pagenum) => {
     return await query(`SELECT * FROM goods WHERE name LIKE  \'%${search}%\' order by id limit ${(pagenum - 1) * pagesize},${pagesize}`)
 }
 // 删除商品

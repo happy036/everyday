@@ -13,13 +13,14 @@
           font-size: 18px;
           border-radius: 5px;
         "
+        @blur="onGetGoodsList"
       ></el-input>
     </el-col>
     <el-button
       type="primary"
       size="large"
       style="height: 45px; width: 112px; font-size: 18px; margin-left: 10px"
-      @click="onSearchGoods"
+      @click="onGetGoodsList"
       >查找商品</el-button
     >
     <el-button
@@ -114,16 +115,27 @@ export default {
     const background = ref(false);
     const disabled = ref(false);
     const goodsList = ref();
+    // 查找商品
+    const search = ref("");
     // 获取所有商品
     const onGetGoodsList = () => {
-      let limit = {
-        pagesize: pageSize.value,
-        pagenum: currentPage.value,
-      };
-      getGoodsList(limit).then((data) => {
-        goodsList.value = data.getlimitData;
-        totalCount.value = data.data.length;
-      });
+      if (search.value.trim().length === 0) {
+        let limit = {
+          pagesize: pageSize.value,
+          pagenum: currentPage.value,
+        };
+        getGoodsList(limit).then((data) => {
+          goodsList.value = data.getlimitData;
+          totalCount.value = data.data.length;
+        });
+      } else {
+        findGoods(search.value, pageSize.value, currentPage.value).then(
+          (data) => {
+            goodsList.value = data.datalimit;
+            totalCount.value = data.data.length;
+          }
+        );
+      }
     };
     onMounted(onGetGoodsList);
     // 每页显示的条数
@@ -139,17 +151,6 @@ export default {
     const handleCurrentChange = (val) => {
       currentPage.value = val;
       onGetGoodsList();
-    };
-    // 查找商品
-    const search = ref("");
-    const onSearchGoods = () => {
-      findGoods(search.value, pageSize.value, currentPage.value).then(
-        (data) => {
-          goodsList.value = data.data;
-          totalCount.value = data.data.length;
-          search.value = "";
-        }
-      );
     };
     // 删除商品
     const onDeleteGood = (id) => {
@@ -189,7 +190,7 @@ export default {
       handleSizeChange,
       handleCurrentChange,
       search,
-      onSearchGoods,
+      // onSearchGoods,
       onDeleteGood,
       editGoodVisible,
       editGood,

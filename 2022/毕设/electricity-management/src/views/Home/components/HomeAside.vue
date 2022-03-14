@@ -2,7 +2,12 @@
   <el-row class="tac">
     <el-col>
       <h5 class="mb-2">电商后台管理系统</h5>
-      <el-menu class="el-menu-vertical-demo" router :unique-opened="true">
+      <el-menu
+        class="el-menu-vertical-demo"
+        router
+        :unique-opened="true"
+        :default-active="$route.path"
+      >
         <el-menu-item index="/home">
           <el-icon><HomeFilled /></el-icon>
           <span>首页</span>
@@ -16,20 +21,28 @@
         </el-sub-menu>
         <el-sub-menu index="3">
           <template #title>
+            <el-icon><Menu /></el-icon>
+            <span>权限管理</span>
+          </template>
+          <el-menu-item index="/rights/rolesList">角色列表</el-menu-item>
+          <el-menu-item index="/rights/rightsList">权限列表</el-menu-item>
+        </el-sub-menu>
+        <el-sub-menu index="4">
+          <template #title>
             <el-icon><ShoppingBag /></el-icon>
             <span>商品管理</span>
           </template>
           <el-menu-item index="/goods/goodsList">商品列表</el-menu-item>
           <el-menu-item index="/goods/goodsClass">商品分类</el-menu-item>
         </el-sub-menu>
-        <el-sub-menu index="4">
+        <el-sub-menu index="5">
           <template #title>
             <el-icon><Document /></el-icon>
             <span>订单管理</span>
           </template>
-          <el-menu-item index="4-1">订单列表</el-menu-item>
+          <el-menu-item index="/order/orderList">订单列表</el-menu-item>
         </el-sub-menu>
-        <el-sub-menu index="5">
+        <el-sub-menu index="6">
           <template #title>
             <el-icon><Histogram /></el-icon>
             <span>数据统计</span>
@@ -48,6 +61,7 @@ import {
   User,
   Document,
   Histogram,
+  Menu,
 } from "@element-plus/icons-vue";
 import { ref } from "vue";
 export default {
@@ -58,6 +72,7 @@ export default {
     User,
     Document,
     Histogram,
+    Menu,
   },
   setup() {
     const active = ref(1);

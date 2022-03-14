@@ -23,11 +23,12 @@
       <el-form-item label="邮箱" prop="email">
         <el-input v-model="ruleForm.email"></el-input>
       </el-form-item>
-      <el-form-item label="角色" prop="role">
-        <el-select v-model="ruleForm.role" placeholder="请选择角色">
-          <el-option label="普通用户" value="普通用户"></el-option>
-          <el-option label="超级管理员" value="超级管理员"></el-option>
-          <el-option label="会员" value="会员"></el-option>
+      <el-form-item label="角色" prop="role_id">
+        <el-select v-model="ruleForm.role_id" placeholder="请选择角色">
+          <el-option label="普通用户" value="1"></el-option>
+          <el-option label="普通管理员" value="2"></el-option>
+          <el-option label="超级管理员" value="3"></el-option>
+          <el-option label="会员" value="4"></el-option>
         </el-select>
       </el-form-item>
     </el-form>
@@ -41,7 +42,7 @@
 </template>
 
 <script>
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 import { updateUserInfos } from "@/api/users";
 import { ElMessage } from "element-plus";
 
@@ -51,6 +52,7 @@ export default {
   emits: ["handleEditInfo", "update:adduserVisible"],
   setup(props, { emit }) {
     const ruleFormRef = ref();
+    const ruleForm = computed(() => props.idUserList);
     // 表单校验规则
     const rules = reactive({
       username: [
@@ -88,13 +90,13 @@ export default {
         },
       ],
     });
-    const ruleForm = reactive(props.idUserList);
+
     // 关闭弹出框
     const cancelAddUser = () => {
       emit("update:adduserVisible", false);
     };
     const updateUser = () => {
-      updateUserInfos(ruleForm).then(() => {
+      updateUserInfos(ruleForm.value).then(() => {
         emit("handleEditInfo");
         ElMessage({
           message: "修改用户信息成功",
