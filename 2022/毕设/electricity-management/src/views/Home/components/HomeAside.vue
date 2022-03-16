@@ -8,7 +8,7 @@
         :unique-opened="true"
         :default-active="$route.path"
       >
-        <el-menu-item index="/home">
+        <el-menu-item index="/welcome">
           <el-icon><HomeFilled /></el-icon>
           <span>首页</span>
         </el-menu-item>
@@ -42,13 +42,6 @@
           </template>
           <el-menu-item index="/order/orderList">订单列表</el-menu-item>
         </el-sub-menu>
-        <el-sub-menu index="6">
-          <template #title>
-            <el-icon><Histogram /></el-icon>
-            <span>数据统计</span>
-          </template>
-          <el-menu-item index="5-1">数据报表</el-menu-item>
-        </el-sub-menu>
       </el-menu>
     </el-col>
   </el-row>
@@ -60,7 +53,6 @@ import {
   ShoppingBag,
   User,
   Document,
-  Histogram,
   Menu,
 } from "@element-plus/icons-vue";
 import { ref } from "vue";
@@ -71,7 +63,6 @@ export default {
     ShoppingBag,
     User,
     Document,
-    Histogram,
     Menu,
   },
   setup() {

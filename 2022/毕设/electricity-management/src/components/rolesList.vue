@@ -49,7 +49,6 @@ export default {
     const roleList = ref();
     const getRoleList = () => {
       getRoleRights().then((data) => {
-        console.log(data.data);
         roleList.value = data.data;
       });
     };

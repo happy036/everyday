@@ -81,7 +81,7 @@ export default {
 };
 </script>
 
-<style scoped lang="less">
+<style lang="less">
 .el-table {
   font-size: 17px;
   .el-table__cell {

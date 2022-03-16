@@ -1,13 +1,11 @@
 <template>
-$END$
+  <div>欢迎</div>
 </template>
 
 <script>
 export default {
-name: "welcomePage"
-}
+  name: "welcomePage",
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

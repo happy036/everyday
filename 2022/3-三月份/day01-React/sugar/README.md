@@ -1,4 +1,4 @@
-# vue-sugar
+# sugar
 
 ## Project setup
 ```

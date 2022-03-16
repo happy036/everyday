@@ -1,4 +1,4 @@
-import { requestWithoutToken } from "@/utils/request";
+import { requestWithToken } from "@/utils/request";
 
 /**
  * 用户名密码登录
@@ -7,7 +7,7 @@ import { requestWithoutToken } from "@/utils/request";
  * @returns {AxiosPromise}
  */
 export function login({ username, password }) {
-  return requestWithoutToken("/users/login", "post", { username, password });
+  return requestWithToken("/users/login", "post", { username, password });
 }
 
 /**
@@ -18,7 +18,7 @@ export function login({ username, password }) {
  * @returns {AxiosPromise}
  */
 export function register({ username, password, mobile, email }) {
-  return requestWithoutToken("/users/register", "post", {
+  return requestWithToken("/users/register", "post", {
     username,
     password,
     mobile,
@@ -32,7 +32,7 @@ export function register({ username, password, mobile, email }) {
  * @returns {AxiosPromise}
  */
 export function getAllUsers(limit) {
-  return requestWithoutToken("/users/allUsers", "get", limit);
+  return requestWithToken("/users/allUsers", "get", limit);
 }
 
 /**
@@ -41,19 +41,19 @@ export function getAllUsers(limit) {
  * @returns {AxiosPromise}
  */
 export function getIdUser(id) {
-  return requestWithoutToken("/users/finduser", "get", { id });
+  return requestWithToken("/users/finduser", "get", { id });
 }
 // 更新用户信息
 export function updateUserInfos(data) {
-  return requestWithoutToken("/users/updateuser", "put", data);
+  return requestWithToken("/users/updateuser", "put", data);
 }
 // 删除用户
 export function onDeleteUser(id) {
-  return requestWithoutToken("/users/delUser", "get", { id });
+  return requestWithToken("/users/delUser", "get", { id });
 }
 // 搜索用户
 export function onSearchUser(username, pageSize, currentPage) {
-  return requestWithoutToken("/users/serUser", "get", {
+  return requestWithToken("/users/serUser", "get", {
     username,
     pageSize,
     currentPage,

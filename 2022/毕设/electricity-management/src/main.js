@@ -7,11 +7,9 @@ import router from "./router";
 import store from "./store";
 import "normalize.css";
 import "@/assets/styles/common.less";
-import TreeTable from "vue-table-with-tree-grid";
-
+// import echarts from "echarts";
 const app = createApp(App);
 app.use(store);
 app.use(router);
 app.use(ElementPlus, { locale: zhCn });
-app.use(TreeTable);
 app.mount("#app");

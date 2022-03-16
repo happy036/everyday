@@ -9,8 +9,12 @@ const routes = [
   {
     path: "/home",
     name: "home",
+    redirect: "/welcome",
     component: HomePage,
     meta: { title: "首页" },
+    children: [
+      { path: "/welcome", component: () => import("@/components/welcomePage") },
+    ],
   },
   {
     path: "/user",

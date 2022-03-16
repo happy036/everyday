@@ -9,7 +9,6 @@ export default function useLoginAfter() {
   const router = useRouter();
   // 登录成功之后做的事情
   const loginSuccessful = (result) => {
-    // console.log(result);
     if (result.code === 0)
       return ElMessage({
         message: result.msg,
