@@ -31,7 +31,7 @@ const goods = require('./routes/goods')
 const category = require('./routes/category')
 const order = require('./routes/order')
 const rights = require('./routes/rights')
-// app.use(jwt({ secret: jwtSecret }).unless({ path: [/^\/public/, /^\/users/] }))
+app.use(jwt({ secret: jwtSecret }).unless({ path: [/^\/public/, /^\/users/] }))
 //中间件
 app.use(bodyparser({
   enableTypes: ['json', 'form', 'text']

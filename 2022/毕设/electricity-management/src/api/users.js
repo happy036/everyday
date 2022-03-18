@@ -1,4 +1,4 @@
-import { requestWithToken } from "@/utils/request";
+import { requestWithoutToken, requestWithToken } from "@/utils/request";
 
 /**
  * 用户名密码登录
@@ -7,7 +7,7 @@ import { requestWithToken } from "@/utils/request";
  * @returns {AxiosPromise}
  */
 export function login({ username, password }) {
-  return requestWithToken("/users/login", "post", { username, password });
+  return requestWithoutToken("/users/login", "post", { username, password });
 }
 
 /**
@@ -18,7 +18,7 @@ export function login({ username, password }) {
  * @returns {AxiosPromise}
  */
 export function register({ username, password, mobile, email }) {
-  return requestWithToken("/users/register", "post", {
+  return requestWithoutToken("/users/register", "post", {
     username,
     password,
     mobile,
@@ -32,7 +32,7 @@ export function register({ username, password, mobile, email }) {
  * @returns {AxiosPromise}
  */
 export function getAllUsers(limit) {
-  return requestWithToken("/users/allUsers", "get", limit);
+  return requestWithoutToken("/users/allUsers", "get", limit);
 }
 
 /**

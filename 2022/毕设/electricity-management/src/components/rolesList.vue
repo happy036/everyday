@@ -74,9 +74,9 @@ export default {
   display: flex;
   align-items: center;
 }
-.el-row {
-  flex-wrap: nowrap;
-}
+//.el-row {
+//  flex-wrap: nowrap;
+//}
 .bdtop {
   border-top: 1px solid #eee;
 }

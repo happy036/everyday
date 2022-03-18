@@ -231,9 +231,9 @@ export default {
 .el-pagination {
   margin-top: 10px;
 }
-.cell .el-button:hover {
-  color: #409eff;
-  border: 1px solid #b3d8ff;
-  background-color: #ecf5ff;
-}
+//.cell .el-button:hover {
+//  color: #409eff;
+//  border: 1px solid #b3d8ff;
+//  background-color: #ecf5ff;
+//}
 </style>

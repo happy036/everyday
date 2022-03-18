@@ -91,4 +91,7 @@ export default {
 .el-table__row {
   height: 60px;
 }
+.el-pagination {
+  margin-top: 10px;
+}
 </style>
