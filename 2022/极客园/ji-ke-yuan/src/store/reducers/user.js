@@ -1,7 +1,22 @@
-import { getToken } from '@/utils/auth'
 const initialState = {
-    token: getToken()
+    token: '',
+    userInfo: {}
 }
 export default function user(state = initialState, action) {
-    return state
+    switch (action.type) {
+        case 'login/setToken':
+            return {
+                ...state,
+                token: action.payload
+            }
+        case 'user/getUserInfo':
+            return {
+                ...state,
+                userInfo: action.payload
+            }
+        case 'loginOut':
+            return initialState
+        default:
+            return state
+    }
 }
