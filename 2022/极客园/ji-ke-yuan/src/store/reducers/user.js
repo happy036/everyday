@@ -1,5 +1,5 @@
 const initialState = {
-    token: '',
+    token: localStorage.getItem('geek-pc-token') || '',
     userInfo: {}
 }
 export default function user(state = initialState, action) {

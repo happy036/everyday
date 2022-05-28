@@ -4,13 +4,13 @@ import reducers from './reducers'
 import thunk from 'redux-thunk'
 // 状态调试工具
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
-const persistConfig = {
-    key: 'root',
-    storage
-}
-const reducerPersist = persistReducer(persistConfig, reducers)
-const store = createStore(reducerPersist, composeWithDevTools(applyMiddleware(thunk)))
-let persistor = persistStore(store)
-export { store, persistor }
+// import { persistStore, persistReducer } from 'redux-persist'
+// import storage from 'redux-persist/lib/storage'
+// const persistConfig = {
+//     key: 'root',
+//     storage
+// }
+// const reducerPersist = persistReducer(persistConfig, reducers)
+const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)))
+// let persistor = persistStore(store)
+export { store }

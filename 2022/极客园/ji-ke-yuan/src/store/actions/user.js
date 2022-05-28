@@ -3,6 +3,7 @@ export function login(mobile, code) {
     return async (dispatch) => {
         const data = await Axios('/authorizations', 'post', { mobile, code })
         const { token } = data.data
+        localStorage.setItem('geek-pc-token', token)
         dispatch({ type: 'login/setToken', payload: token })
     }
 }
