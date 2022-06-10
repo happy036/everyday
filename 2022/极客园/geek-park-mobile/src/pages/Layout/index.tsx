@@ -1,4 +1,4 @@
-import { useNavigate, Outlet } from "react-router-dom";
+import { useNavigate, Outlet, useLocation } from "react-router-dom";
 import { TabBar } from "antd-mobile";
 import { useState } from "react";
 import styles from "./index.module.scss";
@@ -13,11 +13,17 @@ function Layout() {
     { path: "/profile", icon: "iconbtn_mine", text: "我的" },
   ];
   const navigate = useNavigate();
+  const location = useLocation();
   const changeRoute = (path: string) => {
+    const token: any = localStorage.getItem("root");
+    const tokens: any = JSON.parse(token);
     navigate(path);
+    if (!tokens.token && path === "/profile") {
+      navigate("/login");
+    }
     setActiveKey(path);
   };
-  const [activeKey, setActiveKey] = useState<string>("/homepage");
+  const [activeKey, setActiveKey] = useState<string>(location.pathname);
   return (
     <div className={styles.root}>
       <Outlet />

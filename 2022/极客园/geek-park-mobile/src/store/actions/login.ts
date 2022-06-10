@@ -16,3 +16,12 @@ export const getCode = (mobile: string):RootThunkAction => {
         await Axios(`/sms/codes/${mobile}`,'get')
     }
 }
+// 退出
+export const logout = ():RootThunkAction => {
+  return (dispatch) => {
+    // 清空本地缓存中 token
+    localStorage.removeItem('root')
+    // 清空 redux 中存储的 token
+    dispatch({ type: 'login/logout' });
+  };
+};

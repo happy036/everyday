@@ -3,9 +3,9 @@ import { RootState } from "../../../../type/store";
 import classNames from "classnames";
 import Icon from "../../../../components/Icon";
 import styles from './index.module.scss'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Channel} from "../../../../type/data";
-import {addChannel, delChannel} from "../../../../store/actions/home";
+import {delChannel, getAllChannels,addChannel} from "../../../../store/actions/home";
 type Props = {
   onClose: () => void;
 };
@@ -32,6 +32,9 @@ const Channels = ({ onClose }: Props) => {
     const onAddChannel=(item:Channel)=>{
       dispatch(addChannel(item))
     }
+    useEffect(()=>{
+        dispatch(getAllChannels())
+    },[dispatch])
   return (
     <div className={styles.root}>
       <div className="channel-header">
@@ -66,7 +69,7 @@ const Channels = ({ onClose }: Props) => {
                 </div>
                 <div className="channel-list">
                     {restChannel.map((item:any) => (
-                        <span key={item.id} className="channel-list-item" onClick={()=>onAddChannel(item)}>
+                        <span key={item.id} className="channel-list-item" onClick={()=>{onAddChannel(item)}}>
                         + {item.name}
                         </span>
                     ))}

@@ -94,12 +94,12 @@ function Login() {
               <span
                 // 判断是否开启定时器，没开启绑定事件，开启后去掉事件
                 onClick={timeLeft === 0 ? onGetCode : undefined}
+                onKeyDown={timeLeft === 0 ? onGetCode : undefined}
               >
                 {/* 判断是否开启定时器，没开启展示 发送验证码，开启后展示倒计时 */}
                 {timeLeft === 0 ? "发送验证码" : `${timeLeft}s后重新获取`}
               </span>
             }
-            onClick={onGetCode}
           >
             <Input placeholder="请输入验证码" autoComplete="off" />
           </Form.Item>

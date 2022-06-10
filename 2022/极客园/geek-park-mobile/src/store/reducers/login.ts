@@ -8,6 +8,8 @@ function login(state = initialState, action: LoginAction): Token {
     switch (action.type) {
         case 'login/token':
             return action.payload
+        case 'login/logout':
+            return initialState
         default:
         return state
     }

@@ -9,7 +9,7 @@ const initialState = {
     user: {},
     userProfile:{}
 } as ProfileState
-const profile = (state=initialState,action:ProfileAction) => {
+const profile = (state = initialState, action: ProfileAction) => {
     switch (action.type) {
         case 'profile/getuser':
             return {
@@ -21,6 +21,22 @@ const profile = (state=initialState,action:ProfileAction) => {
                 ...state,
                 userProfile:action.payload
             }
+        case 'profile/photo':
+      return {
+        ...state,
+        userProfile: {
+          ...state.userProfile,
+          photo: action.payload,
+        },
+      };
+    case 'profile/update':
+      return {
+        ...state,
+        userProfile: {
+          ...state.userProfile,
+          ...action.payload,
+        },
+      };
         default:
             return state
     }

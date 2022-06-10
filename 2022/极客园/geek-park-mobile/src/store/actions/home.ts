@@ -43,10 +43,11 @@ export const getAllChannels = ():RootThunkAction => {
 export const delChannel=(channel:Channel):RootThunkAction=>{
     return async (dispatch)=>{
         const {login:{token}}=store.getState()
-        if(token){
+        if (token) {
             // 已登录
-            await Axios(`/user/channels/${channel.id}`,'delete')
-        }else {
+            await Axios(`/user/channels/${channel.id}`, 'delete')
+            dispatch({type:'home/delChannel',payload:channel})
+        } else {
             // 未登录
             const localChannels=JSON.parse(
                 localStorage.getItem(CHANNEL_KEY)??'[]'
@@ -69,5 +70,19 @@ export const addChannel=(channel:Channel):RootThunkAction=>{
             localStorage.setItem(CHANNEL_KEY,JSON.stringify(userChannel))
         }
         dispatch({type:'home/addChannel',payload:channel})
+    }
+}
+// 获取频道文章列表数据
+export const getArticleList = (channelId: number, timestamp: string): RootThunkAction => {
+    return async (dispatch) => {
+        const res = await Axios('/articles', 'get', { channel_id: channelId, timestamp })
+        dispatch({type:'home/getChannelArticles',payload:{channelId,data:res.data}})
+    }
+}
+// 下拉获取最新的文章列表数据
+export const getNewsArticleList = (channelId: number, timestamp: string): RootThunkAction => {
+    return async (dispatch) => {
+        const res = await Axios('/articles', 'get', { channel_id: channelId, timestamp })
+        dispatch({type:'home/getNewsChannelArticles',payload:{channelId,data:res.data}})
     }
 }

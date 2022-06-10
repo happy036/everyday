@@ -3,15 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../store/actions/profile";
 import styles from "./index.module.scss";
 import Icon from "../../components/Icon";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { RootState } from "../../type/store";
 function Profile() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
-  const { photo, name, art_count, follow_count, fans_count, like_count } =
-    useSelector((state: RootState) => state.profile);
+
+  const {
+    user: { photo, name, art_count, follow_count, fans_count, like_count },
+  } = useSelector((state: RootState) => state.profile);
   return (
     <div className={styles.root}>
       <div className="profile">
@@ -24,9 +26,9 @@ function Profile() {
             />
           </div>
           <div className="user-name">{name}</div>
-          <NavLink to="/profile/edit">
+          <Link to="/profile/edit">
             个人信息 <Icon type="iconbtn_right" />
-          </NavLink>
+          </Link>
         </div>
 
         {/* 今日阅读 */}
